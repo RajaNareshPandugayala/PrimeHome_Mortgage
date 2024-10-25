@@ -1,0 +1,79 @@
+import React from 'react'
+import housingIcon from '../../PicesForPages/equal-housing-opportunity-logo-100-w.png'
+
+function Footer() {
+    // Scroll to the top function
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth', // Smooth scroll
+        });
+    };
+    return (
+        <div className='footerParent'>
+            <div className='footerBox'>
+                <div className='footerTop'>
+                    <div className='footerTopDiv footerTopDiv01'>
+                        <span className='footerTopDivHeading'>About Us</span>
+                        {/* <span className='footerTopDivContent footerTopDivContent00'>We strive to deliver the highest <br />levels of service to help you <br />reach your goals. We thank you <br />for your trust and support. <br />From the first call to closing, <br />our team is with you every step <br />of the way!</span> */}
+                        <span className='footerTopDivContent footerTopDivContent00'>We strive to deliver the highest levels of service to help you reach your goals. We thank you for your trust and support. From the first call to closing, our team is with you every step of the way!</span>
+                    </div>
+                    <div className='footerTopDiv footerTopDiv01'>
+                        <span className='footerTopDiv footerTopDiv00'>
+                            <span className='footerTopDivHeading'>Connect With Us</span>
+                            <span className='footerTopDivContent footerTopDivContentSM'><i class="ri-facebook-box-fill"></i> <i class="ri-linkedin-box-fill"></i> <i class="ri-mail-fill"></i></span>
+                        </span>
+                        <span className='footerTopDiv footerTopDiv00 '>
+                            <span className='footerTopDivHeading'>Contact Us</span>
+                            <span className='footerTopDivContent footerTopDivContent00'>
+                                <span className='footerTopDivContentIcon'><i class="ri-map-pin-line"></i> <span>3540 Toringdon Way, Suite 200 Charlotte, NC 28277</span></span>
+                                <a href="tel:+1-980-342-5726" className="aTag_Tel footerTopDivContentIcon"><i class="ri-phone-fill"></i> <span>(980)-342-5726</span></a>
+                                <a href="mailto:hr@sdvstech.com" className="aTag_Mail footerTopDivContentIcon"><i class="ri-mail-send-fill"></i> <span>hr@sdvstech.com</span></a>
+                            </span>
+                        </span>
+                    </div>
+                    <div className='footerTopDiv'>
+                        <span className='footerTopDivHeading'>Loan Options</span>
+                        <span className='footerTopDivContent footerTopDivContent00'>
+                            <a href="/" className="LoanOption LoanOption01">Fixed Rate Mortgage</a>
+                            <a href="/" className="LoanOption LoanOption02">FHA Home Loan</a>
+                            <a href="/" className="LoanOption LoanOption03">VA Home Loan</a>
+                            <a href="/" className="LoanOption LoanOption04">Jumbo Home Loan</a>
+                            <a href="/" className="LoanOption LoanOption05">First Time Home Buyer</a>
+                            <a href="/" className="LoanOption LoanOption06">Investment Property Loans</a>
+                            <a href="/" className="LoanOption LoanOption07">Refinance</a>
+                        </span>
+                    </div>
+                    <div className='footerTopDiv'>
+                        <span className='footerTopDivHeading'>Resources</span>
+                        <span className='footerTopDivContent footerTopDivContent00'>
+                            <a href="/" className="Resource Resource01">Contact Us</a>
+                            <a href="/" className="Resource Resource02">Get A Quote</a>
+                            <a href="/" className="Resource Resource04">Apply Online</a>
+                            <a href="/" className="Resource Resource05">Reviews</a>
+                            <a href="/" className="Resource Resource06">NMLS Consumer Access</a>
+                            <a href="/" className="Resource Resource07">ADA Accessibility Statement</a>
+                            <a href="/" className="Resource Resource03">Privacy Policy</a>
+                        </span>
+                    </div>
+                </div>
+                <div className='footerMiddle'>
+                    <img src={housingIcon} alt='houseIcon' className='houseIcon' /><b>Equal Housing Opportunity  </b><br />
+                    <span> Ram Mortgage, LLC ™ 2021 </span> | <span>Company NMLS: 2301828</span>
+                </div>
+                <div className='footerBottom'>
+                    <span>Licensed in States CA, CO, FL, GA, IA, MI, MN, NC, SC, TX, WI, PA, TN, KS and VA.</span>
+                    <span className='footerBottomDown'>
+                        <b>Mortgage Website Marketing</b>
+                        <span className='footerBottomDown02'>This site is protected by reCAPTCHA and the Google <b>Privacy Policy</b> and <b>Terms of Service</b> apply.</span>
+                    </span>
+                </div>
+                <div className='goTop' onClick={scrollToTop}>
+                    <span>TOP</span>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default Footer;
