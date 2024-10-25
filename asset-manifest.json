@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/PrimeHome_Mortgage/static/css/main.b7a9861e.css",
+    "main.js": "/PrimeHome_Mortgage/static/js/main.5b6e5d62.js",
+    "static/js/453.419a5d54.chunk.js": "/PrimeHome_Mortgage/static/js/453.419a5d54.chunk.js",
+    "static/media/34336_fed_blog_post.jpg": "/PrimeHome_Mortgage/static/media/34336_fed_blog_post.ee84e0302fc9e5a0bf6c.jpg",
+    "static/media/32975_retiring_mortgage.jpg": "/PrimeHome_Mortgage/static/media/32975_retiring_mortgage.446d4e29d35416721336.jpg",
+    "static/media/360_F_852468013_NdDXatTPIV8K0Q5JBixO5PkfTZ1tjJKk.jpg": "/PrimeHome_Mortgage/static/media/360_F_852468013_NdDXatTPIV8K0Q5JBixO5PkfTZ1tjJKk.f61f495ea16eeb418ba9.jpg",
+    "static/media/loan-office-work-table.jpg": "/PrimeHome_Mortgage/static/media/loan-office-work-table.f9ad867b9d39d4f25db5.jpg",
+    "static/media/33606_thinking_about_refi.jpg": "/PrimeHome_Mortgage/static/media/33606_thinking_about_refi.c778b49b97291d650ebb.jpg",
+    "static/media/news.jpg": "/PrimeHome_Mortgage/static/media/news.d3825f09a74c828d08d3.jpg",
+    "static/media/istockphoto-1285465265-612x612.jpg": "/PrimeHome_Mortgage/static/media/istockphoto-1285465265-612x612.6b52b18085ca1020e4f8.jpg",
+    "static/media/happy-young-family-with-kids-at-home-father-mother-daughter-and-son-playing-on-the-floor-in-living-room-mom-dad-little-boy-and-girl-holding-p.jpg": "/PrimeHome_Mortgage/static/media/happy-young-family-with-kids-at-home-father-mother-daughter-and-son-playing-on-the-floor-in-living-room-mom-dad-little-boy-and-girl-holding-p.385f7424d0a8c72950de.jpg",
+    "static/media/images.jpg": "/PrimeHome_Mortgage/static/media/images.92ca55ade2f81c3b8362.jpg",
+    "static/media/LogoPrimeHomeMortgage.png": "/PrimeHome_Mortgage/static/media/LogoPrimeHomeMortgage.d321d9d1448678498a2b.png",
+    "static/media/calc-small.jpg": "/PrimeHome_Mortgage/static/media/calc-small.1875f6d531bea1671735.jpg",
+    "static/media/blank.jpg": "/PrimeHome_Mortgage/static/media/blank.d8615a0b31fd3f9e8f0a.jpg",
+    "static/media/house.png": "/PrimeHome_Mortgage/static/media/house.0961ef66e894715a898e.png",
+    "static/media/smartphone-7.png": "/PrimeHome_Mortgage/static/media/smartphone-7.774383edbea700a3f098.png",
+    "index.html": "/PrimeHome_Mortgage/index.html",
+    "main.b7a9861e.css.map": "/PrimeHome_Mortgage/static/css/main.b7a9861e.css.map",
+    "main.5b6e5d62.js.map": "/PrimeHome_Mortgage/static/js/main.5b6e5d62.js.map",
+    "453.419a5d54.chunk.js.map": "/PrimeHome_Mortgage/static/js/453.419a5d54.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b7a9861e.css",
+    "static/js/main.5b6e5d62.js"
+  ]
+}
