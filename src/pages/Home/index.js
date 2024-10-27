@@ -18,7 +18,7 @@ import time2 from '../../PicesForPages/time2.png';
 import payMoney from '../../PicesForPages/pay.png';
 import thumbsUp from '../../PicesForPages/thumbsUp.png';
 import news from '../../PicesForPages/news.jpg';
-import calcSmall from '../../PicesForPages/calc-small.jpg';
+// import calcSmall from '../../PicesForPages/calc-small.jpg';
 
 
 function Home() {

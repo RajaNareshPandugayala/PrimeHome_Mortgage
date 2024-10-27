@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from '../../PicesForPages/LogoPrimeHomeMortgage.png';
+import Logo from '../../PicesForPages/LogoForPrimeHomeMortgage.png';
 
 function Header() {
     return (

@@ -10,7 +10,7 @@ import Home from "./pages/Home";
 function App() {
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter basename="/PrimeHome_Mortgage">
         <Routes>
           <Route path="/" element={<Home />} />
           {/* <Route path="/login" element={<Login />} /> */}
