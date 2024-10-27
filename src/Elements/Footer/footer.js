@@ -59,10 +59,10 @@ function Footer() {
                 </div>
                 <div className='footerMiddle'>
                     <img src={housingIcon} alt='houseIcon' className='houseIcon' /><b>Equal Housing Opportunity  </b><br />
-                    <span> Prime Home Mortgage, LLC ™ 2021 </span> | <span>Company NMLS: 2301828</span>
+                    <span> Prime Home Mortgage, LLC ™ YYYY </span> | <span>Company NMLS: #######</span>
                 </div>
                 <div className='footerBottom'>
-                    <span>Licensed in States CA, CO, FL, GA, IA, MI, MN, NC, SC, TX, WI, PA, TN, KS and VA.</span>
+                    <span>Licensed in States --, --, --, --, --, --, --, --, --, --, --, --, --, -- and --.</span>
                     <span className='footerBottomDown'>
                         <b>Mortgage Website Marketing</b>
                         <span className='footerBottomDown02'>This site is protected by reCAPTCHA and the Google <b>Privacy Policy</b> and <b>Terms of Service</b> apply.</span>
