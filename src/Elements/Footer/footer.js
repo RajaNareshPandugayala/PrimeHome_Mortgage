@@ -26,9 +26,9 @@ function Footer() {
                         <span className='footerTopDiv footerTopDiv00 '>
                             <span className='footerTopDivHeading'>Contact Us</span>
                             <span className='footerTopDivContent footerTopDivContent00'>
-                                <span className='footerTopDivContentIcon'><i class="ri-map-pin-line"></i> <span>3540 Toringdon Way, Suite 200 Charlotte, NC 28277</span></span>
-                                <a href="tel:+1-980-342-5726" className="aTag_Tel footerTopDivContentIcon"><i class="ri-phone-fill"></i> <span>(980)-342-5726</span></a>
-                                <a href="mailto:hr@sdvstech.com" className="aTag_Mail footerTopDivContentIcon"><i class="ri-mail-send-fill"></i> <span>hr@sdvstech.com</span></a>
+                                <span className='footerTopDivContentIcon'><i class="ri-map-pin-line"></i> <span>#### --------- ---, -------- #### -------, -- #####</span></span>
+                                <a href="tel:+1-980-342-5726" className="aTag_Tel footerTopDivContentIcon"><i class="ri-phone-fill"></i> <span>(###)-###-####</span></a>
+                                <a href="mailto:hr@sdvstech.com" className="aTag_Mail footerTopDivContentIcon"><i class="ri-mail-send-fill"></i> <span>hr@primehome.com</span></a>
                             </span>
                         </span>
                     </div>
@@ -59,7 +59,7 @@ function Footer() {
                 </div>
                 <div className='footerMiddle'>
                     <img src={housingIcon} alt='houseIcon' className='houseIcon' /><b>Equal Housing Opportunity  </b><br />
-                    <span> Ram Mortgage, LLC ™ 2021 </span> | <span>Company NMLS: 2301828</span>
+                    <span> Prime Home Mortgage, LLC ™ 2021 </span> | <span>Company NMLS: 2301828</span>
                 </div>
                 <div className='footerBottom'>
                     <span>Licensed in States CA, CO, FL, GA, IA, MI, MN, NC, SC, TX, WI, PA, TN, KS and VA.</span>
