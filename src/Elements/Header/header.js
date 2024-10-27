@@ -56,7 +56,7 @@ function Header() {
                             <li>Contact Us</li>
                         </span>
                     </ul>
-                    <a href="tel:+1-980-342-5726" className="headerMenu_Tel">(980)-342-5726</a>
+                    <a href="tel:+1-###-###-####" className="headerMenu_Tel">(###)-###-####</a>
                     <button className='headerMenuButton'>Apply Now</button>
                 </div>
             </div>
