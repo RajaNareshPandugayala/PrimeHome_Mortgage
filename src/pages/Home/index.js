@@ -3121,7 +3121,7 @@ function Home() {
                                 <img src={blankPhoto} alt='blankPhoto01' />
                             </span>
                             <span className='teamListNameOfficer'>
-                                <span className='teamListName'>Naga Anasuya Sunkara</span>
+                                <span className='teamListName'>---- --------- -------</span>
                                 <span className='teamListOfficer'>Loan Officer</span>
                             </span>
                         </div>
@@ -3130,7 +3130,7 @@ function Home() {
                                 <img src={blankPhoto} alt='blankPhoto02' />
                             </span>
                             <span className='teamListNameOfficer'>
-                                <span className='teamListName'>Rahul Malik</span>
+                                <span className='teamListName'>----- -------</span>
                                 <span className='teamListOfficer'>Loan Officer</span>
                             </span>
                         </div>
@@ -3139,7 +3139,7 @@ function Home() {
                                 <img src={blankPhoto} alt='blankPhoto03' />
                             </span>
                             <span className='teamListNameOfficer'>
-                                <span className='teamListName'>Rama Krishna Kunta</span>
+                                <span className='teamListName'>---- ------- -----</span>
                                 <span className='teamListOfficer'>Loan Officer</span>
                             </span>
                         </div>
@@ -3154,11 +3154,11 @@ function Home() {
                         <span className='addressDetails'>
                             <span className='addressDetailsTop'>
                                 <span className='addressDetailsTopHeading'>Contact Us:</span>
-                                <span>Email: info@rammtg.com</span>
-                                <span>Phone: (980) 342-5726</span>
-                                <span>Address: 3540 Toringdon Way, Suite 200
-                                    <br />Charlotte ,NC
-                                    <br />28277</span>
+                                <span>Email: info@primehome.com</span>
+                                <span>Phone: (###) ###-####</span>
+                                <span>Address: #### ----------- ---, ----- ###
+                                    <br />--------- ,--
+                                    <br />#####</span>
                             </span>
                             <span className='addressDetailsBottom'>
                                 <span className='addressDetailsBottomHeading'>Office Hours:</span>
