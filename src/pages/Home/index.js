@@ -18,6 +18,7 @@ import time2 from '../../PicesForPages/time2.png';
 import payMoney from '../../PicesForPages/pay.png';
 import thumbsUp from '../../PicesForPages/thumbsUp.png';
 import news from '../../PicesForPages/news.jpg';
+import MortgageCalculator from './mortgageCalculator';
 // import calcSmall from '../../PicesForPages/calc-small.jpg';
 
 
@@ -118,6 +119,7 @@ function Home() {
                     <span className='purchasingButton'>CLICK HERE FOR MORE</span>
                 </div>
             </div>
+            < MortgageCalculator />
             {/* <section>
                 <div>
                     <div>
