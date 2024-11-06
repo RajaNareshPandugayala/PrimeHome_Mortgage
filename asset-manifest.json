@@ -1,12 +1,17 @@
 {
   "files": {
-    "main.css": "/PrimeHome_Mortgage/static/css/main.7fa73cba.css",
-    "main.js": "/PrimeHome_Mortgage/static/js/main.7995e3bc.js",
+    "main.css": "/PrimeHome_Mortgage/static/css/main.e4b1a0bb.css",
+    "main.js": "/PrimeHome_Mortgage/static/js/main.5c104811.js",
     "static/js/453.258b012d.chunk.js": "/PrimeHome_Mortgage/static/js/453.258b012d.chunk.js",
+    "static/media/Kids_Playing_in_park2.mp4": "/PrimeHome_Mortgage/static/media/Kids_Playing_in_park2.f6d556702f158ab1c9a2.mp4",
+    "static/media/PaperWorkNeeded.png": "/PrimeHome_Mortgage/static/media/PaperWorkNeeded.c275bb895cb89afa2925.png",
+    "static/media/FHA_family2.png": "/PrimeHome_Mortgage/static/media/FHA_family2.4aefbcc412eff3723e94.png",
     "static/media/34336_fed_blog_post.jpg": "/PrimeHome_Mortgage/static/media/34336_fed_blog_post.ee84e0302fc9e5a0bf6c.jpg",
     "static/media/32975_retiring_mortgage.jpg": "/PrimeHome_Mortgage/static/media/32975_retiring_mortgage.446d4e29d35416721336.jpg",
+    "static/media/AffordCalculator.jpg": "/PrimeHome_Mortgage/static/media/AffordCalculator.756c8463c690bbcb6e10.jpg",
     "static/media/360_F_852468013_NdDXatTPIV8K0Q5JBixO5PkfTZ1tjJKk.jpg": "/PrimeHome_Mortgage/static/media/360_F_852468013_NdDXatTPIV8K0Q5JBixO5PkfTZ1tjJKk.f61f495ea16eeb418ba9.jpg",
     "static/media/loan-office-work-table.jpg": "/PrimeHome_Mortgage/static/media/loan-office-work-table.f9ad867b9d39d4f25db5.jpg",
+    "static/media/VA_family.jpg": "/PrimeHome_Mortgage/static/media/VA_family.d98d301e96f5b55e9706.jpg",
     "static/media/33606_thinking_about_refi.jpg": "/PrimeHome_Mortgage/static/media/33606_thinking_about_refi.c778b49b97291d650ebb.jpg",
     "static/media/news.jpg": "/PrimeHome_Mortgage/static/media/news.d3825f09a74c828d08d3.jpg",
     "static/media/istockphoto-1285465265-612x612.jpg": "/PrimeHome_Mortgage/static/media/istockphoto-1285465265-612x612.6b52b18085ca1020e4f8.jpg",
@@ -14,15 +19,16 @@
     "static/media/images.jpg": "/PrimeHome_Mortgage/static/media/images.92ca55ade2f81c3b8362.jpg",
     "static/media/LogoForPrimeHomeMortgage.png": "/PrimeHome_Mortgage/static/media/LogoForPrimeHomeMortgage.aa9291af5926cd2ca78a.png",
     "static/media/blank.jpg": "/PrimeHome_Mortgage/static/media/blank.d8615a0b31fd3f9e8f0a.jpg",
+    "static/media/MonthlyPaymentCalculator.jpg": "/PrimeHome_Mortgage/static/media/MonthlyPaymentCalculator.da0a9b1c8a40fbdd0000.jpg",
     "static/media/house.png": "/PrimeHome_Mortgage/static/media/house.0961ef66e894715a898e.png",
     "static/media/smartphone-7.png": "/PrimeHome_Mortgage/static/media/smartphone-7.774383edbea700a3f098.png",
     "index.html": "/PrimeHome_Mortgage/index.html",
-    "main.7fa73cba.css.map": "/PrimeHome_Mortgage/static/css/main.7fa73cba.css.map",
-    "main.7995e3bc.js.map": "/PrimeHome_Mortgage/static/js/main.7995e3bc.js.map",
+    "main.e4b1a0bb.css.map": "/PrimeHome_Mortgage/static/css/main.e4b1a0bb.css.map",
+    "main.5c104811.js.map": "/PrimeHome_Mortgage/static/js/main.5c104811.js.map",
     "453.258b012d.chunk.js.map": "/PrimeHome_Mortgage/static/js/453.258b012d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7fa73cba.css",
-    "static/js/main.7995e3bc.js"
+    "static/css/main.e4b1a0bb.css",
+    "static/js/main.5c104811.js"
   ]
 }
