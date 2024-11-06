@@ -57,6 +57,7 @@ body {
   display: none;
 }
 
+
 /******************************Header-Start***********************************/
 
 .headerParent {
@@ -83,6 +84,7 @@ body {
 .headerLogo {
   width: 200px;
   width: 100px;
+  cursor: pointer;
 }
 
 .headerMenu {
@@ -112,8 +114,14 @@ body {
   padding: 10px;
 }
 
+.headerMenuUI li a {
+  text-decoration: none;
+  color: black;
+}
+
 .headerMenuUI_Header:hover,
-.headerMenuUI li:hover {
+.headerMenuUI li:hover,
+.headerMenuUI li a:hover {
   cursor: pointer;
   color: red;
 }
@@ -1207,6 +1215,468 @@ body {
 
 
 
+
+
+/* Adjust the color and size of the range input slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 10px;
+  /* Adjust height */
+  background: #cccccc;
+  /* Background color */
+  border-radius: 5px;
+  /* Rounded corners */
+}
+
+/* Adjust the thumb (the slider handle) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  /* Increase height */
+  width: 20px;
+  /* Increase width */
+  background: #0088fe;
+  /* Thumb color */
+  border-radius: 50%;
+  /* Make the thumb circular */
+  cursor: pointer;
+  /* Change cursor to pointer */
+  margin-top: -5px;
+  /* Center the thumb */
+  border: 5px solid gray;
+}
+
+input[type="range"] {
+  /* Additional styling for other browsers */
+  height: 10px;
+  /* Height of the slider bar */
+  -webkit-appearance: none;
+  /* Remove default appearance */
+  appearance: none;
+  width: 100%;
+  /* Full width */
+}
+
+/* Firefox customization */
+input[type="range"]::-moz-range-track {
+  height: 10px;
+  /* Adjust height */
+  background: #cccccc;
+  /* Background color */
+  border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 20px;
+  /* Increase height */
+  width: 20px;
+  /* Increase width */
+  background: #0088fe;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+/******************************Home-End***********************************/
+
+
+/******************************Purchase-Start***********************************/
+
+
+
+.purchasetopParent {
+  position: relative;
+  /* Needed to position children absolutely */
+  width: 100%;
+  height: 310px;
+  overflow: hidden;
+  /* Prevent overflow from video */
+  font-family: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  /* Make sure it covers the height */
+  min-width: 100%;
+  /* Make sure it covers the width */
+  transform: translate(-50%, -50%);
+  /* Center the video */
+  z-index: 0;
+  /* Send video to back */
+}
+
+.purchasetopBox {
+  position: relative;
+  top: 70%;
+  left: 7.2%;
+  z-index: 1;
+  color: white;
+  text-align: start;
+  font-size: 40px;
+  text-shadow: 0px 1px 4px black;
+  text-transform: uppercase;
+}
+
+
+.purchaseBottomParent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.purchaseBottomBox {
+  width: 1150px;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 50px 0px;
+  gap: 30px;
+}
+
+
+.purchaseBottomLeftBox {
+  width: 200%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  /* padding-left: 20px; */
+}
+
+.purchaseBottomLeftContent {
+  text-align: justify;
+  color: gray;
+  line-height: 23px;
+}
+
+.purchaseBottomLeftContentBold {
+  font-weight: bold;
+  color: black;
+}
+
+
+.purchaseBottomLeftHeader {
+  font-size: 34px;
+}
+
+.purchaseBottomLeftUL {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-weight: bold;
+  line-height: 22px;
+}
+
+.purchaseBottomLeftUL li span {
+  color: red;
+}
+
+.purchaseBottomLeftUL li span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.purchaseBottomLeftButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.purchaseBottomLeftButton span {
+  border: 1px solid red;
+  border-radius: 5px;
+  color: red;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 15px 50px;
+}
+
+.purchaseBottomLeftButton span:hover {
+  color: white;
+  background-color: red;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.purchaseBottomRightBox {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.purchaseBottomRightHeading {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.purchaseBottomRightContent {
+  color: gray;
+  line-height: 22px;
+}
+
+.purchaseBottomRightform {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.purchaseBottomRightform select,
+.purchaseBottomRightform input {
+  padding: 20px 15px;
+  font-size: 11px;
+  font-weight: bold;
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  outline: none;
+}
+
+.purchaseBottomRightform select {
+  cursor: pointer;
+}
+
+.purchaseBottomRightform select:focus,
+.purchaseBottomRightform input:focus {
+  border-top: 1px solid #c2c2c2;
+  border-bottom: 1px solid #c2c2c2;
+}
+
+
+.purchaseBottomRightform button {
+  padding: 15px;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: red;
+  border: 1px solid red;
+  border-radius: 5px;
+  color: white;
+}
+
+.purchaseBottomRightform button:hover {
+  background-color: #ff4b4b;
+  border: 1px solid #ff4b4b;
+  cursor: pointer;
+}
+
+
+/******************************Purchase-End***********************************/
+
+
+/******************************Paperwork Needed-Start***********************************/
+
+
+.paperworkBottomLeftUL {
+  color: gray;
+  font-weight: normal;
+}
+
+/******************************Paperwork Needed-End***********************************/
+
+/******************************QuickQuote-Start***********************************/
+
+.quickQuoteParent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+.quickQuoteTitleBoxParent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+}
+
+.quickQuoteTitleBox {
+  width: 1150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0px;
+}
+
+.quickQuoteTitle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.quickQuoteformParent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0px;
+  position: relative;
+  /* To position the overlay correctly */
+  background-image: url(./PicesForPages/360_F_852468013_NdDXatTPIV8K0Q5JBixO5PkfTZ1tjJKk.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.quickQuoteformParent::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Adjust opacity here */
+  z-index: 1;
+}
+
+.quickQuoteformParent>* {
+  position: relative;
+  z-index: 2;
+  /* To keep the content on top of the overlay */
+}
+
+.quickQuoteformBox {
+  width: 50%;
+  background-color: #02021f;
+  padding: 30px 0px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: #cacaca;
+}
+
+.quickQuoteformheading {
+  padding-left: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #414141;
+}
+
+.quickQuoteform {
+  padding: 0px 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+.quickQuoteformSelect,
+.quickQuoteformInput {
+  width: 100%;
+  margin-top: 2px;
+  padding: 15px 10px;
+  border-radius: 0.15cm;
+  border: 1px solid #414141;
+  outline: none;
+  background-color: #02021f;
+  color: white;
+}
+
+.quickQuoteformSelect {
+  cursor: pointer;
+}
+
+.quickQuoteformSelect:focus,
+.quickQuoteformInput:focus {
+  border: 1px solid #7b8d92;
+}
+
+.quickQuoteformLoanBox {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: 1px solid #414141;
+  border-radius: 0.15cm;
+}
+
+.quickQuoteButtonBox {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding-top: 10px;
+}
+
+.quickQuoteButton {
+  padding: 10px 30px;
+  border-radius: 0.15cm;
+  background-color: #00a7de;
+  color: white;
+  font-weight: bold;
+  border: 1px solid #00a7de;
+  cursor: pointer;
+}
+
+.quickQuoteButton:hover {
+  background-color: #00bfff;
+  color: black;
+}
+
+.quickQuoteButton:focus {
+  background-color: orange;
+}
+
+/******************************QuickQuote-End***********************************/
+
+/******************************FHALoans-Start***********************************/
+
+.FHA_FamilyImage {
+  top: 90%;
+}
+
+.purchaseBottomLeftSubHeader {
+  font-size: 28px;
+}
+
+/******************************FHALoans-End***********************************/
+
+/******************************VA-Loans-End***********************************/
+
+.VA_FamilyImage {
+  top: 60%;
+}
+
+/******************************VA-Loans-End***********************************/
+
+/******************************MPMCalculator-Start***********************************/
+
+.MPMCalculatorImage {
+  top: 10%;
+}
+
+/******************************MPMCalculator-End***********************************/
+
+/************************AffordabilityCalculator-Start*****************************/
+
+.AffordCalculatorImage {
+  top: 90%;
+}
+
+/******************************AffordabilityCalculator-End***********************************/
+
 /*   width: 100%;
   display: flex;
   align-items: center;
@@ -1221,6 +1691,3 @@ body {
         align-items: center;
         justify-content: center;
         padding: 30px 0px;*/
-
-
-/******************************Home-End***********************************/

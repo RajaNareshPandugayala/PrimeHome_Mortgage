@@ -1,25 +1,27 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from '../../PicesForPages/LogoForPrimeHomeMortgage.png';
 
 function Header() {
     return (
         <div className='headerParent'>
             <div className='headerBox'>
-                <div className='headerLogoDiv'>
+                <Link to="/" className='headerLogoDiv'>
                     <img src={Logo} alt='Logo' className='headerLogo' />
-                </div>
+                </Link>
                 <div className='headerMenu'>
                     <ul className='headerMenuUI'>
                         <span className='headerMenuUI_Header'>Purchase &#x025BF;</span>
                         <span className='headerMenuUI_LI'>
-                            <li>Purchase</li>
-                            <li>PaperWork Needed</li>
+                            <li><Link to="/Purchase">Purchase</Link></li>
+                            <li><Link to="/Paperwork">PaperWork Needed</Link></li>
+                            {/* <li><Link to="/how-much-can-i-afford-calculator">How Much Can I Afford?</Link></li> */}
                             <li>How Much Can I Afford?</li>
-                            <li>What Will My Monthly Payment Be</li>
-                            <li>Quick Quote</li>
+                            <li><Link to="/what-will-my-monthly-payment-be-calculator">What Will My Monthly Payment Be</Link></li>
+                            <li><Link to="/QuickQuote">Quick Quote</Link></li>
                             <li>Apply Now</li>
-                            <li>FHA Loans</li>
-                            <li>VA Loans</li>
+                            <li><Link to="/FHA">FHA Loans</Link></li>
+                            <li><Link to="/VA-Loans">VA Loans</Link></li>
                         </span>
                     </ul>
                     <ul className='headerMenuUI'>
