@@ -27,35 +27,35 @@ function Header() {
                     <ul className='headerMenuUI'>
                         <span className='headerMenuUI_Header'>Refinance &#x025BF;</span>
                         <span className='headerMenuUI_LI'>
-                            <li>Refinancing</li>
-                            <li>Cash Out Refinance</li>
+                            <li><Link to="/Refinancing">Refinancing</Link></li>
+                            <li><Link to="/Cash-Out-Refinance">Cash Out Refinance</Link></li>
                             <li>Refinance Analysis</li>
-                            <li>Quick Quote</li>
+                            <li><Link to="/QuickQuote">Quick Quote</Link></li>
                             <li>Apply Now</li>
-                            <li>FHA / VA Streamline Refinancing</li>
+                            <li><Link to="/fha-va-streamline">FHA / VA Streamline Refinancing</Link></li>
                         </span>
                     </ul>
                     <ul className='headerMenuUI'>
                         <span className='headerMenuUI_Header'>Tools &#x025BF;</span>
                         <span className='headerMenuUI_LI'>
-                            <li>Get Informative Free Reports</li>
+                            <li><Link to="/Free-Reports">Get Informative Free Reports</Link></li>
                             <li>How Much Can I Afford</li>
-                            <li>What Will My Monthly Payment Be</li>
+                            <li><Link to="/what-will-my-monthly-payment-be-calculator">What Will My Monthly Payment Be</Link></li>
                             <li>Renting Versus Buying Calculator</li>
                             <li>Refinance Analysis Calculator</li>
                             <li>Consolidation Calculator</li>
-                            <li>PaperWork Needed</li>
-                            <li>The Loan Process</li>
-                            <li>Glossary of Mortgage Terms</li>
+                            <li><Link to="/Paperwork">PaperWork Needed</Link></li>
+                            <li><Link to="/the-loan-process">The Loan Process</Link></li>
+                            <li><Link to="/Glossary-Terms">Glossary of Mortgage Terms</Link></li>
                         </span>
                     </ul>
                     <ul className='headerMenuUI'>
                         <span className='headerMenuUI_Header'>Contact &#x025BF;</span>
                         <span className='headerMenuUI_LI'>
                             <li>Apply Now</li>
-                            <li>About Us</li>
-                            <li>Meet Our Team</li>
-                            <li>Contact Us</li>
+                            <li><Link to="/About-Us">About Us</Link></li>
+                            <li><Link to="/our-staff">Meet Our Team</Link></li>
+                            <li><Link to="/Contact-Us">Contact Us</Link></li>
                         </span>
                     </ul>
                     <a href="tel:+1-###-###-####" className="headerMenu_Tel">(###)-###-####</a>

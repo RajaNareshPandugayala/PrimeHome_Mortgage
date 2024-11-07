@@ -1,5 +1,6 @@
 import React from 'react'
 import housingIcon from '../../PicesForPages/equal-housing-opportunity-logo-100-w.png'
+import whatappIcon from '../../PicesForPages/WhatsappIcon.png'
 
 function Footer() {
     // Scroll to the top function
@@ -70,6 +71,11 @@ function Footer() {
                 </div>
                 <div className='goTop' onClick={scrollToTop}>
                     <span>TOP</span>
+                </div>
+                <div className='WhatApp'>
+                    <a href="https://wa.link/dbq5rc" target="_blank" rel="noopener noreferrer">
+                        <img src={whatappIcon} alt='whatappIcon' className='whatappIcon' />
+                    </a>
                 </div>
             </div>
         </div>

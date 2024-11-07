@@ -318,6 +318,27 @@ body {
   z-index: 999;
 }
 
+.WhatApp {
+  position: fixed;
+  right: 50px;
+  bottom: 80px;
+  border: 2px solid #b3b3b3;
+  border-radius: 50%;
+  color: #b3b3b3;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatappIcon {
+  width: 60px;
+}
+
+
+
 /******************************Footer-End***********************************/
 
 
@@ -1191,15 +1212,28 @@ body {
 .leftSideBox select,
 .leftSideBox input {
   width: 100%;
-  padding: 7px 5px;
+  padding: 15px 10px;
   margin: 2px 0px 10px 0px;
   font-weight: bold;
   font-size: 18px;
+  border-radius: 0.15cm;
+  border: 1px solid lightgray;
+  outline: none;
+}
+
+.leftSideBox select:focus,
+.leftSideBox input:focus {
+  border-bottom: 1px solid #01b4cb;
+  border-left: 1px solid #01b4cb;
+  border-right: 1px solid #01b4cb;
+  box-shadow: 1px 1px 5px 0px gray;
 }
 
 .rightSideBox {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 20px;
   border-left: 2px solid #bebebe;
 }
@@ -1254,6 +1288,7 @@ input[type="range"] {
   appearance: none;
   width: 100%;
   /* Full width */
+  padding: 7px 0px;
 }
 
 /* Firefox customization */
@@ -1439,7 +1474,8 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .purchaseBottomRightform select,
-.purchaseBottomRightform input {
+.purchaseBottomRightform input,
+.purchaseBottomRightform textarea {
   padding: 20px 15px;
   font-size: 11px;
   font-weight: bold;
@@ -1453,7 +1489,8 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .purchaseBottomRightform select:focus,
-.purchaseBottomRightform input:focus {
+.purchaseBottomRightform input:focus,
+.purchaseBottomRightform textarea:focus {
   border-top: 1px solid #c2c2c2;
   border-bottom: 1px solid #c2c2c2;
 }
@@ -1676,6 +1713,162 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /******************************AffordabilityCalculator-End***********************************/
+
+/******************************Refinancing-Start***********************************/
+
+.R_FamilyImage {
+  top: 60%;
+}
+
+/******************************Refinancing-End***********************************/
+
+/******************************Refinancing-Start***********************************/
+
+.CORImage {
+  top: 60%;
+}
+
+/******************************Refinancing-End***********************************/
+
+/******************************FHAVAStreamline-Start***********************************/
+
+.FHAVAStreamlineImage {
+  top: 75%;
+}
+
+/******************************FHAVAStreamline-End***********************************/
+
+/******************************TheLoanProcess-Start***********************************/
+
+.theLoanProcessImage {
+  top: 45%;
+}
+
+/******************************TheLoanProcess-End***********************************/
+
+/**********************GlossaryOfMortgageTerms-Start***********************************/
+
+.GlossaryTermsImage {
+  top: 25%;
+}
+
+.glossary-link {
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.GlossaryTermsBottomLeftContent {
+  font-size: 22px;
+}
+
+.GlossaryTermsBottomLeftContentRed {
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+  text-transform: capitalize;
+}
+
+.GlossaryTermsBottomLeftContentRed:hover {
+  text-decoration: underline;
+  color: #fa6262;
+}
+
+.purchaseBottomLeftContentmarginTop {
+  margin-top: -15px;
+}
+
+.purchaseBottomLeftContent_aTag {
+  color: red;
+  font-weight: bold;
+}
+
+.purchaseBottomLeftContent_aTag:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.purchaseBottomLeftHeaderTopBorder {
+  border-top: 1px solid #bdbdbd;
+  padding-top: 20px;
+  margin-top: 25px;
+}
+
+/**********************GlossaryOfMortgageTerms-End***********************************/
+
+/**********************************AboutUs-Start***************************************/
+
+.aboutUsImage {
+  top: 100%;
+}
+
+/**********************************AboutUs-End***************************************/
+
+/**********************************ContactUs-Start***************************************/
+
+.contactUsImage {
+  top: 70%;
+}
+
+.contactUsBottomLeftBox {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.contactUsBottomLeftContent {
+  width: 50%;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  text-align: center;
+  gap: 10px;
+  border-top: 1px solid lightgray;
+  padding-top: 20px;
+}
+
+/* .contactUsBottomLeftContent span {
+  width: 500px;
+} */
+
+.contactUsBottomRightBox {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/**********************************ContactUs-End***************************************/
+
+/**********************************FreeReport-Start***************************************/
+
+.freeReportsImage {
+  top: 22%;
+}
+
+.freeReportsBottomBox {
+  flex-direction: column;
+}
+
+.freeReportsBottomButton {
+  width: 25%;
+}
+
+.freeReportscheckbox {
+  cursor: pointer;
+}
+
+.freeReportscheckbox input:hover {
+  border: 1px solid red;
+  box-shadow: 0px 0px 5px 0px red;
+}
+
+/**********************************FreeReport-End***************************************/
+
 
 /*   width: 100%;
   display: flex;

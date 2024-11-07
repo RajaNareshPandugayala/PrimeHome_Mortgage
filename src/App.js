@@ -11,6 +11,15 @@ import FHA from "./pages/FHA_Loans";
 import VALoans from "./pages/VA_Loans";
 import MonthlyPaymentMortgageCalculator from "./pages/MonthlyPaymentCalculator";
 import AffordabilityCalculator from "./pages/AffordabilityCalculator";
+import Refinancing from "./pages/Refinancing";
+import CashOutRefinance from "./pages/CashOutRefinance";
+import FhaVaStreamline from "./pages/FhaVaStreamlineRefinance";
+import TheLoanProcess from "./pages/TheLoanProcess";
+import GlossaryOfMortgageTerms from "./pages/GlossaryOfMortgageTerms";
+import AboutUs from "./pages/AboutUs";
+import ContactUs from "./pages/ContactUs";
+import GetInformativeFreeReports from "./pages/GetInformativeFreeReports";
+import MeetOurStaff from "./pages/MeetOurStaff";
 
 
 // import Login from "./pages/Login";
@@ -24,6 +33,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+
           <Route path="/Purchase" element={<Purchase />} />
           <Route path="/Paperwork" element={<Paperwork />} />
           <Route path="/QuickQuote" element={<QuickQuote />} />
@@ -31,6 +41,18 @@ function App() {
           <Route path="/what-will-my-monthly-payment-be-calculator" element={<MonthlyPaymentMortgageCalculator />} />
           <Route path="/FHA" element={<FHA />} />
           <Route path="/VA-Loans" element={<VALoans />} />
+
+          <Route path="/Refinancing" element={<Refinancing />} />
+          <Route path="/Cash-Out-Refinance" element={<CashOutRefinance />} />
+          <Route path="/fha-va-streamline" element={<FhaVaStreamline />} />
+          <Route path="/the-loan-process" element={<TheLoanProcess />} />
+
+          <Route path="/Free-Reports" element={<GetInformativeFreeReports />} />
+          <Route path="/Glossary-Terms" element={<GlossaryOfMortgageTerms />} />
+
+          <Route path="/About-Us" element={<AboutUs />} />
+          <Route path="/our-staff" element={<MeetOurStaff />} />
+          <Route path="/Contact-Us" element={<ContactUs />} />
         </Routes>
         <Footer />
       </BrowserRouter>
