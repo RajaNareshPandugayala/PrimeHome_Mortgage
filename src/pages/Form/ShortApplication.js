@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 
 function ShortApplication() {
+    const nextRef = useRef(null);
+
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -13,42 +15,67 @@ function ShortApplication() {
         contactPreference: '',
         creditRating: '',
         propertyAddress: '',
-        city: '',
+        City: '',
         state: '',
         zipCode: '',
         loanPurpose: '',
         propertyWillBe: '',
-        purchasePrice: '',
+        estimatedValue: '',
+        subject: 'Short Application: '
+
     });
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
+    function updateSubjectContactUs(event) {
+        event.preventDefault();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Handle form submission logic here
-        console.log('Form submitted:', formData);
-    };
+        const { name } = formData;
+
+        setFormData(prevData => ({
+            ...prevData,
+            subject: `Short Application: ${name}`
+        }));
+
+        alert("Your request has been sent successfully!");
+
+        const currentUrl = window.location.href;
+        nextRef.current.value = currentUrl;
+
+        // Submit form manually if desired
+        event.target.submit();
+    }
+
+    function handleChange(event) {
+        const { name, value } = event.target;
+        setFormData(prevData => ({
+            ...prevData,
+            [name]: value
+        }));
+    }
 
     return (
         <div className='quickQuoteformParent'>
             <div className='quickQuoteformBox'>
                 <h3 className='quickQuoteformheading'>Short Application</h3>
-                <form onSubmit={handleSubmit} className='quickQuoteform'>
+                <form className='quickQuoteform' target="_self" action="https://formsubmit.co/rajanaresh.p@gmail.com" method="POST" onSubmit={updateSubjectContactUs}>
+
+
+                    <input type="hidden" name="_subject" id="subject" value={formData.subject + formData.firstName + ' ' + formData.lastName} />
+                    <input type="hidden" name="_template" value="table" />
+                    <input type="hidden" name="_next" ref={nextRef} value="https://google.com" />
+                    <input type="hidden" name="_captcha" value="false" />
+
+
+
                     <label>
                         First Name*:
                         <br /><input className='quickQuoteformInput'
                             type="text"
+                            id='firstName'
                             name="firstName"
                             placeholder="Provide your first name"
                             value={formData.firstName}
                             onChange={handleChange}
-                            autoComplete="true"
+                            autocomplete="true"
                             required
                         />
                     </label>
@@ -57,11 +84,12 @@ function ShortApplication() {
                         Last Name*:
                         <br /><input className='quickQuoteformInput'
                             type="text"
+                            id='lastName'
                             name="lastName"
                             placeholder="Provide your last name"
                             value={formData.lastName}
                             onChange={handleChange}
-                            autoComplete="true"
+                            autocomplete="true"
                             required
                         />
                     </label>
@@ -70,11 +98,12 @@ function ShortApplication() {
                         Email Address*:
                         <br /><input className='quickQuoteformInput'
                             type="email"
+                            id='email'
                             name="email"
                             placeholder="Enter your Email"
                             value={formData.email}
                             onChange={handleChange}
-                            autoComplete="true"
+                            autocomplete="true"
                             required
                         />
                     </label>
@@ -82,6 +111,7 @@ function ShortApplication() {
                     <label>
                         Loan Officer:
                         <br /><select className='quickQuoteformSelect'
+                            id='loanOfficer'
                             name="loanOfficer"
                             value={formData.loanOfficer}
                             onChange={handleChange}
@@ -108,7 +138,8 @@ function ShortApplication() {
                                     required
                                 /> Yes
                             </label>
-                            <br /><label>
+                            <br />
+                            <label>
                                 <input
                                     type="radio"
                                     name="coBorrower"
@@ -124,11 +155,12 @@ function ShortApplication() {
                         Evening Phone*:
                         <br /><input className='quickQuoteformInput'
                             type="tel"
+                            id='eveningPhone'
                             name="eveningPhone"
                             placeholder="Provide your Phone#"
                             value={formData.eveningPhone}
                             onChange={handleChange}
-                            autoComplete="true"
+                            maxlength="10" minlength="10" pattern="[0-9]*" inputmode="numeric" autocomplete="true"
                             required
                         />
                     </label>
@@ -137,17 +169,19 @@ function ShortApplication() {
                         Work Phone:
                         <br /><input className='quickQuoteformInput'
                             type="tel"
+                            id='workPhone'
                             name="workPhone"
                             placeholder="Provide your work phone"
                             value={formData.workPhone}
                             onChange={handleChange}
-                            autoComplete="true"
+                            maxlength="10" minlength="10" pattern="[0-9]*" inputmode="numeric" autocomplete="true"
                         />
                     </label>
 
                     <label>
                         How Would You Prefer to be contacted:
                         <br /><select className='quickQuoteformSelect'
+                            id='contactPreference'
                             name="contactPreference"
                             value={formData.contactPreference}
                             onChange={handleChange}
@@ -162,6 +196,7 @@ function ShortApplication() {
                     <label>
                         My / Our Credit is:
                         <br /><select className='quickQuoteformSelect'
+                            id='creditRating'
                             name="creditRating"
                             value={formData.creditRating}
                             onChange={handleChange}
@@ -181,11 +216,12 @@ function ShortApplication() {
                             Property Address:
                             <br /><input className='quickQuoteformInput'
                                 type="text"
+                                id='propertyAddress'
                                 name="propertyAddress"
                                 placeholder="Enter a location"
                                 value={formData.propertyAddress}
                                 onChange={handleChange}
-                                autoComplete="true"
+                                autocomplete="true"
                             />
                         </label>
 
@@ -193,17 +229,19 @@ function ShortApplication() {
                             City:
                             <br /><input className='quickQuoteformInput'
                                 type="text"
-                                name="city"
+                                id='City'
+                                name="City"
                                 placeholder="Enter city"
-                                value={formData.city}
+                                value={formData.City}
                                 onChange={handleChange}
-                                autoComplete="true"
+                                autocomplete="true"
                             />
                         </label>
 
                         <label>
                             State:
                             <br /><select className='quickQuoteformSelect'
+                                id='state'
                                 name="state"
                                 value={formData.state}
                                 onChange={handleChange}
@@ -233,17 +271,20 @@ function ShortApplication() {
                             ZIP Code:
                             <br /><input className='quickQuoteformInput'
                                 type="text"
+                                id='zipCode'
                                 name="zipCode"
                                 placeholder="Enter your location ZIP Code"
                                 value={formData.zipCode}
                                 onChange={handleChange}
-                                autoComplete="true"
+                                maxlength="6" minlength="5" pattern="[0-9]*" inputmode="numeric" autocomplete="true"
+                                required
                             />
                         </label>
 
                         <label>
                             Purpose of Loan*:
                             <br /><select className='quickQuoteformSelect'
+                                id='loanPurpose'
                                 name="loanPurpose"
                                 value={formData.loanPurpose}
                                 onChange={handleChange}
@@ -261,6 +302,7 @@ function ShortApplication() {
                         <label>
                             Property Will Be*:
                             <br /><select className='quickQuoteformSelect'
+                                id='propertyWillBe'
                                 name="propertyWillBe"
                                 value={formData.propertyWillBe}
                                 onChange={handleChange}
@@ -277,11 +319,12 @@ function ShortApplication() {
                             Purchase Price (or Estimated Value):
                             <br /><input className='quickQuoteformInput'
                                 type="text"
-                                name="purchasePrice"
+                                id='estimatedValue'
+                                name="estimatedValue"
                                 placeholder="$"
-                                value={formData.purchasePrice}
+                                value={formData.estimatedValue}
                                 onChange={handleChange}
-                                autoComplete="true"
+                                autocomplete="true"
                             />
                         </label>
                     </div>

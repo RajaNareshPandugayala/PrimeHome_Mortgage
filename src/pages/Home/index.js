@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useMemo } from 'react';
 import PostImage01 from '../../PicesForPages/34336_fed_blog_post.jpg';
 import PostImage02 from '../../PicesForPages/33606_thinking_about_refi.jpg';
 import PostImage03 from '../../PicesForPages/32975_retiring_mortgage.jpg';
@@ -22,7 +22,47 @@ import MortgageCalculator from '../CalculatorAndChart/mortgageCalculator';
 // import calcSmall from '../../PicesForPages/calc-small.jpg';
 
 
+
 function Home() {
+    const texts = useMemo(() => [
+        "Lower Your Payment",
+        "Lower Your Rate",
+        "Get Your First Home",
+        "Get Your Dream Home",
+        "Get Cash Out"
+    ], []);
+
+    const [currentText, setCurrentText] = useState("");
+    const [currentTextIndex, setCurrentTextIndex] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
+    const typingSpeed = 100;
+    const deletingSpeed = 50;
+
+    useEffect(() => {
+        const handleTyping = () => {
+            const fullText = texts[currentTextIndex];
+
+            if (!isDeleting) {
+                setCurrentText((prev) => fullText.substring(0, prev.length + 1));
+                if (currentText === fullText) {
+                    setTimeout(() => setIsDeleting(true), 1000);
+                }
+            } else {
+                setCurrentText((prev) => fullText.substring(0, prev.length - 1));
+                if (currentText === "") {
+                    setIsDeleting(false);
+                    setCurrentTextIndex((prev) => (prev + 1) % texts.length);
+                }
+            }
+        };
+
+        const typingInterval = setInterval(handleTyping, isDeleting ? deletingSpeed : typingSpeed);
+
+        return () => clearInterval(typingInterval);
+    }, [currentText, isDeleting, texts, currentTextIndex]);
+
+
+
     return (
         <div className='homeParent'>
             {/* <div><i class="ri-home-8-fill"></i>Home Page</div> */}
@@ -31,16 +71,15 @@ function Home() {
             <div className='homeHelpYouBoxParent'>
                 <div className='homeHelpYouBox'>
                     <span className='homeHelpYouHeading'>
-                        <span className='homeHelpYouHeadingLeft'>Let's Help You...</span>
+                        <span className='homeHelpYouHeadingLeft'>Let's Help You... </span>
                         <span className='homeHelpYouHeadingRight'>
-                            <span>Lower Your Payment|</span>
-                            <span className='hiddden'>Lower Your Rate|</span>
-                            <span className='hiddden'>Get Your First Home|</span>
-                            <span className='hiddden'>Get Your Dream Home|</span>
-                            <span className='hiddden'>Get Cash Out|</span>
+
+                            <span className="typingText">{currentText}</span>
+
                         </span>
                     </span>
-                    <span className='homeHelpYouContent'>Whatever your goals are we are here to help! <br />Click our prequalifier to get started!</span>
+                    <span className='homeHelpYouContent'>
+                        Whatever your goals are we are here to help! <br />Click our prequalifier to get started!</span>
                     <span className='homeHelpYouButton'>
                         <span className='homeHelpYouButtonLeft'>Purchase</span>
                         <span className='homeHelpYouButtonRight'>Refinance</span>

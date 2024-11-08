@@ -60,6 +60,12 @@ function Header() {
                     </ul>
                     <a href="tel:+1-###-###-####" className="headerMenu_Tel">(###)-###-####</a>
                     <button className='headerMenuButton'>Apply Now</button>
+
+
+                    {/* Deleted-Testing code for customr details are sent Gmail through FORM  */}
+                    {/* <span className='headerMenuUI_Header'><Link to="/Test-Mail-Through-Form">TestMailThroughForm</Link></span> */}
+
+
                 </div>
             </div>
         </div>

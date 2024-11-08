@@ -20,6 +20,7 @@ import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import GetInformativeFreeReports from "./pages/GetInformativeFreeReports";
 import MeetOurStaff from "./pages/MeetOurStaff";
+import TeatingGmailFormPage from "./pages/Form/ExampleGmailForm";
 
 
 // import Login from "./pages/Login";
@@ -53,6 +54,11 @@ function App() {
           <Route path="/About-Us" element={<AboutUs />} />
           <Route path="/our-staff" element={<MeetOurStaff />} />
           <Route path="/Contact-Us" element={<ContactUs />} />
+
+
+          {/* Deleted-Testing code for customr details are sent Gmail through FORM  */}
+          <Route path="/Test-Mail-Through-Form" element={<TeatingGmailFormPage />} />
+
         </Routes>
         <Footer />
       </BrowserRouter>
