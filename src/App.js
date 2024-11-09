@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import { HashRouter as Router, Route, Switch } from "react-router-dom";
+// import { HashRouter, Routes, Route } from "react-router-dom";
+
 
 // import logo from './logo.svg';
 import './App.css';
@@ -28,6 +29,8 @@ import TeatingGmailFormPage from "./pages/Form/ExampleGmailForm";
 // import Login from "./pages/Login";
 // import Register from "./pages/Register";
 // import { SignupAndLogin } from './userRegistration/registration';
+
+
 
 function App() {
   return (
