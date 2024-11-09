@@ -13,8 +13,8 @@ function Header() {
                     <ul className='headerMenuUI'>
                         <span className='headerMenuUI_Header'>Purchase &#x025BF;</span>
                         <span className='headerMenuUI_LI'>
-                            <li><Link to="/Purchase">Purchase</Link></li>
-                            <li><Link to="/Paperwork">PaperWork Needed</Link></li>
+                            <li><Link to="/purchase">Purchase</Link></li>
+                            <li><Link to="/paper-work">PaperWork Needed</Link></li>
                             {/* <li><Link to="/how-much-can-i-afford-calculator">How Much Can I Afford?</Link></li> */}
                             <li>How Much Can I Afford?</li>
                             <li><Link to="/what-will-my-monthly-payment-be-calculator">What Will My Monthly Payment Be</Link></li>
@@ -53,7 +53,7 @@ function Header() {
                         <span className='headerMenuUI_Header'>Contact &#x025BF;</span>
                         <span className='headerMenuUI_LI'>
                             <li>Apply Now</li>
-                            <li><Link to="/About-Us">About Us</Link></li>
+                            <li><Link to="/about-us">About Us</Link></li>
                             <li><Link to="/our-staff">Meet Our Team</Link></li>
                             <li><Link to="/Contact-Us">Contact Us</Link></li>
                         </span>

@@ -7,8 +7,8 @@ import './App.css';
 import Header from './Elements/Header/header';
 import Footer from './Elements/Footer/footer';
 import Home from "./pages/Home";
-import Purchase from "./pages/Purchase";
-import Paperwork from "./pages/Paperwork";
+import Purchase from "./pages/purchase/purchase";
+import Paperwork from "./pages/Paperwork/paper-work";
 import QuickQuote from "./pages/QuickQuote";
 import FHA from "./pages/FHA_Loans";
 import VALoans from "./pages/VA_Loans";
@@ -40,8 +40,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
 
-          <Route path="/Purchase" element={<Purchase />} />
-          <Route path="/Paperwork" element={<Paperwork />} />
+          <Route path="/purchase" element={<Purchase />} />
+          <Route path="/paper-work" element={<Paperwork />} />
           <Route path="/QuickQuote" element={<QuickQuote />} />
           <Route path="/how-much-can-i-afford-calculator" element={<AffordabilityCalculator />} />
           <Route path="/what-will-my-monthly-payment-be-calculator" element={<MonthlyPaymentMortgageCalculator />} />
@@ -56,7 +56,7 @@ function App() {
           <Route path="/Free-Reports" element={<GetInformativeFreeReports />} />
           <Route path="/Glossary-Terms" element={<GlossaryOfMortgageTerms />} />
 
-          <Route path="/About-Us" element={<AboutUs />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/our-staff" element={<MeetOurStaff />} />
           <Route path="/Contact-Us" element={<ContactUs />} />
 
