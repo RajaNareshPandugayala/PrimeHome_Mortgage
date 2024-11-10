@@ -2,7 +2,7 @@ import React from 'react';
 import KidsVideo from '../../PicesForPages/Kids_Playing_in_park2.mp4';
 import FreeConsultation from '../Form/FreeConsultation';
 
-function Purchase() {
+function purchase() {
     return (
         <div className='purchaseParent'>
             <div className='purchasetopParent'>
@@ -42,4 +42,4 @@ function Purchase() {
     );
 }
 
-export default Purchase;
+export default purchase;

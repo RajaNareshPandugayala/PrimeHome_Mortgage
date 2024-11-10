@@ -7,22 +7,22 @@ import './App.css';
 import Header from './Elements/Header/header';
 import Footer from './Elements/Footer/footer';
 import Home from "./pages/Home";
-import Purchase from "./pages/purchase/purchase";
-import Paperwork from "./pages/Paperwork/paper-work";
-import QuickQuote from "./pages/QuickQuote";
-import FHA from "./pages/FHA_Loans";
-import VALoans from "./pages/VA_Loans";
-import MonthlyPaymentMortgageCalculator from "./pages/MonthlyPaymentCalculator";
-import AffordabilityCalculator from "./pages/AffordabilityCalculator";
-import Refinancing from "./pages/Refinancing";
-import CashOutRefinance from "./pages/CashOutRefinance";
-import FhaVaStreamline from "./pages/FhaVaStreamlineRefinance";
-import TheLoanProcess from "./pages/TheLoanProcess";
-import GlossaryOfMortgageTerms from "./pages/GlossaryOfMortgageTerms";
-import AboutUs from "./pages/AboutUs";
-import ContactUs from "./pages/ContactUs";
-import GetInformativeFreeReports from "./pages/GetInformativeFreeReports";
-import MeetOurStaff from "./pages/MeetOurStaff";
+import Purchase from "./pages/Purchase/purchase";
+import PaperWork from "./pages/Paperwork/paper-work";
+import QuickQuote from './pages/QuickQuote/quick-quote';
+import FHA from "./pages/FHA_Loans/fha";
+import VALoans from "./pages/VA_Loans/va-loans";
+import MonthlyPaymentMortgageCalculator from "./pages/MonthlyPaymentCalculator/what-will-my-monthly-payment-be-calculator";
+import AffordabilityCalculator from "./pages/AffordabilityCalculator/how-much-can-i-afford-calculator";
+import Refinancing from "./pages/Refinancing/refinancing";
+import CashOutRefinance from "./pages/CashOutRefinance/cash-out-refinance";
+import FhaVaStreamline from "./pages/FhaVaStreamlineRefinance/fha-va-streamline";
+import TheLoanProcess from "./pages/TheLoanProcess/the-loan-process";
+import GlossaryOfMortgageTerms from "./pages/GlossaryOfMortgageTerms/glossary-terms";
+import AboutUs from "./pages/AboutUs/about-us";
+import ContactUs from "./pages/ContactUs/contact-us";
+import GetInformativeFreeReports from "./pages/GetInformativeFreeReports/free-reports";
+import MeetOurStaff from "./pages/MeetOurStaff/our-staff";
 import TeatingGmailFormPage from "./pages/Form/ExampleGmailForm";
 
 
@@ -41,28 +41,28 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="/purchase" element={<Purchase />} />
-          <Route path="/paper-work" element={<Paperwork />} />
-          <Route path="/QuickQuote" element={<QuickQuote />} />
+          <Route path="/paper-work" element={<PaperWork />} />
+          <Route path="/quick-quote" element={<QuickQuote />} />
           <Route path="/how-much-can-i-afford-calculator" element={<AffordabilityCalculator />} />
           <Route path="/what-will-my-monthly-payment-be-calculator" element={<MonthlyPaymentMortgageCalculator />} />
-          <Route path="/FHA" element={<FHA />} />
-          <Route path="/VA-Loans" element={<VALoans />} />
+          <Route path="/fha" element={<FHA />} />
+          <Route path="/va-loans" element={<VALoans />} />
 
-          <Route path="/Refinancing" element={<Refinancing />} />
-          <Route path="/Cash-Out-Refinance" element={<CashOutRefinance />} />
+          <Route path="/refinancing" element={<Refinancing />} />
+          <Route path="/cash-out-refinance" element={<CashOutRefinance />} />
           <Route path="/fha-va-streamline" element={<FhaVaStreamline />} />
           <Route path="/the-loan-process" element={<TheLoanProcess />} />
 
-          <Route path="/Free-Reports" element={<GetInformativeFreeReports />} />
-          <Route path="/Glossary-Terms" element={<GlossaryOfMortgageTerms />} />
+          <Route path="/free-reports" element={<GetInformativeFreeReports />} />
+          <Route path="/glossary-terms" element={<GlossaryOfMortgageTerms />} />
 
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/our-staff" element={<MeetOurStaff />} />
-          <Route path="/Contact-Us" element={<ContactUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
 
 
           {/* Deleted-Testing code for customr details are sent Gmail through FORM  */}
-          <Route path="/Test-Mail-Through-Form" element={<TeatingGmailFormPage />} />
+          <Route path="/test-mail-through-form" element={<TeatingGmailFormPage />} />
 
         </Routes>
         <Footer />

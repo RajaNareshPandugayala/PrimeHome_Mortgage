@@ -2,7 +2,7 @@ import React from 'react';
 import PaperWorkNeeded from '../../PicesForPages/PaperWorkNeeded.png';
 import FreeConsultation from '../Form/FreeConsultation';
 
-function Paperwork() {
+function PaperWork() {
     return (
         <div className='purchaseParent'>
             <div className='purchasetopParent'>
@@ -38,4 +38,4 @@ function Paperwork() {
     );
 }
 
-export default Paperwork;
+export default PaperWork;
