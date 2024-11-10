@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/PrimeHome_Mortgage/static/css/main.0b842e26.css",
+    "main.css": "/PrimeHome_Mortgage/static/css/main.553ce2e1.css",
     "main.js": "/PrimeHome_Mortgage/static/js/main.c65a9acc.js",
     "static/js/453.258b012d.chunk.js": "/PrimeHome_Mortgage/static/js/453.258b012d.chunk.js",
     "static/media/Kids_Playing_in_park2.mp4": "/PrimeHome_Mortgage/static/media/Kids_Playing_in_park2.f6d556702f158ab1c9a2.mp4",
@@ -36,12 +36,12 @@
     "static/media/house.png": "/PrimeHome_Mortgage/static/media/house.0961ef66e894715a898e.png",
     "static/media/smartphone-7.png": "/PrimeHome_Mortgage/static/media/smartphone-7.774383edbea700a3f098.png",
     "index.html": "/PrimeHome_Mortgage/index.html",
-    "main.0b842e26.css.map": "/PrimeHome_Mortgage/static/css/main.0b842e26.css.map",
+    "main.553ce2e1.css.map": "/PrimeHome_Mortgage/static/css/main.553ce2e1.css.map",
     "main.c65a9acc.js.map": "/PrimeHome_Mortgage/static/js/main.c65a9acc.js.map",
     "453.258b012d.chunk.js.map": "/PrimeHome_Mortgage/static/js/453.258b012d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b842e26.css",
+    "static/css/main.553ce2e1.css",
     "static/js/main.c65a9acc.js"
   ]
 }
