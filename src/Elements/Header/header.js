@@ -15,8 +15,8 @@ function Header() {
                         <span className='headerMenuUI_LI'>
                             <li><Link to="/purchase">Purchase</Link></li>
                             <li><Link to="/paper-work">PaperWork Needed</Link></li>
-                            {/* <li><Link to="/how-much-can-i-afford-calculator">How Much Can I Afford?</Link></li> */}
-                            <li>How Much Can I Afford?</li>
+                            <li><Link to="/how-much-can-i-afford-calculator">How Much Can I Afford?</Link></li>
+                            {/* <li>How Much Can I Afford?</li> */}
                             <li><Link to="/what-will-my-monthly-payment-be-calculator">What Will My Monthly Payment Be</Link></li>
                             <li><Link to="/quick-quote">Quick Quote</Link></li>
                             <li>Apply Now</li>
@@ -29,7 +29,7 @@ function Header() {
                         <span className='headerMenuUI_LI'>
                             <li><Link to="/refinancing">Refinancing</Link></li>
                             <li><Link to="/cash-out-refinance">Cash Out Refinance</Link></li>
-                            <li>Refinance Analysis</li>
+                            <li><Link to="/refinance-analysis-calculator">Refinance Analysis</Link></li>
                             <li><Link to="/quick-quote">Quick Quote</Link></li>
                             <li>Apply Now</li>
                             <li><Link to="/fha-va-streamline">FHA / VA Streamline Refinancing</Link></li>
@@ -39,11 +39,11 @@ function Header() {
                         <span className='headerMenuUI_Header'>Tools &#x025BF;</span>
                         <span className='headerMenuUI_LI'>
                             <li><Link to="/free-reports">Get Informative Free Reports</Link></li>
-                            <li>How Much Can I Afford</li>
+                            <li><Link to="/how-much-can-i-afford-calculator">How Much Can I Afford?</Link></li>
                             <li><Link to="/what-will-my-monthly-payment-be-calculator">What Will My Monthly Payment Be</Link></li>
-                            <li>Renting Versus Buying Calculator</li>
-                            <li>Refinance Analysis Calculator</li>
-                            <li>Consolidation Calculator</li>
+                            <li><Link to="renting-versus-buying-calculator">Renting Versus Buying Calculator</Link></li>
+                            <li><Link to="/refinance-analysis-calculator">Refinance Analysis Calculator</Link></li>
+                            <li><Link to="/debt-consolidation-calculator">Consolidation Calculator</Link></li>
                             <li><Link to="/paper-work">PaperWork Needed</Link></li>
                             <li><Link to="/the-loan-process">The Loan Process</Link></li>
                             <li><Link to="/glossary-terms">Glossary of Mortgage Terms</Link></li>

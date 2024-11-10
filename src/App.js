@@ -25,6 +25,9 @@ import ContactUs from "./pages/ContactUs/contact-us";
 import GetInformativeFreeReports from "./pages/GetInformativeFreeReports/free-reports";
 import MeetOurStaff from "./pages/MeetOurStaff/our-staff";
 import TeatingGmailFormPage from "./pages/Form/ExampleGmailForm";
+import RefinanceAnalysisCalculator from "./pages/RefinanceAnalysisCalculator/refinance-analysis-calculator";
+import DebtConsolidationCalculator from "./pages/ConsolidationCalculator/debt-consolidation-calculator";
+import RentingVsBuyingCalculator from "./pages/RentingVsBuyingCalculator/renting-versus-buying-calculator";
 
 
 // import Login from "./pages/Login";
@@ -51,6 +54,9 @@ function App() {
 
           <Route path="/refinancing" element={<Refinancing />} />
           <Route path="/cash-out-refinance" element={<CashOutRefinance />} />
+          <Route path="/refinance-analysis-calculator" element={<RefinanceAnalysisCalculator />} />
+          <Route path="/debt-consolidation-calculator" element={<DebtConsolidationCalculator />} />
+          <Route path="/renting-versus-buying-calculator" element={<RentingVsBuyingCalculator />} />
           <Route path="/fha-va-streamline" element={<FhaVaStreamline />} />
           <Route path="/the-loan-process" element={<TheLoanProcess />} />
 

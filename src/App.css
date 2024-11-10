@@ -1331,7 +1331,7 @@ input[type="range"]::-moz-range-thumb {
   /* display: inline-block; */
   /* padding-right: 5px; */
   overflow: hidden;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   border-right: 5px solid white;
   animation: blinkCursor 10s step-end infinite;
 }
@@ -1351,6 +1351,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 /******************************Home-End***********************************/
+
 
 
 /******************************Purchase-Start***********************************/
@@ -1898,6 +1899,144 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /**********************************FreeReport-End***************************************/
+
+
+
+/******************************AffordCaculator-Start***********************************/
+
+.afford_rightSideTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+  font-size: 44px;
+  font-weight: bold;
+}
+
+.afford_rightSideTop span {
+  width: 350px;
+}
+
+.afford_rightSideTop input {
+  font-size: 44px;
+  font-weight: bold;
+  width: 60%;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.afford_rightSideTop input:focus {
+  border-bottom: 1px solid lightblue;
+}
+
+
+
+.affordrightSideBottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+}
+
+.affordrightSideBottom div {
+  width: 70%;
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #8d8d8d;
+  font-size: 18px;
+}
+
+
+
+/******************************AffordCaculator-End***********************************/
+
+/******************************RACaculator-Start***********************************/
+
+.RACrightSideBox {
+  width: 70%;
+  margin-left: 30px;
+}
+
+.RefinanceCalculatorContent {
+  width: 850px;
+  font-weight: bold;
+  text-align: center;
+  color: gray;
+}
+
+.RACrightSideBottom div {
+  font-size: 13px;
+  width: 80%;
+}
+
+.RACrightSideBottom00 div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0px 80px;
+  font-size: 14px;
+}
+
+.RACrightSideDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 30px;
+  gap: 20px;
+}
+
+.RACrightSideDiv div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.RACrightSideDiv div b {
+  font-size: 34px;
+}
+
+.RACalculatorImage {
+  top: 70%;
+}
+
+/******************************RACaculator.-End***********************************/
+
+/******************************DCCaculator-Start***********************************/
+
+.CCDleftSideHeading {
+  padding: 10px 0px;
+  border-bottom: 4px solid black;
+  margin: 10px 0px;
+}
+
+.DCCrightSideBox {
+  width: 100%;
+}
+
+
+.DCCalculatorImage {
+  top: 90%;
+}
+
+/******************************DCCaculator-End***********************************/
+
+/******************************RVBCalculator-End***********************************/
+
+.RVBCalculatorImage {
+  top: 60%;
+}
+
+.RVBCrightSideBottom div {
+  font-size: 13px;
+  width: 100%;
+}
+
+/******************************RVBCalculator-End***********************************/
 
 
 /*   width: 100%;
