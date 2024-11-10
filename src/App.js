@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import { HashRouter, Routes, Route } from "react-router-dom";
 
 
+
 // import logo from './logo.svg';
 import './App.css';
 import Header from './Elements/Header/header';
