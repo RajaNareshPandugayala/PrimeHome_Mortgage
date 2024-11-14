@@ -165,7 +165,7 @@ const ConsolidationCalculatorDebt = () => {
                         <label>
                             Number of years you will be refinancing for:
                             <select value={loanTerm} onChange={(e) => setLoanTerm(+e.target.value)}>
-                                {Array.from({ length: 29 }, (_, i) => (i + 2) * 12).map((term) => (
+                                {Array.from({ length: 39 }, (_, i) => (i + 2) * 12).map((term) => (
                                     <option key={term} value={term}>
                                         {term} months (or) {term / 12} years
                                     </option>

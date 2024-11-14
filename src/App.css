@@ -1902,19 +1902,20 @@ input[type="range"]::-moz-range-thumb {
 
 .afford_rightSideTop {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
   width: 80%;
-  font-size: 44px;
+  /* font-size: 44px; */
   font-weight: bold;
 }
 
 .afford_rightSideTop span {
-  width: 350px;
+  /* width: 300px; */
 }
 
 .afford_rightSideTop input {
-  font-size: 44px;
+  font-size: 34px;
   font-weight: bold;
   width: 60%;
   border: 1px solid transparent;
@@ -1936,7 +1937,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .affordrightSideBottom div {
-  width: 70%;
+  width: 75%;
   display: flex;
   align-self: center;
   justify-content: space-between;

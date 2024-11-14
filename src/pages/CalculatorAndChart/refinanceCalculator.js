@@ -2,52 +2,65 @@ import React, { useEffect, useState, useCallback } from "react";
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
 
 const RefinanceCalculator = () => {
-    const [principalBalance, setPrincipalBalance] = useState(150000);
+    const [principalBalance, setPrincipalBalance] = useState(300000);
     const [monthlyDebt, setMonthlyDebt] = useState(2000);
-    const [downPayment] = useState(66000); // Removing `setDownPayment` if unused
-    const [homePrice] = useState(3726819.45); // Removing `setHomePrice` if unused
-    const [loanTerm, setLoanTerm] = useState(360);
-    const [currentInterestRate, setCurrentInterestRate] = useState(6.5);
-    const [refinanceInterestRate, setRefinanceInterestRate] = useState(6.5);
-    const [closingCosts, setClosingCosts] = useState(0);
+    const [loanTerm, setLoanTerm] = useState(360); // In months
+    const [currentInterestRate, setCurrentInterestRate] = useState(4.0);
+    const [refinanceInterestRate, setRefinanceInterestRate] = useState(3.5);
+    const [closingCosts, setClosingCosts] = useState(0.02); // Default to percentage
+    const [closingCostsType, setClosingCostsType] = useState("Percentage");
     const [financeClosingCosts, setFinanceClosingCosts] = useState("No");
     const [monthlyPayment, setMonthlyPayment] = useState(0);
     const [monthlySavings, setMonthlySavings] = useState(0);
-    const calculateEMI = useCallback(() => {
-        const principal = homePrice - downPayment;
-        const monthlyInterest = refinanceInterestRate / 100 / 12;
-        const numPayments = loanTerm;
+    const [breakEvenMonths, setBreakEvenMonths] = useState(0);
+    const [totalInterestCurrent, setTotalInterestCurrent] = useState(0);
+    const [totalInterestRefinanced, setTotalInterestRefinanced] = useState(0);
+    const [netSavings, setNetSavings] = useState(0);
 
-        const monthlyEMI =
-            monthlyInterest === 0
-                ? principal / numPayments
-                : (principal * monthlyInterest * Math.pow(1 + monthlyInterest, numPayments)) /
-                (Math.pow(1 + monthlyInterest, numPayments) - 1);
+    const calculateCurrentPlanInterest = useCallback(() => {
+        const monthlyInterest = currentInterestRate / 100 / 12;
+        const currentMonthlyPayment = (principalBalance * monthlyInterest * Math.pow(1 + monthlyInterest, loanTerm)) /
+            (Math.pow(1 + monthlyInterest, loanTerm) - 1);
+        const totalInterest = (currentMonthlyPayment * loanTerm) - principalBalance;
+        setTotalInterestCurrent(totalInterest);
+    }, [principalBalance, currentInterestRate, loanTerm]);
+
+    const calculateRefinancePlan = useCallback(() => {
+        const closingCostsValue = closingCostsType === "Percentage" ? principalBalance * (closingCosts / 100) : closingCosts;
+        const principal = principalBalance + (financeClosingCosts === "Yes" ? closingCostsValue : 0);
+        const monthlyInterest = refinanceInterestRate / 100 / 12;
+
+        const monthlyEMI = monthlyInterest === 0
+            ? principal / loanTerm
+            : (principal * monthlyInterest * Math.pow(1 + monthlyInterest, loanTerm)) /
+            (Math.pow(1 + monthlyInterest, loanTerm) - 1);
+
+        const totalInterest = (monthlyEMI * loanTerm) - principal;
 
         setMonthlyPayment(monthlyEMI.toFixed(2));
-        setMonthlySavings((principalBalance - monthlyEMI).toFixed(2));
-    }, [homePrice, downPayment, loanTerm, refinanceInterestRate, principalBalance]);
+        setTotalInterestRefinanced(totalInterest);
+        setMonthlySavings((monthlyDebt - monthlyEMI).toFixed(2));
+        setNetSavings((totalInterestCurrent - totalInterest - closingCostsValue).toFixed(2));
+
+        if (monthlySavings > 0 && closingCostsValue > 0) {
+            setBreakEvenMonths(Math.ceil(closingCostsValue / monthlySavings));
+        } else {
+            setBreakEvenMonths(0);
+        }
+    }, [principalBalance, refinanceInterestRate, loanTerm, financeClosingCosts, closingCosts, closingCostsType, totalInterestCurrent, monthlyDebt, monthlySavings]);
 
     useEffect(() => {
-        calculateEMI();
-    }, [calculateEMI]);
-
-    // If they are meant to be used later, add the following lines above them:
-    // eslint-disable-next-line no-unused-vars
-    const displayMonthlyPayment = `$ ${Number(Math.round(monthlyPayment / 12)).toLocaleString()}`;
-    // eslint-disable-next-line no-unused-vars
-    const displayMonthlySavings = `$ ${Number(Math.round(monthlySavings / 12)).toLocaleString()}`;
-
-
+        calculateCurrentPlanInterest();
+        calculateRefinancePlan();
+    }, [calculateCurrentPlanInterest, calculateRefinancePlan]);
 
     const data = [
-        { name: 'Monthly Payment', value: Math.round(monthlyPayment / 12) },
-        { name: 'Monthly Savings', value: Math.round(monthlySavings / 12) },
-        // Add other data points as needed
+        { name: 'Monthly Payment', value: Math.round(monthlyPayment) },
+        { name: 'Monthly Savings', value: Math.round(monthlySavings) },
     ];
 
-
     const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
+
 
     return (
         <div className="mortgageCalculatorParent">
@@ -94,11 +107,37 @@ const RefinanceCalculator = () => {
 
                         <label>
                             Your mortgage's current interest rate (%): <br />
-                            <input
-                                type="text"
-                                value={`${currentInterestRate.toFixed(2)}%`}
-                                onChange={(e) => setCurrentInterestRate(parseFloat(e.target.value.replace(/[^0-9.-]+/g, "")))}
-                            />
+                            <div style={{ display: 'flex', alignItems: 'center' }}>
+                                <input
+                                    type="text"
+                                    min="0"
+                                    max="100"
+                                    step="0.001"
+                                    value={currentInterestRate}
+                                    onChange={(e) => {
+                                        let value = e.target.value.replace(/[^0-9.]/g, '');
+
+                                        // Allow only one decimal point
+                                        if ((value.match(/\./g) || []).length > 1) {
+                                            value = value.slice(0, -1);
+                                        }
+
+                                        // Ensure there are no more than two digits after the decimal point
+                                        const [integer, decimal] = value.split('.');
+                                        if (decimal && decimal.length > 2) {
+                                            value = `${integer}.${decimal.slice(0, 3)}`; // Limit to two decimal places
+                                        }
+
+                                        // Ensure the value is between 0 and 100
+                                        if (+value < 0) value = "0";
+                                        if (+value > 100) value = "100";
+
+                                        setCurrentInterestRate(value);
+                                    }}
+                                    style={{ width: '100%' }} // Adjust width as needed
+                                />
+                                <span style={{ marginLeft: '-30px', fontWeight: "bold" }}>%</span>
+                            </div>
                             <input
                                 type="range"
                                 min="0"
@@ -111,11 +150,37 @@ const RefinanceCalculator = () => {
 
                         <label>
                             Interest rate you will be refinancing at (%): <br />
-                            <input
-                                type="text"
-                                value={`${refinanceInterestRate.toFixed(2)}%`}
-                                onChange={(e) => setRefinanceInterestRate(parseFloat(e.target.value.replace(/[^0-9.-]+/g, "")))}
-                            />
+                            <div style={{ display: 'flex', alignItems: 'center' }}>
+                                <input
+                                    type="text"
+                                    min="0"
+                                    max="100"
+                                    step="0.001"
+                                    value={refinanceInterestRate}
+                                    onChange={(e) => {
+                                        let value = e.target.value.replace(/[^0-9.]/g, '');
+
+                                        // Allow only one decimal point
+                                        if ((value.match(/\./g) || []).length > 1) {
+                                            value = value.slice(0, -1);
+                                        }
+
+                                        // Ensure there are no more than two digits after the decimal point
+                                        const [integer, decimal] = value.split('.');
+                                        if (decimal && decimal.length > 2) {
+                                            value = `${integer}.${decimal.slice(0, 3)}`; // Limit to two decimal places
+                                        }
+
+                                        // Ensure the value is between 0 and 100
+                                        if (+value < 0) value = "0";
+                                        if (+value > 100) value = "100";
+
+                                        setRefinanceInterestRate(value);
+                                    }}
+                                    style={{ width: '100%' }} // Adjust width as needed
+                                />
+                                <span style={{ marginLeft: '-30px', fontWeight: "bold" }}>%</span>
+                            </div>
                             <input
                                 type="range"
                                 min="0"
@@ -129,7 +194,7 @@ const RefinanceCalculator = () => {
                         <label>
                             Number of years you will be refinancing for: <br />
                             <select value={loanTerm} onChange={(e) => setLoanTerm(+e.target.value)}>
-                                {Array.from({ length: 29 }, (_, i) => (i + 2) * 12).map((term) => (
+                                {Array.from({ length: 39 }, (_, i) => (i + 2) * 12).map((term) => (
                                     <option key={term} value={term}>
                                         {term} months (or) {term / 12} years
                                     </option>
@@ -148,13 +213,14 @@ const RefinanceCalculator = () => {
 
                         <label>
                             Closing costs: <br />
-                            <select onChange={(e) => setClosingCosts(e.target.value)}>
-                                <option value="Dollar">Dollar Amount</option>
+                            <select onChange={(e) => setClosingCostsType(e.target.value)}>
                                 <option value="Percentage">Percentage Points</option>
+                                <option value="Dollar">Dollar Amount</option>
                             </select>
                             <input
-                                type="text"
-                                value={`$ ${Number(closingCosts).toLocaleString()}`}
+                                type="number"
+                                step="0.001"
+                                value={closingCosts}
                                 onChange={(e) => setClosingCosts(+e.target.value.replace(/[^0-9.-]+/g, ""))}
                             />
                         </label>
@@ -170,9 +236,16 @@ const RefinanceCalculator = () => {
 
                     <div className="rightSideBox RACrightSideBox">
                         <div className="RACrightSideDiv">
-                            <div><span>Monthly payment will be if you refinance: </span><b>{`$ ${Number(Math.round(monthlyPayment / 12)).toLocaleString()}`} </b></div>
-                            <div><span>Your Monthly Savings will be:</span><b>{`$ ${Number(Math.round(monthlySavings / 12)).toLocaleString()}`}</b></div>
+                            <div><span>Monthly payment will be if you refinance: </span><b>{`$ ${Number(Math.round(monthlyPayment)).toLocaleString()}`} </b></div>
+                            <div><span>Your Monthly Savings will be:</span><b>{`$ ${Number(Math.round(Number(monthlyDebt - monthlyPayment).toFixed(2))).toLocaleString()}`}</b></div>
                         </div>
+
+                        {/* Conditionally render .RACrightSideBottom00 based on refinanceInterestRate */}
+                        {refinanceInterestRate > currentInterestRate && (
+                            <div className="affordRightSideBottom RACrightSideBottom00">
+                                <div><span style={{ color: "red" }}>You've entered a refinancing rate that is higher than your present rate. The refinancing rate must be lower than your present rate in order for this calculator to work.</span></div>
+                            </div>
+                        )}
 
                         <div style={{ textAlign: "center" }}>
                             <PieChart width={500} height={500}>
@@ -189,16 +262,16 @@ const RefinanceCalculator = () => {
                         </div>
 
                         <div className="affordRightSideBottom RACrightSideBottom00">
-                            <div><span>If you refinance your current {currentInterestRate}% mortgage to a {refinanceInterestRate}% mortgage, your monthly payment will decrease by ${monthlySavings} and you will pay an additional $916,299.18 in interest charges over the life of the mortgage.</span></div>
+                            <div><span>If you refinance your current {currentInterestRate}% mortgage to a {refinanceInterestRate}% mortgage, your monthly payment will decrease by {`$ ${(monthlyDebt - monthlyPayment).toLocaleString()}`} and you will pay an additional $916,299.18 in interest charges over the life of the mortgage.</span></div>
                         </div>
                         <div className="affordrightSideBottom RACrightSideBottom">
-                            <div><span>This is how much your monthly payment will be if you refinance:</span> <span>${monthlyPayment}</span></div>
-                            <div><span>Monthly Payment Reduction:</span> <span>$4,094.08</span></div>
-                            <div><span># of months for interest savings to offset closing costs:</span> <span>1</span></div>
-                            <div><span>This is how much interest you will pay under your current plan:</span> <span>$1,743.00</span></div>
-                            <div><span>This is how much interest you will pay under your refinanced plan: </span><span>$1,247,588.39</span></div>
-                            <div><span>This is how much interest you will save if you refinance:</span> <span>$0.00</span></div>
-                            <div><span>Net Refinancing Savings: </span><span>$0.00</span></div>
+                            <div><span>This is how much your monthly payment will be if you refinance:</span> <span>{`$ ${Number(monthlyPayment).toLocaleString()}`}</span></div>
+                            <div><span>Monthly Payment Reduction:</span> <span>{`$ ${(monthlyDebt - monthlyPayment).toLocaleString()}`}</span></div>
+                            <div><span># of months for interest savings to offset closing costs: </span> <span>{breakEvenMonths}</span></div>
+                            <div><span>This is how much interest you will pay under your current monthly payment plan:</span> <span>$ 0</span></div>
+                            <div><span>This is how much interest you will pay under your refinanced plan: </span><span>{`$ ${Number(totalInterestRefinanced).toLocaleString()}`}</span></div>
+                            <div><span>This is how much interest you will save if you refinance:</span> <span>{`$ ${Number(netSavings).toLocaleString()}`}</span></div>
+                            <div><span>Net Refinancing Savings: </span><span>{`$ ${Number(netSavings).toLocaleString()}`}</span></div>
                         </div>
                     </div>
                 </div>

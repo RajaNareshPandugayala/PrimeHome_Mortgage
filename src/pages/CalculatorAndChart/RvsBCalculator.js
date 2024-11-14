@@ -1,20 +1,22 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as ChartTooltip, Legend } from "recharts";
+// import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as ChartTooltip, Legend } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as ChartTooltip, Legend, LabelList } from "recharts";
+
 
 const RVsBCalculator = () => {
-    const [homePrice, setHomePrice] = useState(372681.95);
-    const [downPayment, setDownPayment] = useState(66000);
+    const [currentRent, setCurrentRent] = useState(2000);
+    const [homePrice, setHomePrice] = useState(450000);
+    const [downPaymentPercentage, setDownPaymentPercentage] = useState(20.0);
     const [loanTerm, setLoanTerm] = useState(360);
     const [interestRate, setInterestRate] = useState(6.5);
-    const [propertyTax, setPropertyTax] = useState(0);
-    const [homeValueIncrease, setHomeValueIncrease] = useState(3);
-    const [currentRent, setCurrentRent] = useState(2000);
+    const [loanTermHomePlan, setLoanTermHomePlan] = useState(84);  // Added state for loanTermHomePlan
+    const [propertyTax, setPropertyTax] = useState(1);
+    const [homeValueIncrease, setHomeValueIncrease] = useState(2);
     const [monthlyPayment, setMonthlyPayment] = useState(0);
     const [totalSavings, setTotalSavings] = useState(0);
-    const [loanTermHomePlan, setLoanTermHomePlan] = useState(360);  // Added state for loanTermHomePlan
 
     const calculateEMI = useCallback(() => {
-        const principal = homePrice - downPayment;
+        const principal = homePrice;
         const monthlyInterest = interestRate / 100 / 12;
         const numPayments = loanTerm;
 
@@ -26,7 +28,7 @@ const RVsBCalculator = () => {
 
         const estimatedPayment = monthlyEMI + propertyTax / 12;
         setMonthlyPayment(estimatedPayment.toFixed(2));
-    }, [homePrice, downPayment, loanTerm, interestRate, propertyTax]);
+    }, [homePrice, loanTerm, interestRate, propertyTax]);
 
     useEffect(() => {
         calculateEMI();
@@ -94,26 +96,53 @@ const RVsBCalculator = () => {
                         {/* Down Payment */}
                         <label>
                             Percentage of Down Payment (%): <br />
-                            <input
-                                type="text"
-                                value={`${(downPayment / homePrice * 100).toFixed(2)}%`}
-                                onChange={(e) => setDownPayment(homePrice * (parseFloat(e.target.value) / 100))}
-                            />
+                            <div style={{ display: 'flex', alignItems: 'center' }}>
+                                <input
+                                    type="text"
+                                    min="0"
+                                    max="100"
+                                    step="0.001"
+                                    value={downPaymentPercentage}
+                                    onChange={(e) => {
+                                        let value = e.target.value.replace(/[^0-9.]/g, '');
+
+                                        // Allow only one decimal point
+                                        if ((value.match(/\./g) || []).length > 1) {
+                                            value = value.slice(0, -1);
+                                        }
+
+                                        // Ensure there are no more than two digits after the decimal point
+                                        const [integer, decimal] = value.split('.');
+                                        if (decimal && decimal.length > 2) {
+                                            value = `${integer}.${decimal.slice(0, 3)}`; // Limit to two decimal places
+                                        }
+
+                                        // Ensure the value is between 0 and 100
+                                        if (+value < 0) value = "0";
+                                        if (+value > 100) value = "100";
+
+                                        setDownPaymentPercentage(value);
+                                    }}
+                                    style={{ width: '100%' }} // Adjust width as needed
+                                />
+                                <span style={{ marginLeft: '-30px', fontWeight: "bold" }}>%</span>
+                            </div>
                             <input
                                 type="range"
                                 min="0"
                                 max="100"
-                                step="0.001"
-                                value={downPayment / homePrice * 100}
-                                onChange={(e) => setDownPayment(homePrice * (parseFloat(e.target.value) / 100))}
+                                value={downPaymentPercentage}
+                                step="0.01"
+                                onChange={(e) => setDownPaymentPercentage(+e.target.value)}
                             />
                         </label>
+
 
                         {/* Loan Term */}
                         <label>
                             Length of Loan Term: <br />
                             <select value={loanTerm} onChange={(e) => setLoanTerm(+e.target.value)}>
-                                {Array.from({ length: 29 }, (_, i) => (i + 2) * 12).map((term) => (
+                                {Array.from({ length: 39 }, (_, i) => (i + 2) * 12).map((term) => (
                                     <option key={term} value={term}>
                                         {term} months (or) {term / 12} years
                                     </option>
@@ -122,7 +151,7 @@ const RVsBCalculator = () => {
                             <input
                                 type="range"
                                 min="12"
-                                max="360"
+                                max="480"
                                 value={loanTerm}
                                 step="12"
                                 onChange={(e) => setLoanTerm(+e.target.value)}
@@ -132,17 +161,43 @@ const RVsBCalculator = () => {
                         {/* Interest Rate */}
                         <label>
                             Interest rate (%): <br />
-                            <input
-                                type="text"
-                                value={`${interestRate.toFixed(2)}%`}
-                                onChange={(e) => setInterestRate(parseFloat(e.target.value))}
-                            />
+                            <div style={{ display: 'flex', alignItems: 'center' }}>
+                                <input
+                                    type="text"
+                                    min="0"
+                                    max="100"
+                                    step="0.001"
+                                    value={interestRate}
+                                    onChange={(e) => {
+                                        let value = e.target.value.replace(/[^0-9.]/g, '');
+
+                                        // Allow only one decimal point
+                                        if ((value.match(/\./g) || []).length > 1) {
+                                            value = value.slice(0, -1);
+                                        }
+
+                                        // Ensure there are no more than two digits after the decimal point
+                                        const [integer, decimal] = value.split('.');
+                                        if (decimal && decimal.length > 2) {
+                                            value = `${integer}.${decimal.slice(0, 3)}`; // Limit to two decimal places
+                                        }
+
+                                        // Ensure the value is between 0 and 100
+                                        if (+value < 0) value = "0";
+                                        if (+value > 100) value = "100";
+
+                                        setInterestRate(value);
+                                    }}
+                                    style={{ width: '100%' }} // Adjust width as needed
+                                />
+                                <span style={{ marginLeft: '-30px', fontWeight: "bold" }}>%</span>
+                            </div>
                             <input
                                 type="range"
                                 min="0"
                                 max="100"
                                 value={interestRate}
-                                step="0.001"
+                                step="0.01"
                                 onChange={(e) => setInterestRate(+e.target.value)}
                             />
                         </label>
@@ -151,7 +206,7 @@ const RVsBCalculator = () => {
                         <label>
                             You Plan to Stay in This Home: <br />
                             <select value={loanTermHomePlan} onChange={(e) => setLoanTermHomePlan(+e.target.value)}>
-                                {Array.from({ length: 29 }, (_, i) => (i + 2) * 12).map((term) => (
+                                {Array.from({ length: 39 }, (_, i) => (i + 2) * 12).map((term) => (
                                     <option key={term} value={term}>
                                         {term} months (or) {term / 12} years
                                     </option>
@@ -160,7 +215,7 @@ const RVsBCalculator = () => {
                             <input
                                 type="range"
                                 min="12"
-                                max="360"
+                                max="480"
                                 value={loanTermHomePlan}
                                 step="12"
                                 onChange={(e) => setLoanTermHomePlan(+e.target.value)}
@@ -207,11 +262,11 @@ const RVsBCalculator = () => {
                     <div className="rightSideBox">
                         <div><span>Total Savings:</span> <span>${totalSavings.toFixed(2)}</span></div>
 
-                        <div style={{ display: "flex", justifyContent: "space-around", marginBottom: "20px" }}>
+                        {/* <div style={{ display: "flex", justifyContent: "space-around", marginBottom: "20px" }}>
                             <span>Renting Payments: ${currentRent * 12}</span>
                             <span>Buying Payments: ${monthlyPayment * 12}</span>
                             <span>Savings On Buying: ${(currentRent * 12 - monthlyPayment * 12).toFixed(2)}</span>
-                        </div>
+                        </div> */}
 
                         <div style={{ textAlign: "center", marginTop: "20px" }}>
                             <BarChart width={500} height={300} data={chartData}>
@@ -223,9 +278,10 @@ const RVsBCalculator = () => {
                                 {/* Only use one Bar component */}
                                 <Bar dataKey="value" fill="#8884d8">
                                     {/* Assign unique color for each entry in chartData */}
-                                    {chartData.map((data, index) => (
-                                        <Bar key={index} dataKey="value" fill={data.color} />
-                                    ))}
+                                    {/* {chartData.map((data, index) => (
+                                        <Bar key={index} dataKey="value" data={[data]} fill={data.color} name={data.name} />
+                                    ))} */}
+                                    <LabelList dataKey="value" position="middle" fill="white" formatter={(value) => `$${value.toLocaleString()}`} />
                                 </Bar>
                             </BarChart>
                         </div>
