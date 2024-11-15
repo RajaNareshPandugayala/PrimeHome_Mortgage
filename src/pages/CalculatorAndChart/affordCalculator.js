@@ -53,11 +53,13 @@ const AffordCalculator = () => {
         calculateEMI();
     }, [calculateEMI]);
 
+
     const data = [
-        { name: "Loan Amount", value: homePrice - downPayment },
+        { name: "Loan Amount", value: homePrice - downPayment }, // Just the loan principal
         { name: "Downpayment", value: downPayment },
         { name: "Monthly Payment", value: monthlyPayment },
     ];
+
 
     const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
 
@@ -265,9 +267,13 @@ const AffordCalculator = () => {
                             <div><span>Monthly Payment:</span><span> ${Number(monthlyPayment).toLocaleString()}</span></div>
                         </div>
 
-                        <div className="affordRightSideBottom RACrightSideBottom00">
-                            <div><span style={{ color: "red" }}>Based on industry standards you may not qualify for a home mortgage. You may need to adjust your income or debt obligations.</span></div>
-                        </div>
+
+                        {(homePrice - downPayment) <= 0 && (
+                            <div className="affordRightSideBottom RACrightSideBottom00">
+                                <div><span style={{ color: "red" }}>Based on industry standards you may not qualify for a home mortgage. You may need to adjust your income or debt obligations.</span></div>
+                            </div>
+                        )}
+
                     </div>
                 </div>
             </div >

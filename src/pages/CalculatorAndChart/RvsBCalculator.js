@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useCallback } from "react";
-// import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as ChartTooltip, Legend } from "recharts";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as ChartTooltip, Legend, LabelList } from "recharts";
 
 
 const RVsBCalculator = () => {
+
     const [currentRent, setCurrentRent] = useState(2000);
     const [homePrice, setHomePrice] = useState(450000);
     const [downPaymentPercentage, setDownPaymentPercentage] = useState(20.0);
@@ -15,8 +15,9 @@ const RVsBCalculator = () => {
     const [monthlyPayment, setMonthlyPayment] = useState(0);
     const [totalSavings, setTotalSavings] = useState(0);
 
+    // Calculate monthly mortgage payment
     const calculateEMI = useCallback(() => {
-        const principal = homePrice;
+        const principal = homePrice - (homePrice * (downPaymentPercentage / 100)); // Subtract down payment from the price
         const monthlyInterest = interestRate / 100 / 12;
         const numPayments = loanTerm;
 
@@ -26,9 +27,9 @@ const RVsBCalculator = () => {
                 : (principal * monthlyInterest * Math.pow(1 + monthlyInterest, numPayments)) /
                 (Math.pow(1 + monthlyInterest, numPayments) - 1);
 
-        const estimatedPayment = monthlyEMI + propertyTax / 12;
+        const estimatedPayment = monthlyEMI + (propertyTax / 100 * homePrice) / 12; // Add property tax
         setMonthlyPayment(estimatedPayment.toFixed(2));
-    }, [homePrice, loanTerm, interestRate, propertyTax]);
+    }, [homePrice, downPaymentPercentage, loanTerm, interestRate, propertyTax]);
 
     useEffect(() => {
         calculateEMI();
@@ -44,9 +45,9 @@ const RVsBCalculator = () => {
     // Calculate total savings based on appreciation of home price
     useEffect(() => {
         const appreciationRate = homeValueIncrease / 100;
-        const futureHomePrice = homePrice * Math.pow(1 + appreciationRate, loanTerm / 12);
+        const futureHomePrice = homePrice * Math.pow(1 + appreciationRate, loanTermHomePlan / 12);
         setTotalSavings(futureHomePrice - homePrice);
-    }, [homePrice, homeValueIncrease, loanTerm]);
+    }, [homePrice, homeValueIncrease, loanTermHomePlan]);
 
     return (
         <div className="mortgageCalculatorParent">
@@ -225,38 +226,92 @@ const RVsBCalculator = () => {
                         {/* Property Tax */}
                         <label>
                             Yearly Property Tax Rate (%): <br />
-                            <input
-                                type="text"
-                                value={`${propertyTax.toFixed(2)}%`}
-                                onChange={(e) => setPropertyTax(parseFloat(e.target.value))}
-                            />
+                            <div style={{ display: 'flex', alignItems: 'center' }}>
+                                <input
+                                    type="text"
+                                    min="0"
+                                    max="100"
+                                    step="0.001"
+                                    value={propertyTax}
+                                    onChange={(e) => {
+                                        let value = e.target.value.replace(/[^0-9.]/g, '');
+
+                                        // Allow only one decimal point
+                                        if ((value.match(/\./g) || []).length > 1) {
+                                            value = value.slice(0, -1);
+                                        }
+
+                                        // Ensure there are no more than two digits after the decimal point
+                                        const [integer, decimal] = value.split('.');
+                                        if (decimal && decimal.length > 2) {
+                                            value = `${integer}.${decimal.slice(0, 3)}`; // Limit to two decimal places
+                                        }
+
+                                        // Ensure the value is between 0 and 100
+                                        if (+value < 0) value = "0";
+                                        if (+value > 100) value = "100";
+
+                                        setPropertyTax(value);
+                                    }}
+                                    style={{ width: '100%' }} // Adjust width as needed
+                                />
+                                <span style={{ marginLeft: '-30px', fontWeight: "bold" }}>%</span>
+                            </div>
                             <input
                                 type="range"
                                 min="0"
                                 max="100"
-                                step="1"
                                 value={propertyTax}
+                                step="0.01"
                                 onChange={(e) => setPropertyTax(+e.target.value)}
                             />
                         </label>
 
+
                         {/* Home Value Increase */}
                         <label>
-                            Yearly Home Value Increase Rate (%): <br />
-                            <input
-                                type="text"
-                                value={`${homeValueIncrease.toFixed(2)}%`}
-                                onChange={(e) => setHomeValueIncrease(parseFloat(e.target.value))}
-                            />
+                            Yearly Home Value Increase Rate (%):  <br />
+                            <div style={{ display: 'flex', alignItems: 'center' }}>
+                                <input
+                                    type="text"
+                                    min="0"
+                                    max="100"
+                                    step="0.001"
+                                    value={homeValueIncrease}
+                                    onChange={(e) => {
+                                        let value = e.target.value.replace(/[^0-9.]/g, '');
+
+                                        // Allow only one decimal point
+                                        if ((value.match(/\./g) || []).length > 1) {
+                                            value = value.slice(0, -1);
+                                        }
+
+                                        // Ensure there are no more than two digits after the decimal point
+                                        const [integer, decimal] = value.split('.');
+                                        if (decimal && decimal.length > 2) {
+                                            value = `${integer}.${decimal.slice(0, 3)}`; // Limit to two decimal places
+                                        }
+
+                                        // Ensure the value is between 0 and 100
+                                        if (+value < 0) value = "0";
+                                        if (+value > 100) value = "100";
+
+                                        setHomeValueIncrease(value);
+                                    }}
+                                    style={{ width: '100%' }} // Adjust width as needed
+                                />
+                                <span style={{ marginLeft: '-30px', fontWeight: "bold" }}>%</span>
+                            </div>
                             <input
                                 type="range"
                                 min="0"
                                 max="100"
-                                step="1"
                                 value={homeValueIncrease}
+                                step="0.01"
                                 onChange={(e) => setHomeValueIncrease(+e.target.value)}
                             />
                         </label>
+
                     </div>
 
                     <div className="rightSideBox">
