@@ -1,53 +1,84 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as ChartTooltip, Legend, LabelList } from "recharts";
+import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip as ChartTooltip, Legend, Bar, Cell, LabelList } from "recharts";
 
 
 const RVsBCalculator = () => {
-
     const [currentRent, setCurrentRent] = useState(2000);
     const [homePrice, setHomePrice] = useState(450000);
     const [downPaymentPercentage, setDownPaymentPercentage] = useState(20.0);
-    const [loanTerm, setLoanTerm] = useState(360);
+    const [loanTerm, setLoanTerm] = useState(360); // Loan term in months
     const [interestRate, setInterestRate] = useState(6.5);
-    const [loanTermHomePlan, setLoanTermHomePlan] = useState(84);  // Added state for loanTermHomePlan
+    const [loanTermHomePlan, setLoanTermHomePlan] = useState(84); // Duration user plans to stay in months
     const [propertyTax, setPropertyTax] = useState(1);
     const [homeValueIncrease, setHomeValueIncrease] = useState(2);
     const [monthlyPayment, setMonthlyPayment] = useState(0);
-    const [totalSavings, setTotalSavings] = useState(0);
 
-    // Calculate monthly mortgage payment
+    // Helper to calculate monthly mortgage payment (EMI)
     const calculateEMI = useCallback(() => {
-        const principal = homePrice - (homePrice * (downPaymentPercentage / 100)); // Subtract down payment from the price
-        const monthlyInterest = interestRate / 100 / 12;
-        const numPayments = loanTerm;
+        const principal = homePrice * (1 - downPaymentPercentage / 100);
+        const monthlyInterestRate = interestRate / 100 / 12;
 
         const monthlyEMI =
-            monthlyInterest === 0
-                ? principal / numPayments
-                : (principal * monthlyInterest * Math.pow(1 + monthlyInterest, numPayments)) /
-                (Math.pow(1 + monthlyInterest, numPayments) - 1);
+            monthlyInterestRate === 0
+                ? principal / loanTerm
+                : (principal * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTerm)) /
+                (Math.pow(1 + monthlyInterestRate, loanTerm) - 1);
 
-        const estimatedPayment = monthlyEMI + (propertyTax / 100 * homePrice) / 12; // Add property tax
-        setMonthlyPayment(estimatedPayment.toFixed(2));
-    }, [homePrice, downPaymentPercentage, loanTerm, interestRate, propertyTax]);
+        const propertyTaxMonthly = (propertyTax / 100) * homePrice / 12;
 
+        const monthlyAppreciation =
+            (homePrice * Math.pow(1 + homeValueIncrease / 100, loanTermHomePlan / 12) - homePrice) /
+            loanTermHomePlan;
+
+        setMonthlyPayment((monthlyEMI + propertyTaxMonthly - monthlyAppreciation).toFixed(2));
+    }, [homePrice, downPaymentPercentage, loanTerm, interestRate, propertyTax, homeValueIncrease, loanTermHomePlan]);
+
+
+    // Calculate values dependent on inputs
     useEffect(() => {
         calculateEMI();
     }, [calculateEMI]);
 
-    // Data for the column chart
+    const priceOfHomeAfterAppreciation =
+        homePrice * Math.pow(1 + homeValueIncrease / 100, loanTermHomePlan / 12);
+
+    // Calculate remaining loan balance
+    const remainingBalance = useCallback(() => {
+        const principal = homePrice * (1 - downPaymentPercentage / 100);
+        const monthlyInterestRate = interestRate / 100 / 12;
+        const paymentsMade = loanTermHomePlan;
+
+        if (monthlyInterestRate === 0) {
+            return principal - (principal / loanTerm) * paymentsMade;
+        } else {
+            const balance =
+                principal *
+                (Math.pow(1 + monthlyInterestRate, loanTerm) -
+                    Math.pow(1 + monthlyInterestRate, paymentsMade)) /
+                (Math.pow(1 + monthlyInterestRate, loanTerm) - 1);
+            return balance;
+        }
+    }, [homePrice, downPaymentPercentage, interestRate, loanTerm, loanTermHomePlan]);
+
+    const equityEarned = priceOfHomeAfterAppreciation - remainingBalance();
+    const totalRentPaid = currentRent * loanTermHomePlan;
+    const totalBuyingCost = monthlyPayment * loanTermHomePlan;
+    const savings = totalRentPaid - totalBuyingCost;
+    const savingsDisplayValue = Math.abs(savings);  // Always display positive value
+
+    // Tax savings (simplified for demonstration)
+    const taxSavingsAt28Percent = monthlyPayment * loanTermHomePlan * 0.28;
+
     const chartData = [
-        { name: "Renting Payments", value: currentRent * 12, color: "#0088FE" },
-        { name: "Buying Payments", value: monthlyPayment * 12, color: "#00C49F" },
-        { name: "Savings On Buying", value: (currentRent * 12) - (monthlyPayment * 12), color: "#FFBB28" },
+        { name: "Renting Payments", value: totalRentPaid, color: "#dc143c" },
+        { name: "Buying Payments", value: totalBuyingCost, color: "#008f3e" },
+        {
+            name: "Savings On Buying",
+            value: savingsDisplayValue,
+            color: savings < 0 ? "#ffa500" : "#00c06d" // Orange for negative, green for positive
+        },
     ];
 
-    // Calculate total savings based on appreciation of home price
-    useEffect(() => {
-        const appreciationRate = homeValueIncrease / 100;
-        const futureHomePrice = homePrice * Math.pow(1 + appreciationRate, loanTermHomePlan / 12);
-        setTotalSavings(futureHomePrice - homePrice);
-    }, [homePrice, homeValueIncrease, loanTermHomePlan]);
 
     return (
         <div className="mortgageCalculatorParent">
@@ -143,9 +174,9 @@ const RVsBCalculator = () => {
                         <label>
                             Length of Loan Term: <br />
                             <select value={loanTerm} onChange={(e) => setLoanTerm(+e.target.value)}>
-                                {Array.from({ length: 39 }, (_, i) => (i + 2) * 12).map((term) => (
+                                {Array.from({ length: 40 }, (_, i) => (i + 1) * 12).map((term) => (
                                     <option key={term} value={term}>
-                                        {term} months (or) {term / 12} years
+                                        {term} months (or) {term / 12} year(s)
                                     </option>
                                 ))}
                             </select>
@@ -207,9 +238,9 @@ const RVsBCalculator = () => {
                         <label>
                             You Plan to Stay in This Home: <br />
                             <select value={loanTermHomePlan} onChange={(e) => setLoanTermHomePlan(+e.target.value)}>
-                                {Array.from({ length: 39 }, (_, i) => (i + 2) * 12).map((term) => (
+                                {Array.from({ length: 40 }, (_, i) => (i + 1) * 12).map((term) => (
                                     <option key={term} value={term}>
-                                        {term} months (or) {term / 12} years
+                                        {term} months (or) {term / 12} year(s)
                                     </option>
                                 ))}
                             </select>
@@ -315,43 +346,42 @@ const RVsBCalculator = () => {
                     </div>
 
                     <div className="rightSideBox">
-                        <div><span>Total Savings:</span> <span>${totalSavings.toFixed(2)}</span></div>
+                        <div><span>Total Savings:</span>
+                            <span>
+                                <h1>Buying:
+                                    <span style={{ color: savings < 0 ? 'red' : 'inherit' }}>     {savings < 0 ? ` $${savingsDisplayValue.toLocaleString()}` : `$${savingsDisplayValue.toLocaleString()}`}
+                                    </span>
+                                </h1>
+                            </span>
+                        </div>
 
-                        {/* <div style={{ display: "flex", justifyContent: "space-around", marginBottom: "20px" }}>
-                            <span>Renting Payments: ${currentRent * 12}</span>
-                            <span>Buying Payments: ${monthlyPayment * 12}</span>
-                            <span>Savings On Buying: ${(currentRent * 12 - monthlyPayment * 12).toFixed(2)}</span>
-                        </div> */}
 
                         <div style={{ textAlign: "center", marginTop: "20px" }}>
                             <BarChart width={500} height={300} data={chartData}>
                                 <CartesianGrid strokeDasharray="3 3" />
                                 <XAxis dataKey="name" />
                                 <YAxis />
-                                <ChartTooltip />
+                                <ChartTooltip formatter={(value) => `$${value.toLocaleString()}`} />
                                 <Legend />
-                                {/* Only use one Bar component */}
-                                <Bar dataKey="value" fill="#8884d8">
-                                    {/* Assign unique color for each entry in chartData */}
-                                    {/* {chartData.map((data, index) => (
-                                        <Bar key={index} dataKey="value" data={[data]} fill={data.color} name={data.name} />
-                                    ))} */}
+                                <Bar dataKey="value">
+                                    {chartData.map((entry, index) => (
+                                        <Cell key={`cell-${index}`} fill={entry.color} />
+                                    ))}
                                     <LabelList dataKey="value" position="middle" fill="white" formatter={(value) => `$${value.toLocaleString()}`} />
                                 </Bar>
                             </BarChart>
                         </div>
 
-
                         <div className="affordrightSideBottom RVBCrightSideBottom">
-                            <div><span>Price of Home After Appreciation:</span> <span>${monthlyPayment}</span></div>
-                            <div><span>Remaining Balance After 40 year(s):</span> <span>$4,094.08</span></div>
-                            <div><span>Equity Earned:</span> <span>$2,208,039.66</span></div>
-                            <div><span>Tax Savings (at 28%):</span> <span>$17,360.00</span></div>
-                            <div><span>Avg. Monthly Payment Over Time </span> <span>$85,226.38</span><span>$0.00</span></div>
-                            <div><span>Total Payment:</span> <span>$40,908,661.69</span><span>$0.00</span></div>
+                            <div><span><b>Result Returned</b></span><span><b>Rent</b></span><span><b>Buy</b></span></div>
+                            <div><span>Price of Home After Appreciation:</span> <span></span> <span>${priceOfHomeAfterAppreciation.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>
+                            <div><span>Remaining Balance After {loanTermHomePlan / 12} year(s):</span> <span></span> <span>${remainingBalance().toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>
+                            <div><span>Equity Earned:</span> <span></span> <span>${equityEarned.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>
+                            <div><span>Tax Savings (at 28%):</span> <span></span> <span>${(taxSavingsAt28Percent).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>
+                            <div><span>Avg. Monthly Payment Over Time </span> <span>${(totalRentPaid / loanTermHomePlan).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span><span>${(totalBuyingCost / loanTermHomePlan).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>
+                            <div><span>Total Payment:</span> <span>${totalRentPaid.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span><span>${totalBuyingCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>
                         </div>
                     </div>
-
                 </div>
                 <div className="mortgageCalculatorHeaderContent">
                     <span className="mortgageCalculatorContent">

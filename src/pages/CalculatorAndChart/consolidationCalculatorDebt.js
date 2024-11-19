@@ -25,6 +25,8 @@ const ConsolidationCalculatorDebt = () => {
     const [totalInterestRefinanced, setTotalInterestRefinanced] = useState(0);
     const [netSavings, setNetSavings] = useState(0);
 
+    const [calculateCurrentMonthlyPaymentPlan, setCalculateCurrentMonthlyPaymentPlan] = useState(0);
+
     // Calculate total current monthly payment and interest
     const calculateCurrentPlanInterest = useCallback(() => {
         const monthlyInterest1 = interestRate1 / 100 / 12;
@@ -42,41 +44,99 @@ const ConsolidationCalculatorDebt = () => {
         const totalInterest2 = currentMonthlyPayment2 * loanTerm - principalBalance2;
 
         setTotalInterestCurrent(totalInterest1 + totalInterest2);
+        setCalculateCurrentMonthlyPaymentPlan(totalInterest1 + totalInterest2);
     }, [principalBalance1, interestRate1, loanTerm, principalBalance2, interestRate2]);
 
     // Calculate refinanced plan
+    // const calculateRefinancePlan = useCallback(() => {
+    //     const totalPrincipal = principalBalance1 + principalBalance2;
+    //     const closingCostsValue =
+    //         closingCostsType === "Percentage" ? totalPrincipal * (closingCosts / 100) : closingCosts;
+
+    //     const finalPrincipal =
+    //         financeClosingCosts === "Yes" ? totalPrincipal + closingCostsValue : totalPrincipal;
+
+    //     const monthlyInterest = refinanceRate / 100 / 12;
+
+    //     const monthlyEMI =
+    //         monthlyInterest === 0
+    //             ? finalPrincipal / loanTerm
+    //             : (finalPrincipal * monthlyInterest * Math.pow(1 + monthlyInterest, loanTerm)) /
+    //             (Math.pow(1 + monthlyInterest, loanTerm) - 1);
+
+    //     const totalInterestRefinanced =
+    //         monthlyEMI * loanTerm - finalPrincipal;
+
+    //     setMonthlyPayment(monthlyEMI.toFixed(2));
+    //     setTotalInterestRefinanced(totalInterestRefinanced);
+
+    //     const monthlyDebt = monthlyDebt1 + monthlyDebt2;
+    //     const savings = monthlyDebt - monthlyEMI;
+    //     const netSavings =
+    //         totalInterestCurrent - totalInterestRefinanced - closingCostsValue;
+
+    //     setMonthlySavings(savings.toFixed(2));
+    //     setNetSavings(netSavings.toFixed(2));
+
+    //     if (savings > 0 && closingCostsValue > 0) {
+    //         setBreakEvenMonths(Math.ceil(closingCostsValue / savings));
+    //     } else {
+    //         setBreakEvenMonths(0);
+    //     }
+    // }, [
+    //     principalBalance1,
+    //     principalBalance2,
+    //     refinanceRate,
+    //     loanTerm,
+    //     financeClosingCosts,
+    //     closingCosts,
+    //     closingCostsType,
+    //     totalInterestCurrent,
+    //     monthlyDebt1,
+    //     monthlyDebt2,
+    // ]);
+
+
     const calculateRefinancePlan = useCallback(() => {
+        // Combine the principal balances for the new total principal
         const totalPrincipal = principalBalance1 + principalBalance2;
-        const closingCostsValue =
-            closingCostsType === "Percentage" ? totalPrincipal * (closingCosts / 100) : closingCosts;
 
-        const finalPrincipal =
-            financeClosingCosts === "Yes" ? totalPrincipal + closingCostsValue : totalPrincipal;
+        // Calculate closing costs based on type (Percentage or Fixed)
+        const closingCostsValue = closingCostsType === "Percentage"
+            ? totalPrincipal * (closingCosts / 100)
+            : closingCosts;
 
+        // Add financed closing costs if applicable
+        const finalPrincipal = totalPrincipal + (financeClosingCosts === "Yes" ? closingCostsValue : 0);
+
+        // Calculate the monthly interest rate
         const monthlyInterest = refinanceRate / 100 / 12;
 
-        const monthlyEMI =
-            monthlyInterest === 0
-                ? finalPrincipal / loanTerm
-                : (finalPrincipal * monthlyInterest * Math.pow(1 + monthlyInterest, loanTerm)) /
-                (Math.pow(1 + monthlyInterest, loanTerm) - 1);
+        // Calculate monthly EMI using the formula, handle the zero-interest case
+        const monthlyEMI = monthlyInterest === 0
+            ? finalPrincipal / loanTerm
+            : (finalPrincipal * monthlyInterest * Math.pow(1 + monthlyInterest, loanTerm)) /
+            (Math.pow(1 + monthlyInterest, loanTerm) - 1);
 
-        const totalInterestRefinanced =
-            monthlyEMI * loanTerm - finalPrincipal;
+        // Calculate the total interest for the refinanced plan
+        const totalInterestRefinanced = (monthlyEMI * loanTerm) - finalPrincipal;
 
-        setMonthlyPayment(monthlyEMI.toFixed(2));
-        setTotalInterestRefinanced(totalInterestRefinanced);
-
+        // Calculate combined monthly debt and savings
         const monthlyDebt = monthlyDebt1 + monthlyDebt2;
-        const savings = monthlyDebt - monthlyEMI;
-        const netSavings =
-            totalInterestCurrent - totalInterestRefinanced - closingCostsValue;
+        const monthlySavings = monthlyDebt - monthlyEMI;
 
-        setMonthlySavings(savings.toFixed(2));
+        // Calculate net savings
+        const netSavings = totalInterestCurrent - totalInterestRefinanced - closingCostsValue;
+
+        // Update states
+        setMonthlyPayment(monthlyEMI.toFixed(2));
+        setTotalInterestRefinanced(totalInterestRefinanced.toFixed(2));
+        setMonthlySavings(monthlySavings.toFixed(2));
         setNetSavings(netSavings.toFixed(2));
 
-        if (savings > 0 && closingCostsValue > 0) {
-            setBreakEvenMonths(Math.ceil(closingCostsValue / savings));
+        // Calculate break-even months
+        if (monthlySavings > 0 && closingCostsValue > 0) {
+            setBreakEvenMonths(Math.ceil(closingCostsValue / monthlySavings));
         } else {
             setBreakEvenMonths(0);
         }
@@ -92,6 +152,8 @@ const ConsolidationCalculatorDebt = () => {
         monthlyDebt1,
         monthlyDebt2,
     ]);
+
+
 
     useEffect(() => {
         calculateCurrentPlanInterest();
@@ -360,8 +422,8 @@ const ConsolidationCalculatorDebt = () => {
 
                     <div className="rightSideBox DCCrightSideBox">
                         <div className="RACrightSideDiv">
-                            <div><span>Monthly payment will be if you refinance: </span><b>{`$ ${Number(Math.round(monthlyPayment)).toLocaleString()}`} </b></div>
-                            <div><span>Your Monthly Savings will be:</span><b>{`$ ${Number(Math.round(monthlySavings)).toLocaleString()}`}</b></div>
+                            <div><span>Monthly payment will be if you refinance: </span><b>{`$ ${Number(monthlyPayment).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} </b></div>
+                            <div><span>Your Monthly Savings will be:</span><b>{`$ ${Number(monthlySavings).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</b></div>
                         </div>
 
                         {(refinanceRate > interestRate1 || refinanceRate > interestRate2) && (
@@ -379,29 +441,29 @@ const ConsolidationCalculatorDebt = () => {
                                     ))}
                                 </Pie>
                                 <Tooltip
-                                    formatter={(value, name) => [`$ ${Number(value).toLocaleString()}`, name]}
+                                    formatter={(value, name) => [`$ ${Number(Math.round(value)).toLocaleString()}`, name]}
                                     cursor={{ fill: 'rgba(255, 255, 255, 0.5)' }}
                                 />
                             </PieChart>
                         </div>
 
                         <div className="affordRightSideBottom RACrightSideBottom00">
-                            <div><span>If you refinance your current {interestRate1}% mortgage to a {interestRate2}% mortgage  into a single {refinanceRate}% mortgage, your monthly payment will decrease by {`$ ${(monthlySavings).toLocaleString()}`} and you will pay an additional $916,299.18 in interest charges over the life of the mortgage.</span></div>
+                            <div><span>If you refinance your current {interestRate1}% mortgage to a {interestRate2}% mortgage  into a single {refinanceRate}% mortgage, your monthly payment will decrease by {`$ ${(monthlySavings).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} and you will pay an additional $916,299.18 in interest charges over the life of the mortgage.</span></div>
                         </div>
 
                         <div className="affordrightSideBottom RACrightSideBottom">
-                            <div><span>This is how much your monthly payment will be if you refinance:</span> <span>{`$ ${Number(monthlyPayment).toLocaleString()}`}</span></div>
-                            <div><span>Monthly Payment Reduction:</span> <span>{`$ ${(monthlySavings).toLocaleString()}`}</span></div>
+                            <div><span>This is how much your monthly payment will be if you refinance:</span> <span>{`$ ${Number(monthlyPayment).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</span></div>
+                            <div><span>Monthly Payment Reduction:</span> <span>{`$ ${(monthlySavings).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</span></div>
                             <div><span># of months for interest savings to offset closing costs: </span> <span>{breakEvenMonths}</span></div>
-                            <div><span>This is how much interest you will pay under your current monthly payment plan:</span> <span>$ 0</span></div>
+                            <div><span>This is how much interest you will pay under your current monthly payment plan:</span> <span>{`$ ${Number(calculateCurrentMonthlyPaymentPlan).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</span></div>
                             <div><span>This is how much interest you will pay under your refinanced plan: </span>
-                                <span>{`$ ${Number(totalInterestRefinanced).toLocaleString()}`}</span>
+                                <span>{`$ ${Number(totalInterestRefinanced).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</span>
                             </div>
                             <div><span>This is how much interest you will save if you refinance:</span>
-                                <span>{`$ ${Number(netSavings).toLocaleString()}`}</span>
+                                <span>{`$ ${Number(totalInterestCurrent - totalInterestRefinanced).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</span>
                             </div>
-                            <div><span>Net Refinancing Savings: </span>
-                                <span>{`$ ${Number(netSavings).toLocaleString()}`}</span>
+                            <div><span>Net Refinancing Savings (interest savings less closing costs): </span>
+                                <span>{`$ ${Number(netSavings).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</span>
                             </div>
                         </div>
                     </div>

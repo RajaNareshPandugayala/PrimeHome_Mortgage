@@ -12,41 +12,54 @@ const AffordCalculator = () => {
     const [propertyTax, setPropertyTax] = useState(0);
     const [monthlyPayment, setMonthlyPayment] = useState(0);
     const [homePrice, setHomePrice] = useState(0);
+    const [loanAmount, setLoanAmount] = useState(0);
+
 
 
     // Wrap calculateCurrentMonthlyPaymentPlan in useCallback
     const calculateCurrentMonthlyPaymentPlan = useCallback((principal, interestRate, loanTerm) => {
+
+        // const monthlyDebtAdd500 = monthlyDebt > (grossIncome / 100) ? monthlyDebt - (grossIncome / 100) : 0;
+
         const monthlyIncome = grossIncome / 12;
-        const maxMonthlyPayment = ((monthlyIncome * 0.28) - monthlyDebt);
+        // const maxMonthlyPayment = ((monthlyIncome * 0.28) - (monthlyDebtAdd500));
+        const maxMonthlyPayment = ((monthlyIncome * 0.28) - (monthlyDebt));
         const monthlyInterestRate = interestRate / 100 / 12;
         const n = loanTerm;
+
 
         // Calculate loan amount based on maximum monthly payment
         const loanAmount = (maxMonthlyPayment) / (monthlyInterestRate / (1 - Math.pow(1 + monthlyInterestRate, -n)));
 
-        return loanAmount + downPayment; // Return home price instead of setting it directly
-    }, [grossIncome, monthlyDebt, downPayment]);
+
+        // Corrected PMI calculation (PMI should be a monthly value)
+        const monthlyPMI = (pmi / 100) * ((loanAmount));
+
+        return loanAmount + downPayment - monthlyPMI; // Return home price instead of setting it directly
+    }, [grossIncome, monthlyDebt, downPayment, pmi]);
+
 
 
 
     // Adjust calculateEMI to use calculateCurrentMonthlyPaymentPlan's return value
     const calculateEMI = useCallback(() => {
+
         const homePriceCalculated = calculateCurrentMonthlyPaymentPlan(homePrice - downPayment, interestRate, loanTerm);
         setHomePrice(homePriceCalculated); // Set the home price state
 
+
         // Calculate EMI based on the principal, rate, and term
         const principal = homePriceCalculated - downPayment;
+        setLoanAmount(principal);
         const monthlyInterestRate = interestRate / 100 / 12;
         const n = loanTerm;
         const monthlyEMI = principal * (monthlyInterestRate / (1 - Math.pow(1 + monthlyInterestRate, -n)));
 
-        // Corrected PMI calculation (PMI should be a monthly value)
-        const monthlyPMI = (pmi / 100) * principal / 12;
 
         // Additional costs included in the estimated monthly payment
-        const estimatedPayment = monthlyEMI + (propertyTax / 12) + insurance + monthlyPMI + monthlyDebt;
+        const estimatedPayment = (monthlyEMI) - (propertyTax) - insurance;
         setMonthlyPayment(estimatedPayment.toFixed(2));
-    }, [homePrice, downPayment, loanTerm, interestRate, propertyTax, insurance, pmi, monthlyDebt, calculateCurrentMonthlyPaymentPlan]);
+    }, [homePrice, downPayment, loanTerm, interestRate, propertyTax, insurance, calculateCurrentMonthlyPaymentPlan]);
 
 
     useEffect(() => {
@@ -55,7 +68,7 @@ const AffordCalculator = () => {
 
 
     const data = [
-        { name: "Loan Amount", value: homePrice - downPayment }, // Just the loan principal
+        { name: "Loan Amount", value: loanAmount }, // Just the loan principal
         { name: "Downpayment", value: downPayment },
         { name: "Monthly Payment", value: monthlyPayment },
     ];
@@ -242,7 +255,7 @@ const AffordCalculator = () => {
                             <span>Home Price: </span>
                             <input
                                 type="text"
-                                value={`$ ${Number(homePrice).toLocaleString()}`}
+                                value={`$ ${Number(homePrice.toFixed(2)).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
                                 onChange={(e) => setHomePrice(+e.target.value.replace(/[^0-9.-]+/g, ""))}
                             />
                         </label>
@@ -255,16 +268,16 @@ const AffordCalculator = () => {
                                     ))}
                                 </Pie>
                                 <Tooltip
-                                    formatter={(value, name) => [`$ ${Number(value).toLocaleString()}`, name]}
+                                    formatter={(value, name) => [`$ ${Number(Math.round(value)).toLocaleString()}`, name]}
                                     cursor={{ fill: 'rgba(255, 255, 255, 0.5)' }}
                                 />
                             </PieChart>
                         </div>
 
                         <div className="affordrightSideBottom">
-                            <div><span>Loan Amount: </span><span>${Number((homePrice - downPayment).toFixed(2)).toLocaleString()}</span></div>
-                            <div><span>Downpayment:</span><span> ${Number(downPayment.toFixed(2)).toLocaleString()}</span></div>
-                            <div><span>Monthly Payment:</span><span> ${Number(monthlyPayment).toLocaleString()}</span></div>
+                            <div><span>Loan Amount: </span><span>${Number((homePrice - downPayment).toFixed(2)).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>
+                            <div><span>Downpayment:</span><span> ${Number(downPayment.toFixed(2)).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>
+                            <div><span>Monthly Payment:</span><span> ${Number(monthlyPayment).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>
                         </div>
 
 
