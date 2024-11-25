@@ -17,8 +17,8 @@ function ContactUs() {
                     <div className='purchaseBottomLeftBox contactUsBottomLeftBox'>
                         <span className='purchaseBottomLeftHeader'>Get In Touch</span>
                         <span className='purchaseBottomLeftContent contactUsBottomLeftContent'><span>Phone: </span><span>(___) ___-____ </span></span>
-                        <span className='purchaseBottomLeftContent contactUsBottomLeftContent'><span>Email: </span><span>info@primehome.com </span></span>
-                        <span className='purchaseBottomLeftContent contactUsBottomLeftContent'><span>Address: </span><span>#### --------- ---, -------- #### <br />-------, -- #####</span></span>
+                        <a href="mailto: contact@primehomemtg.com" style={{ textDecoration: 'none' }} className='purchaseBottomLeftContent contactUsBottomLeftContent'><span>Email: </span><span>contact@primehomemtg.com</span></a>
+                        <span className='purchaseBottomLeftContent contactUsBottomLeftContent'><span>Address: </span><span>1914 JN PEASE PL CHARLOTTE, NC 28262</span></span>
 
                     </div>
                     <ContactForm />

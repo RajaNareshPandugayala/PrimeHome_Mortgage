@@ -88,8 +88,8 @@ function Home() {
             </div>
             <div className='welcomeBoxParent'>
                 <div className='welcomeBox'>
-                    <span className='welcomeHeading'>Welcome To Prime Home Mortgage, LLC</span>
-                    <span className='welcomeContent'>At Prime Home Mortgage, LLC, we treat each customer as an individual, not a number. We don't place you into a loan profile formula created by the banking industry. We use "common sense" and will help you obtain the best loan possible. We represent a wide range of "A" rated lenders with first quality rates to private "hardship" lenders.</span>
+                    <span className='welcomeHeading'>Welcome To EZY Mortgage, LLC</span>
+                    <span className='welcomeContent'>At EZY Mortgage, LLC, we treat each customer as an individual, not a number. We don't place you into a loan profile formula created by the banking industry. We use "common sense" and will help you obtain the best loan possible. We represent a wide range of "A" rated lenders with first quality rates to private "hardship" lenders.</span>
                     <span className='welcomeContent'>We work with more than 100 investors. This allows us to get you the best rates on all types of loan programs including: 30yr mortgage, 20yr mortgage, 15yr mortgage, 10yr mortgage, 1yr ARMS, 3yr ARMS, 5yr ARMS, Conventional, Jumbo, Home Equity Lines, VA and Commercial. Whether your situation calls for Full Documents, No Documents, Non-Owner Occupied (Investor) or Multi-Family, we'll fit your needs!</span>
                 </div>
             </div>
@@ -98,7 +98,7 @@ function Home() {
                     <span className='OurSatisfiedHeading'>Our Satisfied Clients</span>
                     <span className='OurSatisfiedContentBox'>
                         <span className='OurSatisfiedStars'><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></span>
-                        <span className='OurSatisfiedContent'>Awesome! Our Funding experience with Prime Home Mortgage, LLC was beyond my expectations! As a first time home-owner everything was new to me. But they had amazing communications (even though I did most of it online). And I got a better rate than my bank quoted me!</span>
+                        <span className='OurSatisfiedContent'>Awesome! Our Funding experience with EZY Mortgage, LLC was beyond my expectations! As a first time home-owner everything was new to me. But they had amazing communications (even though I did most of it online). And I got a better rate than my bank quoted me!</span>
                         <span className='OurSatisfiedNameLocation'>
                             <span className='OurSatisfiedName'>- Jill and Andrew Miles</span>
                             <span className='OurSatisfiedLocation'>Charlotte, North Carolina</span>
@@ -163,7 +163,7 @@ function Home() {
 
             <div className='advantageBoxParent'>
                 <div className='advantageBox'>
-                    <div className='advantageHeading'>The Prime Home Mortgage, LLC Advantage</div>
+                    <div className='advantageHeading'>The EZY Mortgage, LLC Advantage</div>
                     <div className='advantageContentBoxParent'>
                         <span className='advantageContentBox'>
                             <span className='advantageContentBoxSpanImage'>
@@ -199,7 +199,7 @@ function Home() {
             <div className='teamBoxParent'>
                 <div className='teamBox'>
                     <span className='teamHeading'>Meet Our Team</span>
-                    <span className='teamContent'>Our team at Prime Home Mortgage, LLC is fast, friendly, experienced and here to help you every step of the process!</span>
+                    <span className='teamContent'>Our team at EZY Mortgage, LLC is fast, friendly, experienced and here to help you every step of the process!</span>
                     <div className='teamListBoxParent'>
                         <div className='teamListBox'>
                             <span className='teamListSpanImage'>
@@ -233,14 +233,14 @@ function Home() {
             </div>
             <div className='addressBoxParent'>
                 <div className='addressBox'>
-                    <div className='addressHeading'>The Prime Home Mortgage, LLC Address</div>
+                    <div className='addressHeading'>The EZY Mortgage, LLC Address</div>
                     <div className='addressMapDetails'>
-                        <iframe title="Prime Home Mortgage, LLC Office Location" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13062.366941375181!2d-80.840049!3d35.066945000000004!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88569d1636d6aaab%3A0x3379bd4d9cbba6c5!2s3540%20Toringdon%20Way%20Suite%20200%2C%20Charlotte%2C%20NC%2028277!5e0!3m2!1sen!2sus!4v1729786536483!5m2!1sen!2sus" width="600" height="450" style={{ border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe title="EZY Mortgage, LLC Office Location" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13062.366941375181!2d-80.840049!3d35.066945000000004!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88569d1636d6aaab%3A0x3379bd4d9cbba6c5!2s3540%20Toringdon%20Way%20Suite%20200%2C%20Charlotte%2C%20NC%2028277!5e0!3m2!1sen!2sus!4v1729786536483!5m2!1sen!2sus" width="600" height="450" style={{ border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         <span className='addressDetails'>
                             <span className='addressDetailsTop'>
                                 <span className='addressDetailsTopHeading'>Contact Us:</span>
-                                <span>Email: info@primehome.com</span>
-                                <span>Phone: (###) ###-####</span>
+                                <span>Email:sri@ezymtg.com</span>
+                                <span>Phone: (513)-999-2324</span>
                                 <span>Address: #### ----------- ---, ----- ###
                                     <br />--------- ,--
                                     <br />#####</span>

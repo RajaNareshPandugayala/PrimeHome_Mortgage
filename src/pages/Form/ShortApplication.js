@@ -25,6 +25,7 @@ function ShortApplication() {
 
     });
 
+
     function updateSubjectContactUs(event) {
         event.preventDefault();
 
@@ -44,6 +45,7 @@ function ShortApplication() {
         event.target.submit();
     }
 
+
     function handleChange(event) {
         const { name, value } = event.target;
         setFormData(prevData => ({
@@ -52,12 +54,12 @@ function ShortApplication() {
         }));
     }
 
+
     return (
         <div className='quickQuoteformParent'>
             <div className='quickQuoteformBox'>
                 <h3 className='quickQuoteformheading'>Short Application</h3>
                 <form className='quickQuoteform' target="_self" action="https://formsubmit.co/rajanaresh.p@gmail.com" method="POST" onSubmit={updateSubjectContactUs}>
-
 
                     <input type="hidden" name="_subject" id="subject" value={formData.subject + formData.firstName + ' ' + formData.lastName} />
                     <input type="hidden" name="_template" value="table" />
@@ -332,7 +334,6 @@ function ShortApplication() {
                         <button type="submit" className='quickQuoteButton'>Submit</button>
                     </div>
                 </form>
-
             </div>
         </div>
     );

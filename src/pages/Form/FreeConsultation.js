@@ -46,11 +46,14 @@ function FreeConsultation() {
             <span className='purchaseBottomRightHeading'>Free Consultation</span>
             <span className='purchaseBottomRightContent'>Complete this 30 second form to receive a no obligation consultation. We will analyze your situation and determine the best solution.</span>
             <form className='purchaseBottomRightform' target="_self" action="https://formsubmit.co/rajanaresh.p@gmail.com" method="POST" onSubmit={updateSubjectContactUs}>
+                {/* <form className='purchaseBottomRightform' target="_self" action="https://script.google.com/macros/s/AKfycbwH69jhSfylGiWHGAJTvZtjoUI-BaHnBcTXwqsP7ZGCOTcZJpcCpPzksViyw8z4mXs/exec" method="POST" onSubmit={updateSubjectContactUs}> */}
 
                 <input type="hidden" name="_subject" id="subject" value={formData.subject + formData.name} />
                 <input type="hidden" name="_template" value="table" />
                 <input type="hidden" name="_next" ref={nextRef} value="https://google.com" />
                 <input type="hidden" name="_captcha" value="false" />
+                {/* <input type="hidden" name="_autoresponse" value="Thank you for your submission! Our team will contact you soon." /> */}
+
 
                 <input type='text' placeholder='NAME:' id="name"
                     name="name" value={formData.name} onChange={handleChange} autoComplete="true" required />

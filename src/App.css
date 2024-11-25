@@ -49,10 +49,9 @@ body {
   margin-top: 80px;
 }
 
-.hiddden {
+.hidden {
   display: none;
 }
-
 
 /******************************Header-Start***********************************/
 
@@ -79,7 +78,7 @@ body {
 
 .headerLogo {
   width: 200px;
-  width: 100px;
+  width: 135px;
   cursor: pointer;
 }
 
@@ -192,6 +191,10 @@ body {
   gap: 30px;
 }
 
+.footerLogo {
+  width: 80px;
+}
+
 .footerTop {
   display: flex;
   align-items: start;
@@ -243,14 +246,16 @@ body {
 }
 
 .LoanOption,
-.Resource {
+.Resource,
+.Resource Link {
   text-decoration: none;
   color: white;
   font-weight: bold;
 }
 
 .LoanOption:hover,
-.Resource:hover {
+.Resource:hover,
+.Resource Link:hover {
   text-decoration: underline;
 }
 
@@ -350,13 +355,13 @@ body {
 
 .homePageFirstImage {
   width: 100%;
-  height: 90vh;
+  height: 130vh;
   background-image: url(./PicesForPages/360_F_852468013_NdDXatTPIV8K0Q5JBixO5PkfTZ1tjJKk.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: fixed;
-  top: 80px;
+  top: -50px;
   z-index: 100;
 }
 
@@ -367,6 +372,7 @@ body {
   justify-content: center;
   color: white;
   background-color: #00000080;
+  text-shadow: 1px 1px 5px black;
   /* position: fixed; */
   /* overflow: hidden; */
   z-index: 950;
@@ -410,7 +416,7 @@ body {
   color: white;
   border: 1px solid red;
   border-radius: 0.1cm;
-  box-shadow: 0px 0px 15px 0px gray;
+  box-shadow: 0px 0px 10px 0px gray;
 }
 
 .homeHelpYouButtonLeft:hover,
@@ -649,18 +655,22 @@ body {
   justify-content: center;
   background-color: white;
   z-index: 950;
-  background-image: url(./PicesForPages/images.jpg);
+  background-image: url(./PicesForPages/Purchasing.jpg);
   background-position: center;
+  background-position-y: 70%;
   background-repeat: no-repeat;
   background-size: cover;
+  text-shadow: 1px 1px 2px black;
 }
 
 .purchasingBoxParent00 {
   background-image: url(./PicesForPages/istockphoto-1285465265-612x612.jpg);
+  background-position-y: 20%;
 }
 
 .purchasingBoxParent01 {
   background-image: url(./PicesForPages/happy-young-family-with-kids-at-home-father-mother-daughter-and-son-playing-on-the-floor-in-living-room-mom-dad-little-boy-and-girl-holding-p.jpg);
+  background-position-y: 85%;
 }
 
 .purchasingBox {
@@ -703,6 +713,7 @@ body {
   font-weight: bold;
   padding: 15px 35px;
   margin-top: 50px;
+  box-sizing: 1px 1px 0px 5px black;
 }
 
 .purchasingButton:hover {
@@ -2050,6 +2061,109 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /******************************RVBCalculator-End***********************************/
+
+/******************************ADA_Statement-Start***********************************/
+
+
+.ADA_StatementImage {
+  top: 95%;
+}
+
+/******************************ADA_Statement-End***********************************/
+
+/******************************PrivacyPolicy-Start***********************************/
+
+.PrivacyPolicyImage {
+  top: 80%;
+}
+
+/******************************PrivacyPolicy-End***********************************/
+
+/******************************RightLoanForYou-Start***********************************/
+
+.RightLoanImage {
+  top: 75%;
+}
+
+/******************************RightLoanForYou-End***********************************/
+
+/******************************LoanIsRightForYou-Start***********************************/
+
+.loanTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  color: gray;
+}
+
+.loanTable_tfoot {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: red;
+  cursor: pointer;
+}
+
+.loanTable_tfoot:hover {
+  color: #fb5959;
+  text-decoration: underline;
+}
+
+.loanTable th {
+  border-top: 1px solid #dadada;
+  color: #4e4e4e;
+}
+
+.loanTable th,
+.loanTable td {
+  border-bottom: 1px solid #dadada;
+  padding: 8px;
+  text-align: left;
+}
+
+
+.loanTable_left {
+  border-left: 1px solid #dadada;
+}
+
+
+.loanTable_right {
+  border-right: 1px solid #dadada;
+}
+
+.loanTable th {
+  background-color: #dadada;
+  font-weight: bold;
+}
+
+.loanTable_td_bgcolor {
+  background-color: #e9e9e9;
+}
+
+.loanTable ul {
+  padding-left: 15px;
+}
+
+.loanTable ul li {
+  padding: 5px 0px;
+}
+
+
+.loanTable00 th:nth-of-type(1),
+.loanTable00 td:nth-of-type(1) {
+  width: 30%;
+}
+
+.loanTable00 th:nth-of-type(2),
+.loanTable00 td:nth-of-type(2) {
+  width: 35%;
+}
+
+.loanTable00 th:nth-of-type(3),
+.loanTable00 td:nth-of-type(3) {
+  width: 35%;
+}
+
+/******************************LoanIsRightForYou-End***********************************/
 
 
 /*   width: 100%;
