@@ -350,7 +350,7 @@ function ChatBotPurchase() {
 
                     <h1 className='ChartBotFormSpanThankYou_H1Tag'>Thank You for Your Request!</h1>
                     <i class="ri-check-double-line"></i>
-                    <p className='ChartBotFormSpanThankYou_PTag'>Your inquiry has been received and we are currently reviewing your information. One of our experts will follow up shortly to provide one-on-one consultation. To speak with a mortgage expert immediately, call (513)-999-2324 Our Experts Are Standing By and Look Forward to Speaking with You!</p>
+                    <p className='ChartBotFormSpanThankYou_PTag'>Your inquiry has been received and we are currently reviewing your information. One of our experts will follow up shortly to provide one-on-one consultation. To speak with a mortgage expert immediately, call (###)-###-#### Our Experts Are Standing By and Look Forward to Speaking with You!</p>
                 </span>
             </form>
         </div>
