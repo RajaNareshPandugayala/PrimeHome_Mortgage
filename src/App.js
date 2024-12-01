@@ -28,7 +28,11 @@ import AdaAccessibilityStatement from './pages/adaAccessibilityStatement/ada-acc
 import PrivacyPolicyStatement from './pages/PrivacyStatement/privacy-policy';
 import TestimonialsReview from './pages/TestimonialReview/testimonials';
 import RightLoanForYou from './pages/WhichLoanIsRightForYou/which-loan-is-right-for-me';
-
+import TappingYourEquityAfterRateCuts from './pages/blogPages/TappingYourEquityAfterRateCuts/tapping_your_equity_after_rate_cuts';
+import FederalReserveRateCuts from './pages/blogPages/FederalReserveRateCuts/federal_reserve_rate_cuts';
+import RefiIntoA15YearMortgage from './pages/blogPages/RefiIntoA15YearMortgage/refi_into_a_15_year_mortgage';
+import HowTheFedAffectsMortgageRates from './pages/blogPages/HowTheFedAffectsMortgageRates/how_the_fed_affects_mortgage_rates';
+import WhatIsAZombieMortgage from './pages/blogPages/WhatIsAZombieMortgage/what_is_a_zombie_mortgage';
 
 
 // import Login from "./pages/Login";
@@ -68,6 +72,12 @@ function App() {
           <Route path="/which-loan-is-right-for-me" element={<RightLoanForYou />} />
           <Route path="/ada-accessibility-statement" element={<AdaAccessibilityStatement />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyStatement />} />
+          <Route path="/tapping_your_equity_after_rate_cuts" element={<TappingYourEquityAfterRateCuts />} />
+          <Route path="/federal_reserve_rate_cuts" element={<FederalReserveRateCuts />} />
+          <Route path="/refi_into_a_15_year_mortgage" element={<RefiIntoA15YearMortgage />} />
+          <Route path="/how_the_fed_affects_mortgage_rates" element={<HowTheFedAffectsMortgageRates />} />
+          <Route path="/what_is_a_zombie_mortgage" element={<WhatIsAZombieMortgage />} />
+
         </Routes>
         <Footer />
       </BrowserRouter>
