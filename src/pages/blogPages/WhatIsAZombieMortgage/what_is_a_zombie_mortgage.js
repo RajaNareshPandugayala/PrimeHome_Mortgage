@@ -1,10 +1,10 @@
 import React from 'react'
-import PostImage08 from '../../../PicesForPages/34506_zombie_mortgage.jpg';
+import PostImage08 from '../../../PicesForPages/34505_zombie_mortgage.jpg';
 
 import { Link } from 'react-router-dom'
 
 
-function howTheFedAffectsMortgageRates() {
+function whatIsAZombieMortgage() {
     return (
         <div className='blogPagesParent'>
             <div className='blogPagesBox'>
@@ -45,4 +45,4 @@ function howTheFedAffectsMortgageRates() {
     )
 }
 
-export default howTheFedAffectsMortgageRates;
+export default whatIsAZombieMortgage;

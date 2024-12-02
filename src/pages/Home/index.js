@@ -26,15 +26,26 @@ import MortgageCalculator from '../CalculatorAndChart/mortgageCalculator';
 import ChatBotPurchase from '../Form/ChatBotPurchase';
 import ChatBotRefinance from '../Form//ChatBotRefinance';
 
+import { Link } from 'react-router-dom';
+import HomePageMonthlyPayment from '../CalculatorAndChart/homePageMonthlyPayment';
+
 
 
 function Home() {
     const texts = useMemo(() => [
-        "Lower Your Payment",
-        "Lower Your Rate",
-        "Get Your First Home",
-        "Get Your Dream Home",
-        "Get Cash Out"
+        // "Lower Your Payment",
+        // "Lower Your Rate",
+        // "Get Your First Home",
+        // "Get Your Dream Home",
+        // "Get Cash Out",
+        "Let’s Partner Up to Secure Your Ideal Home Loan.",
+        "Together, We’ll Find the Best Mortgage Solution for You.",
+        "Let’s Join Forces to Make Your Homeownership Dream a Reality.",
+        "Together, We’ll Achieve the Best Rate and Terms for Your Home Loan.",
+        "Let’s Collaborate to Unlock the Perfect Mortgage for You.",
+        "Working Hand in Hand to Reach Your Home Financing Goals.",
+        "Let’s Team Up to Secure the Best Deal for Your Future Home.",
+        "Together, We’ll Navigate the Path to Your Dream Home Loan."
     ], []);
 
     const [currentText, setCurrentText] = useState("");
@@ -77,13 +88,13 @@ function Home() {
                     {activeChatBot === null && (
                         <>
                             <span className='homeHelpYouHeading'>
-                                <span className='homeHelpYouHeadingLeft'>Let's Help You... </span>
+                                <span className='homeHelpYouHeadingLeft'>Let's Help You... </span><br />
                                 <span className='homeHelpYouHeadingRight'>
                                     <span className="typingText">{currentText}</span>
                                 </span>
                             </span>
                             <span className='homeHelpYouContent'>
-                                Whatever your goals are, we are here to help! <br />Click our prequalifier to get started!
+                                Your Dream Home, Your Best Deal – Prime Home Mortgage Makes It Happen! <br />Click our prequalifier to get started!
                             </span>
                             <span className='homeHelpYouButton'>
                                 <button
@@ -98,6 +109,8 @@ function Home() {
                                 >
                                     Refinance
                                 </button>
+                                <Link to='/what-will-my-monthly-payment-be-calculator' className='homeHelpYouButtonMP_Link'>
+                                    Monthly Payment</Link>
                             </span>
                         </>
                     )}
@@ -120,8 +133,19 @@ function Home() {
             <div className='welcomeBoxParent'>
                 <div className='welcomeBox'>
                     <span className='welcomeHeading'>Welcome To Prime Home Mortgage, LLC</span>
-                    <span className='welcomeContent'>At Prime Home Mortgage, LLC, we treat each customer as an individual, not a number. We don't place you into a loan profile formula created by the banking industry. We use "common sense" and will help you obtain the best loan possible. We represent a wide range of "A" rated lenders with first quality rates to private "hardship" lenders.</span>
-                    <span className='welcomeContent'>We work with more than 100 investors. This allows us to get you the best rates on all types of loan programs including: 30yr mortgage, 20yr mortgage, 15yr mortgage, 10yr mortgage, 1yr ARMS, 3yr ARMS, 5yr ARMS, Conventional, Jumbo, Home Equity Lines, VA and Commercial. Whether your situation calls for Full Documents, No Documents, Non-Owner Occupied (Investor) or Multi-Family, we'll fit your needs!</span>
+                    {/* <span className='welcomeContent'>At Prime Home Mortgage, LLC, we treat each customer as an individual, not a number. We don't place you into a loan profile formula created by the banking industry. We use "common sense" and will help you obtain the best loan possible. We represent a wide range of "A" rated lenders with first quality rates to private "hardship" lenders.</span>
+                    <span className='welcomeContent'>We work with more than 100 investors. This allows us to get you the best rates on all types of loan programs including: 30yr mortgage, 20yr mortgage, 15yr mortgage, 10yr mortgage, 1yr ARMS, 3yr ARMS, 5yr ARMS, Conventional, Jumbo, Home Equity Lines, VA and Commercial. Whether your situation calls for Full Documents, No Documents, Non-Owner Occupied (Investor) or Multi-Family, we'll fit your needs!</span> */}
+                    <span>
+                        At Prime Home Mortgage, we believe in putting you first. Our mission is simple: to provide you with the best mortgage options tailored to your unique needs. Whether you're buying your first home, refinancing, or seeking other home loan solutions, our team is committed to offering you the best rates and clear, honest guidance.
+                        <br /><br />
+                        We’re here to make your home financing experience easy, transparent, and worry-free. Let’s get started on the path to your dream home today!
+                        <br /><br />
+                        At Prime Home Mortgage Incorporated, we understand that finding the right home loan is a big decision. That’s why we offer a range of options to help you finance or refinance your home with ease. We take the time to compare the top lenders in the industry, ensuring we find the one that best fits your needs and goals. We're here to guide you every step of the way, making the process as smooth and stress-free as possible.
+                        <br /><br />
+                        At Prime Home Mortgage Incorporated, we truly understand that buying or refinancing a home is a life-changing experience. That’s why we offer a wide variety of home loan options, designed to fit your unique needs and financial situation. We take the time to carefully compare top lenders, ensuring we find the best match for your goals, whether you're purchasing your first home or refinancing your current one. Our team is dedicated to supporting you every step of the way, providing expert guidance and personalized care to make the process as simple, stress-free, and rewarding as possible. Your dreams are our priority, and we’re here to help you make them a reality.
+                        <br /><br />
+                        At Prime Home Mortgage, we prioritize your needs by offering a wide range of affordable, flexible home loan options. Whether you're buying your first home or refinancing, our dedicated team is here to provide clear, honest guidance and the best rates. We carefully compare top lenders to find the perfect fit for your unique situation, ensuring a smooth, stress-free experience. Your dreams are important to us, and we’re committed to helping you achieve them with ease and confidence. Let us make your home financing journey simple and worry-free.
+                    </span>
                 </div>
             </div>
             <div className='OurSatisfiedBoxParent'>
@@ -445,80 +469,7 @@ function Home() {
                     <div></div>
                 </div>
             </div>
-            {/* <div className='calculateBoxParent'>
-                <div className='calculateBox'>
-                    <span className='calculateHeading'>Calculate Monthly Payment*</span>
-                    <div className='calculateContentBox'>
-                        <span>
-                            <img src={calcSmall} alt='calcSmall' />
-                        </span>
-                        <form name="calcForm" class="pform novalidation"
-                            data-widget-rates-calc="">
-                            <table class="mpc table table-responsive" cellspacing="0" cellpadding="0"
-                                border="0">
-                                <thead>
-                                    <tr class="ths">
-                                        <th>Term</th>
-                                        <th>Rate</th>
-                                        <th>Apr</th>
-                                        <th>Payment</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    <tr>
-                                        <td>30 Yr Fxd</td>
-                                        <td>6.196%</td>
-                                        <td>6.272%</td>
-                                        <td class="result">
-                                            <div id="result_0"></div>
-                                            <input type="hidden" name="rateTerm_0" value="30" />
-                                            <input type="hidden" name="rateType_0" value="1" />
-                                            <input type="hidden" name="rate_0" value="6.196" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>30 Yr Fxd FHA</td>
-                                        <td>5.458%</td>
-                                        <td>6.551%</td>
-                                        <td class="result">
-                                            <div id="result_1"></div>
-                                            <input type="hidden" name="rateTerm_1" value="30" />
-                                            <input type="hidden" name="rateType_1" value="1" />
-                                            <input type="hidden" name="rate_1" value="5.458" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>15 Yr Fxd</td>
-                                        <td>5.521%</td>
-                                        <td>5.649%</td>
-                                        <td class="result">
-                                            <div id="result_2"></div>
-                                            <input type="hidden" name="rateTerm_2" value="15" />
-                                            <input type="hidden" name="rateType_2" value="1" />
-                                            <input type="hidden" name="rate_2" value="5.521" />
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="inputRow" colspan="4">
-                                            <label for="loanAmt_rc">Loan Amount</label>
-                                            <input type="text" class="form-control" id="loanAmt_rc"
-                                                name="loanAmt" value="" />
-                                            <a class="btn colored calculate submit button_subscribe"
-                                                href="/">Calculate</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <input type="hidden" name="numRates" value="3" />
-                        </form>
-
-                        <span>*=This is only an estimate, provided for illustrative purposes only. Actual rates and payments may vary. It does not constitute a quote.</span>
-                    </div>
-                </div>
-            </div> */}
+            <HomePageMonthlyPayment />
         </div >
     );
 };

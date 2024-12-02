@@ -78,7 +78,7 @@ body {
 
 .headerLogo {
   width: 200px;
-  width: 150px;
+  width: 130px;
   cursor: pointer;
 }
 
@@ -358,12 +358,12 @@ body {
 .homePageFirstImage {
   width: 100%;
   height: 130vh;
-  background-image: url(./PicesForPages/360_F_852468013_NdDXatTPIV8K0Q5JBixO5PkfTZ1tjJKk.jpg);
+  background-image: url(./PicesForPages/360_F_852468013_NdDXatTPIV8K0Q5JBixO5PkfTZ1tjJKkHome.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: fixed;
-  bottom: -130px;
+  bottom: -150px;
   z-index: 100;
 }
 
@@ -373,7 +373,7 @@ body {
   align-items: center;
   justify-content: center;
   color: white;
-  background-color: #00000080;
+  background-color: #18181880;
   text-shadow: 1px 1px 3px black;
   /* position: fixed; */
   /* overflow: hidden; */
@@ -381,7 +381,7 @@ body {
 }
 
 .homeHelpYouBox {
-  width: 900px;
+  width: 1000px;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -391,13 +391,48 @@ body {
   font-family: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+
+
+
+
 .homeHelpYouHeading {
   font-size: 44px;
   font-weight: bold;
 }
 
-.homeHelpYouContent {
+.homeHelpYouHeading span:nth-of-type(2) {
   font-size: 30px;
+  font-weight: bold;
+}
+
+
+.typingText {
+  /* display: inline-block; */
+  /* padding-right: 5px; */
+  overflow: hidden;
+  /* white-space: nowrap; */
+  border-right: 5px solid white;
+  animation: blinkCursor 10s step-end infinite;
+}
+
+@keyframes blinkCursor {
+
+  0%,
+  100% {
+    border-color: white;
+  }
+
+  50% {
+    border-color: white;
+  }
+}
+
+
+
+
+
+.homeHelpYouContent {
+  font-size: 24px;
 }
 
 .homeHelpYouButton {
@@ -418,8 +453,11 @@ body {
   padding-top: 50px;
 }
 
+
 .homeHelpYouButtonLeft,
-.homeHelpYouButtonRight {
+.homeHelpYouButtonRight,
+.homeHelpYouButtonMP_Link {
+  text-decoration: none;
   padding: 15px 80px;
   font-size: 24px;
   font-weight: bold;
@@ -431,7 +469,8 @@ body {
 }
 
 .homeHelpYouButtonLeft:hover,
-.homeHelpYouButtonRight:hover {
+.homeHelpYouButtonRight:hover,
+.homeHelpYouButtonMP_Link:hover {
   background-color: white;
   color: red;
   border: 1px solid white;
@@ -439,6 +478,9 @@ body {
   cursor: pointer;
   text-shadow: 1px 1px 1px black;
 }
+
+
+
 
 
 /******************************Home ChartBot-Start***********************************/
@@ -1510,40 +1552,128 @@ input[type="range"]::-moz-range-thumb {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-.typingText {
-  /* display: inline-block; */
-  /* padding-right: 5px; */
-  overflow: hidden;
-  /* white-space: nowrap; */
-  border-right: 5px solid white;
-  animation: blinkCursor 10s step-end infinite;
+.calculator {
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
-@keyframes blinkCursor {
-
-  0%,
-  100% {
-    border-color: white;
-  }
-
-  50% {
-    border-color: white;
-  }
+.calculateContentBox {
+  display: flex;
+  gap: 50px;
 }
 
+.calcSmallImage {
+  width: 500px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 5px 0px gray;
+}
+
+.calculatorLeftSide {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.calculatorInputText {
+  font-size: 18px;
+  font-weight: bold;
+  color: #0056b3;
+}
+
+.calculatorInput {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #d6d6d6;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+.calculatorButton {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.calculatorButton:hover {
+  background: #0056b3;
+}
+
+
+
+.calculatorPara {
+  font-size: 14px;
+}
+
+
+.mpc.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  text-align: left;
+}
+
+.mpc.table th,
+.mpc.table td {
+  padding: 7px;
+  border: 1px solid #ddd;
+}
+
+.mpc.table th {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.mpc.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.mpc.table tbody tr:hover {
+  background-color: #ddd;
+}
+
+.mpc.table td {
+  text-align: center;
+  color: #333;
+}
+
+.mpc.table tbody tr td:nth-child(4) {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.mpc.table caption {
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+}
+
+@media screen and (max-width: 768px) {
+  .mpc.table {
+    font-size: 12px;
+  }
+
+  .mpc.table th,
+  .mpc.table td {
+    padding: 8px;
+  }
+}
 
 
 /******************************Home-End***********************************/
