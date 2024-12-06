@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import GlossaryTerms from '../../PicesForPages/GlossaryOfMortgageTerms.png';
 import FreeConsultation from '../Form/FreeConsultation';
+import { Link } from 'react-router-dom';
 
 function GlossaryOfMortgageTerms() {
     // Create references for each alphabet section
@@ -707,7 +708,7 @@ function GlossaryOfMortgageTerms() {
 
 
                         <div className='purchaseBottomLeftButton'>
-                            <span>APPLY NOW!</span>
+                            <Link to='#' className='purchaseBottomLeftButtonLink'>APPLY NOW!</Link>
                         </div>
                     </div>
                     <FreeConsultation />

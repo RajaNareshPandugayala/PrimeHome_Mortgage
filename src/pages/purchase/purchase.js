@@ -42,7 +42,7 @@ function purchase() {
                             </li>
                         </ul>
                         <div className='purchaseBottomLeftButton'>
-                            <span>APPLY NOW!</span>
+                            <Link to='#' className='purchaseBottomLeftButtonLink'>APPLY NOW!</Link>
                         </div>
                     </div>
                     <FreeConsultation />

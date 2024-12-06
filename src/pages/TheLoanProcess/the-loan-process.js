@@ -1,6 +1,7 @@
 import React from 'react';
 import theLoanProcess from '../../PicesForPages/TheLoanProcess.jpg';
 import FreeConsultation from '../Form/FreeConsultation';
+import { Link } from 'react-router-dom';
 
 function TheLoanProcess() {
     return (
@@ -34,7 +35,7 @@ function TheLoanProcess() {
                         <span className='purchaseBottomLeftContent'>The closing will occur after all conditions are cleared and the lender issues a full loan approval. At the closing, the lender "funds" the loan with a cashier's check, draft or wire to the closing agent, who disburses funds, in exchange for the title transfer to the property. This is the point at which you finish the loan process and actually refinance or buy the house, subject to the lender's loan. Closings occur at different places in different states. For instance, some states require that the closing take place at a closing attorney's office, while others use a title or escrow company. You may also be able to close at your home.</span>
 
                         <div className='purchaseBottomLeftButton'>
-                            <span>APPLY NOW!</span>
+                            <Link to='#' className='purchaseBottomLeftButtonLink'>APPLY NOW!</Link>
                         </div>
                     </div>
                     <FreeConsultation />

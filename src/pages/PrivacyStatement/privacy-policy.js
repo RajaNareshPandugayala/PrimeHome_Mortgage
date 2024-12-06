@@ -1,6 +1,7 @@
 import React from 'react';
 import PrivacyPolicy from '../../PicesForPages/PrivacyPolicy.jpg';
 import FreeConsultation from '../Form/FreeConsultation';
+import { Link } from 'react-router-dom';
 
 function PrivacyPolicyStatement() {
     return (
@@ -43,7 +44,7 @@ function PrivacyPolicyStatement() {
 
 
                         <div className='purchaseBottomLeftButton'>
-                            <span>APPLY NOW!</span>
+                            <Link to='#' className='purchaseBottomLeftButtonLink'>APPLY NOW!</Link>
                         </div>
                     </div>
                     <FreeConsultation />

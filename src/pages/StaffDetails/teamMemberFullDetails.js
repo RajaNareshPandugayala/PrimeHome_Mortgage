@@ -108,7 +108,7 @@ function TeamMemberFullDetails() {
                 <div className='purchaseBottomBox'>
                     <div className='purchaseBottomLeftBox'>
                         <div className='purchaseBottomLeftButton'>
-                            <a href='https://ezymtg.my1003app.com/' className='purchaseBottomLeftButtonLink'>Apply Now</a>
+                            <span className='purchaseBottomLeftButtonLink'>Apply Now</span>
                             <span className='purchaseBottomLeftButtonLink00' onClick={(e) => { e.preventDefault(); setIsFreeQuoteVisible(true); }} >Free Quote</span>
                         </div>
 

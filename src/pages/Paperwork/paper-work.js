@@ -1,6 +1,7 @@
 import React from 'react';
 import PaperWorkNeeded from '../../PicesForPages/PaperWorkNeeded.png';
 import FreeConsultation from '../Form/FreeConsultation';
+import { Link } from 'react-router-dom';
 
 function PaperWork() {
     return (
@@ -28,7 +29,7 @@ function PaperWork() {
                             <li>Homeowner's association information with contact information if property is a condo or part of a homeowner's association</li>
                         </ul>
                         <div className='purchaseBottomLeftButton'>
-                            <span>APPLY NOW!</span>
+                            <Link to='#' className='purchaseBottomLeftButtonLink'>APPLY NOW!</Link>
                         </div>
                     </div>
                     <FreeConsultation />

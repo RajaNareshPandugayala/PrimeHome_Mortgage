@@ -1,6 +1,7 @@
 import React from 'react';
 import COR from '../../PicesForPages/CashOutRefinance.jpg';
 import FreeConsultation from '../Form/FreeConsultation';
+import { Link } from 'react-router-dom';
 
 function CashOutRefinance() {
     return (
@@ -25,7 +26,7 @@ function CashOutRefinance() {
                         <span className='purchaseBottomLeftContent'>If you are looking for this type of refinancing, Prime Home Mortgage, LLC can find a program suited to your financial needs. We offer cash-out programs for Owner-occupied homes and Non-owner occupied homes, with low, affordable rates.</span>
 
                         <div className='purchaseBottomLeftButton'>
-                            <span>APPLY NOW!</span>
+                            <Link to='#' className='purchaseBottomLeftButtonLink'>APPLY NOW!</Link>
                         </div>
                     </div>
                     <FreeConsultation />

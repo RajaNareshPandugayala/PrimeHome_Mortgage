@@ -19,7 +19,7 @@ function Header() {
                             {/* <li>How Much Can I Afford?</li> */}
                             <li><Link to="/what-will-my-monthly-payment-be-calculator">What Will My Monthly Payment Be</Link></li>
                             <li><Link to="/quick-quote">Quick Quote</Link></li>
-                            <li>Apply Now</li>
+                            <li><Link to='#' >ApplyNow</Link></li>
                             <li><Link to="/fha">FHA Loans</Link></li>
                             <li><Link to="/va-loans">VA Loans</Link></li>
                         </span>
@@ -31,7 +31,7 @@ function Header() {
                             <li><Link to="/cash-out-refinance">Cash Out Refinance</Link></li>
                             <li><Link to="/refinance-analysis-calculator">Refinance Analysis</Link></li>
                             <li><Link to="/quick-quote">Quick Quote</Link></li>
-                            <li>Apply Now</li>
+                            <li><Link to='#' >ApplyNow</Link></li>
                             <li><Link to="/fha-va-streamline">FHA / VA Streamline Refinancing</Link></li>
                         </span>
                     </ul>
@@ -52,7 +52,7 @@ function Header() {
                     <ul className='headerMenuUI'>
                         <span className='headerMenuUI_Header'>Contact &#x025BF;</span>
                         <span className='headerMenuUI_LI'>
-                            <li>Apply Now</li>
+                            <li><Link to='#' >ApplyNow</Link></li>
                             <li><Link to="/about-us">About Us</Link></li>
                             <li><Link to="/our-staff">Meet Our Team</Link></li>
                             <li><Link to="/contact-us">Contact Us</Link></li>

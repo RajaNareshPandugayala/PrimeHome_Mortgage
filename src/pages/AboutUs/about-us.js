@@ -1,6 +1,7 @@
 import React from 'react';
 import aboutUs from '../../PicesForPages/AboutUs.jpg';
 import FreeConsultation from '../Form/FreeConsultation';
+import { Link } from 'react-router-dom';
 
 function AboutUs() {
     return (
@@ -22,7 +23,7 @@ function AboutUs() {
                         <br />
                         <br />
                         <div className='purchaseBottomLeftButton'>
-                            <span>APPLY NOW!</span>
+                            <Link to='#' className='purchaseBottomLeftButtonLink'>APPLY NOW!</Link>
                         </div>
                     </div>
                     <FreeConsultation />

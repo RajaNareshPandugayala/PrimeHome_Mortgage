@@ -1,6 +1,7 @@
 import React from 'react';
 import ADA_Statement from '../../PicesForPages/ADA_Statement.jpg';
 import FreeConsultation from '../Form/FreeConsultation';
+import { Link } from 'react-router-dom';
 
 function AdaAccessibilityStatement() {
     return (
@@ -21,7 +22,7 @@ function AdaAccessibilityStatement() {
                         <span className='purchaseBottomLeftContent'>In the event a page cannot be made accessible, we will work with you to make a text version of the content available.</span>
 
                         <div className='purchaseBottomLeftButton'>
-                            <span>APPLY NOW!</span>
+                            <Link to='#' className='purchaseBottomLeftButtonLink'>APPLY NOW!</Link>
                         </div>
                     </div>
                     <FreeConsultation />

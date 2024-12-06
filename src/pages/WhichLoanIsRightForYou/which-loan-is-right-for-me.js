@@ -1,6 +1,7 @@
 import React from 'react';
 import RightLoan from '../../PicesForPages/WhichLoanisRightForYou.jpg';
 import FreeConsultation from '../Form/FreeConsultation';
+import { Link } from 'react-router-dom';
 
 function RightLoanForYou() {
     return (
@@ -310,7 +311,7 @@ function RightLoanForYou() {
                         </span>
 
                         <div className='purchaseBottomLeftButton'>
-                            <span>APPLY NOW!</span>
+                            <Link to='#' className='purchaseBottomLeftButtonLink'>APPLY NOW!</Link>
                         </div>
                     </div>
                     <FreeConsultation />

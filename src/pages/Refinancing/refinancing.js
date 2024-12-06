@@ -1,6 +1,7 @@
 import React from 'react';
 import RFamily from '../../PicesForPages/Refinancing_family.jpg';
 import FreeConsultation from '../Form/FreeConsultation';
+import { Link } from 'react-router-dom';
 
 function Refinancing() {
     return (
@@ -36,7 +37,7 @@ function Refinancing() {
                         </ul>
 
                         <div className='purchaseBottomLeftButton'>
-                            <span>APPLY NOW!</span>
+                            <Link to='#' className='purchaseBottomLeftButtonLink'>APPLY NOW!</Link>
                         </div>
                     </div>
                     <FreeConsultation />

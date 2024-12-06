@@ -54,7 +54,7 @@ function Footer() {
                         <span className='footerTopDivContent footerTopDivContent00'>
                             <Link to="/contact-us" className="Resource Resource01">Contact Us</Link>
                             <Link to="quick-quote" className="Resource Resource02">Get A Quote</Link>
-                            <Link className="Resource Resource04">Apply Online</Link>
+                            <Link to='#' className="Resource Resource04">Apply Online</Link>
                             <Link to="/testimonials" className="Resource Resource05">Reviews</Link>
                             <Link to="https://www.nmlsconsumeraccess.org/" target='_blank' className="Resource Resource06">NMLS Consumer Access</Link>
                             <Link to="/ada-accessibility-statement" className="Resource Resource07">ADA Accessibility Statement</Link>

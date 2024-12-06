@@ -1,6 +1,7 @@
 import React from 'react';
 import VAFamily from '../../PicesForPages/VA_family.jpg';
 import FreeConsultation from '../Form/FreeConsultation';
+import { Link } from 'react-router-dom';
 
 function VALoans() {
     return (
@@ -44,7 +45,7 @@ function VALoans() {
                         <span className='purchaseBottomLeftContent'>VA mortgage loans have built in features allowing a loan to be refinanced to a lower interest rate without all of the criteria normally associated with a conventional loan. This is called an Interest Rate Reduction Loan; the veteran can secure a lower interest rate without any credit checks, appraisal, and income or asset verification and can roll the costs of the transaction into the loan so there are no out of pocket costs.</span>
 
                         <div className='purchaseBottomLeftButton'>
-                            <span>APPLY NOW!</span>
+                            <Link to='#' className='purchaseBottomLeftButtonLink'>APPLY NOW!</Link>
                         </div>
                     </div>
                     <FreeConsultation />

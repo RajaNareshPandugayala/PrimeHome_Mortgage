@@ -1,6 +1,7 @@
 import React from 'react';
 import FHAFamily from '../../PicesForPages/FHA_family2.png';
 import FreeConsultation from '../Form/FreeConsultation';
+import { Link } from 'react-router-dom';
 
 function FHA() {
     return (
@@ -48,7 +49,7 @@ function FHA() {
                         <span className='purchaseBottomLeftContent'>FHA allows the borrower to get the funds necessary to close from several sources. They include such areas as personal savings, gifts, grants, loans from retirement accounts and seller contributions.</span>
 
                         <div className='purchaseBottomLeftButton'>
-                            <span>APPLY NOW!</span>
+                            <Link to='#' className='purchaseBottomLeftButtonLink'>APPLY NOW!</Link>
                         </div>
                     </div>
                     <FreeConsultation />

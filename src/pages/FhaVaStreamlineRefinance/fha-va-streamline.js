@@ -1,6 +1,7 @@
 import React from 'react';
 import RFamily from '../../PicesForPages/FHAVAStreamline.jpg';
 import FreeConsultation from '../Form/FreeConsultation';
+import { Link } from 'react-router-dom';
 
 function FhaVaStreamline() {
     return (
@@ -31,7 +32,7 @@ function FhaVaStreamline() {
                         <span className='purchaseBottomLeftContent'>This type of refinance is similar to the FHA Streamline Program. A minimal amount of documentation is needed. If you're a Veteran, we also have special purchase programs just for you.</span>
 
                         <div className='purchaseBottomLeftButton'>
-                            <span>APPLY NOW!</span>
+                            <Link to='#' className='purchaseBottomLeftButtonLink'>APPLY NOW!</Link>
                         </div>
                     </div>
                     <FreeConsultation />
