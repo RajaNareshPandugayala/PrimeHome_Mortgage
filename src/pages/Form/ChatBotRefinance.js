@@ -76,27 +76,42 @@ function ChatBotRefinance() {
 
     // const handleLabelClick = () => handleNextStep();
 
-    const handleSubmit = (event) => {
+    function handleSubmit(event) {
         event.preventDefault();
 
-        const scriptURL = "https://script.google.com/macros/s/AKfycbzmTDxZmTwflBcxWQdgemj8t_z3W1sJOVYl7vHZN0VddYyLvGcD6R0FDzSZSDxuD4M/exec";
+        const formElement = event.target;
+        formElement.classList.add('submitting'); // Add loading class
 
+        // Build the form data object
         const data = new FormData();
         for (const key in formData) {
             data.append(key, formData[key]);
         }
 
-        fetch(scriptURL, { method: 'POST', body: data })
-            .then(response => {
+        const scriptURL = "https://script.google.com/macros/s/AKfycbzmTDxZmTwflBcxWQdgemj8t_z3W1sJOVYl7vHZN0VddYyLvGcD6R0FDzSZSDxuD4M/exec"; // Replace with your Web App URL
+
+        // Submit the form data to Google Apps Script
+        fetch(scriptURL, {
+            method: 'POST',
+            body: data,
+        })
+            .then((response) => {
                 if (response.ok) {
-                    alert("Your application has been received successfully!, and an email has been sent!");
+                    alert("Your application has been received successfully, and an email has been sent!");
+                    window.location.reload();
                 } else {
-                    alert("There was a problem submitting your application.");
+                    alert("There was a problem submitting your application. Please try again.");
                 }
             })
-            .catch(error => alert("Error submitting form!"));
+            .catch((error) => {
+                console.error("Error!", error.message);
+                alert("An error occurred while submitting your application.");
+            })
+            .finally(() => {
+                formElement.classList.remove('submitting'); // Remove loading class
+            });
+    }
 
-    };
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -372,7 +387,7 @@ function ChatBotRefinance() {
 
                     <h1 className='ChartBotFormSpanThankYou_H1Tag'>Thank You for Your Request!</h1>
                     <i class="ri-check-double-line"></i>
-                    <p className='ChartBotFormSpanThankYou_PTag'>Your inquiry has been received and we are currently reviewing your information. One of our experts will follow up shortly to provide one-on-one consultation. To speak with a mortgage expert immediately, call (###)-###-#### Our Experts Are Standing By and Look Forward to Speaking with You!</p>
+                    <p className='ChartBotFormSpanThankYou_PTag'>Your inquiry has been received and we are currently reviewing your information. One of our experts will follow up shortly to provide one-on-one consultation. To speak with a mortgage expert immediately, call (513)-999-2324 Our Experts Are Standing By and Look Forward to Speaking with You!</p>
                 </span>
             </form>
         </div>

@@ -35,8 +35,12 @@ function FreeReports() {
         }));
     }, []);
 
+
     function updateSubjectContactUs(event) {
         event.preventDefault();
+
+        const formElement = event.target;
+        formElement.classList.add('submitting'); // Add loading class
 
         // Build the form data object
         const data = new FormData();
@@ -44,7 +48,7 @@ function FreeReports() {
             data.append(key, formData[key]);
         }
 
-        const scriptURL = "https://script.google.com/macros/s/AKfycbw-pGTMPpR905BDBNFSar9gJq3A9YSitBzlO-AC7SXkYpkXbt74DqB164lQkloFhbRy/exec"; // Replace with your Web App URL
+        const scriptURL = "https://script.google.com/macros/s/AKfycbxE_oIj65RWWpeRO389-YVtEOMuh_FcNWykZodT29AxFLz7BTqIs78wF69Az0HtKm5f/exec"; // Replace with your Web App URL
 
         // Submit the form data to Google Apps Script
         fetch(scriptURL, {
@@ -62,24 +66,10 @@ function FreeReports() {
             .catch((error) => {
                 console.error("Error!", error.message);
                 alert("An error occurred while submitting your application.");
+            })
+            .finally(() => {
+                formElement.classList.remove('submitting'); // Remove loading class
             });
-
-        // event.preventDefault();
-
-        // const { name } = formData;
-
-        // setFormData(prevData => ({
-        //     ...prevData,
-        //     subject: `Short Application: ${name}`
-        // }));
-
-        // alert("Your request has been sent successfully!");
-
-        // const currentUrl = window.location.href;
-        // nextRef.current.value = currentUrl;
-
-        // // Submit form manually if desired
-        // event.target.submit();
     }
 
 

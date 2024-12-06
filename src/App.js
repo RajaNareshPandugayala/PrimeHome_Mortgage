@@ -33,12 +33,10 @@ import FederalReserveRateCuts from './pages/blogPages/FederalReserveRateCuts/fed
 import RefiIntoA15YearMortgage from './pages/blogPages/RefiIntoA15YearMortgage/refi_into_a_15_year_mortgage';
 import HowTheFedAffectsMortgageRates from './pages/blogPages/HowTheFedAffectsMortgageRates/how_the_fed_affects_mortgage_rates';
 import WhatIsAZombieMortgage from './pages/blogPages/WhatIsAZombieMortgage/what_is_a_zombie_mortgage';
+import TeamMemberFullDetails from './pages/StaffDetails/teamMemberFullDetails';
 
 
-// import Login from "./pages/Login";
-// import Register from "./pages/Register";
-// import { SignupAndLogin } from './userRegistration/registration';
-
+// import TeatingGmailFormPage from './pages/Form/ExampleGmailForm';
 
 
 function App() {
@@ -77,6 +75,10 @@ function App() {
           <Route path="/refi_into_a_15_year_mortgage" element={<RefiIntoA15YearMortgage />} />
           <Route path="/how_the_fed_affects_mortgage_rates" element={<HowTheFedAffectsMortgageRates />} />
           <Route path="/what_is_a_zombie_mortgage" element={<WhatIsAZombieMortgage />} />
+
+          <Route path="/our-staff/:id" element={<TeamMemberFullDetails />} />
+
+          {/* <Route path="/test-mail-through-form" element={<TeatingGmailFormPage />} />  */}
 
         </Routes>
         <Footer />

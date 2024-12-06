@@ -42,13 +42,16 @@ function FreeConsultation() {
     function updateSubjectContactUs(event) {
         event.preventDefault();
 
+        const formElement = event.target;
+        formElement.classList.add('submitting'); // Add loading class
+
         // Build the form data object
         const data = new FormData();
         for (const key in formData) {
             data.append(key, formData[key]);
         }
 
-        const scriptURL = "https://script.google.com/macros/s/AKfycbzxtUaFg1zTH-f3UmD4P6k0TO6aYqjj2B-kHop_ku8Ee3BPVu8OrMoQpPVxYBauUKA/exec"; // Replace with your Web App URL
+        const scriptURL = "https://script.google.com/macros/s/AKfycbzOTsEX6jQ-bbCwcbq9jar8YvA2qbb5Ha_440D5NSxXo63a3qc_g2VOEtnzD0XYYG0/exec"; // Replace with your Web App URL
 
         // Submit the form data to Google Apps Script
         fetch(scriptURL, {
@@ -66,25 +69,12 @@ function FreeConsultation() {
             .catch((error) => {
                 console.error("Error!", error.message);
                 alert("An error occurred while submitting your application.");
+            })
+            .finally(() => {
+                formElement.classList.remove('submitting'); // Remove loading class
             });
-
-        // event.preventDefault();
-
-        // const { name } = formData;
-
-        // setFormData(prevData => ({
-        //     ...prevData,
-        //     subject: `Short Application: ${name}`
-        // }));
-
-        // alert("Your request has been sent successfully!");
-
-        // const currentUrl = window.location.href;
-        // nextRef.current.value = currentUrl;
-
-        // // Submit form manually if desired
-        // event.target.submit();
     }
+
 
 
 

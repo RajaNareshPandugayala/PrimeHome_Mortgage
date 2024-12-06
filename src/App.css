@@ -53,6 +53,28 @@ body {
   display: none;
 }
 
+button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+form.loading {
+  cursor: wait;
+}
+
+form.loading * {
+  pointer-events: none;
+}
+
+form.submitting {
+  cursor: wait;
+}
+
+form.submitting * {
+  pointer-events: none;
+  cursor: wait;
+}
+
 /******************************Header-Start***********************************/
 
 .headerParent {
@@ -1090,6 +1112,18 @@ body {
 .teamListName {
   font-weight: bold;
   color: red;
+
+}
+
+.teamListNameLink {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.teamListNameLink:hover {
+  color: blue;
+  text-decoration: underline;
 }
 
 .teamListOfficer {
@@ -1784,26 +1818,47 @@ input[type="range"]::-moz-range-thumb {
 }
 
 
+
 .purchaseBottomLeftButton {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 20px;
 }
 
 
-.purchaseBottomLeftButton span {
+.purchaseBottomLeftButtonLink {
   border: 1px solid red;
   border-radius: 5px;
   color: red;
   font-size: 13px;
   font-weight: bold;
   padding: 15px 50px;
+  text-decoration: none;
 }
 
-.purchaseBottomLeftButton span:hover {
+.purchaseBottomLeftButtonLink:hover {
   color: white;
   background-color: red;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.purchaseBottomLeftButtonLink00 {
+  border: 1px solid blue;
+  border-radius: 5px;
+  color: blue;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 15px 50px;
+  text-decoration: none;
+}
+
+.purchaseBottomLeftButtonLink00:hover {
+  color: white;
+  background-color: blue;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -2485,7 +2540,6 @@ input[type="range"]::-moz-range-thumb {
 
 /******************************LoanIsRightForYou-End***********************************/
 
-
 /******************************blogPages-Start***********************************/
 
 .blogPagesParent {
@@ -2586,7 +2640,149 @@ input[type="range"]::-moz-range-thumb {
 /******************************blogPages-End***********************************/
 
 
+/*********************TeamMemberFullDetails-Start********************************/
 
+.ourTeamMemberTopParent {
+  position: relative;
+  /* Needed to position children absolutely */
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  /* Prevent overflow from video */
+  font-family: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.ourTeamMemberTopBGImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+
+.ourTeamMemberTopBox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 100px;
+  color: white;
+  background-color: #00000080;
+  text-shadow: 0px 1px 4px black;
+  line-height: 22px;
+
+  position: relative;
+  z-index: 1;
+}
+
+.ourTeamMemberTopLeftSide {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 20px;
+}
+
+.ourTeamMemberTopLeftSideSpanImage {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+
+.ourTeamMemberTopLeftSideSpanImage img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px 0px black;
+}
+
+.ourTeamMemberTopRightSide {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  height: 200px;
+}
+
+.ourTeamMemberTopLeftSideName {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.ourTeamMemberTopRightSide span b {
+  text-transform: uppercase;
+}
+
+
+
+
+.ourTeamMemberBottomParent {
+  margin-top: -40px;
+}
+
+
+
+
+
+
+
+.FreeQuoteFormParent {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00000080;
+  z-index: 1000;
+}
+
+.FreeQuoteFormBox {
+  width: 550px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  padding: 20px 0px;
+}
+
+.FreeQuoteBox {
+  width: 100%;
+  padding: 50px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 1px 1px 15px 0px black;
+}
+
+.FreeQuoteFormCloseButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.FreeQuoteFormCloseButton span {
+  background-color: black;
+  padding: 10px 13px;
+  border-radius: 50%;
+  margin-top: 2px;
+  margin-left: -40px;
+  box-shadow: 0px 0px 5px 0px gray;
+}
+
+/*********************TeamMemberFullDetails-End********************************/
 
 
 /*   width: 100%;

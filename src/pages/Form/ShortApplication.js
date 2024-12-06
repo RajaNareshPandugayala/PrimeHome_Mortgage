@@ -51,13 +51,16 @@ function ShortApplication() {
     function updateSubjectContactUs(event) {
         event.preventDefault();
 
+        const formElement = event.target;
+        formElement.classList.add('submitting'); // Add loading class
+
         // Build the form data object
         const data = new FormData();
         for (const key in formData) {
             data.append(key, formData[key]);
         }
 
-        const scriptURL = "https://script.google.com/macros/s/AKfycbx3FW7LOMRAMXTkiLKM7r0r29HKTOyn99b6FQ7TAE-XiF_NpfEv3AgzCn503aHRfd0/exec"; // Replace with your Web App URL
+        const scriptURL = "https://script.google.com/macros/s/AKfycbyMbL1jOpRM7AAyC6i1jVnTer5EruJv6qgS3kHhitp4VAannnaBsv2Y1qDVUTAZCjf1/exec"; // Replace with your Web App URL
 
         // Submit the form data to Google Apps Script
         fetch(scriptURL, {
@@ -75,24 +78,10 @@ function ShortApplication() {
             .catch((error) => {
                 console.error("Error!", error.message);
                 alert("An error occurred while submitting your application.");
+            })
+            .finally(() => {
+                formElement.classList.remove('submitting'); // Remove loading class
             });
-
-        // event.preventDefault();
-
-        // const { name } = formData;
-
-        // setFormData(prevData => ({
-        //     ...prevData,
-        //     subject: `Short Application: ${name}`
-        // }));
-
-        // alert("Your request has been sent successfully!");
-
-        // const currentUrl = window.location.href;
-        // nextRef.current.value = currentUrl;
-
-        // // Submit form manually if desired
-        // event.target.submit();
     }
 
 

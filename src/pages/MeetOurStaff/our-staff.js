@@ -1,6 +1,6 @@
 import React from 'react';
 import meetOurStaff from '../../PicesForPages/MeetOurStaff.png';
-import blankPhoto from '../../PicesForPages/blank.jpg';
+import YourTeamMembers from '../StaffDetails/teamMembers';
 
 
 function MeetOurStaff() {
@@ -13,101 +13,9 @@ function MeetOurStaff() {
                     <span>Meet Our Staff</span>
                 </div>
             </div>
-            <div className='purchaseBottomParent'>
-                <div className='purchaseBottomBox'>
-                    <div className='teamBoxParent'>
-                        <div className='teamBox'>
-                            <div className='teamListBoxParent'>
-                                <div className='teamListBox'>
-                                    <span className='teamListSpanImage'>
-                                        <img src={blankPhoto} alt='blankPhoto01' />
-                                    </span>
-                                    <span className='teamListNameOfficer'>
-                                        <span className='teamListName'>---- --------- -------</span>
-                                        <span className='teamListOfficer'>Loan Officer</span>
-                                    </span>
-                                </div>
-                                <div className='teamListBox'>
-                                    <span className='teamListSpanImage'>
-                                        <img src={blankPhoto} alt='blankPhoto02' />
-                                    </span>
-                                    <span className='teamListNameOfficer'>
-                                        <span className='teamListName'>----- -------</span>
-                                        <span className='teamListOfficer'>Loan Officer</span>
-                                    </span>
-                                </div>
-                                <div className='teamListBox'>
-                                    <span className='teamListSpanImage'>
-                                        <img src={blankPhoto} alt='blankPhoto03' />
-                                    </span>
-                                    <span className='teamListNameOfficer'>
-                                        <span className='teamListName'>---- ------- -----</span>
-                                        <span className='teamListOfficer'>Loan Officer</span>
-                                    </span>
-                                </div>
-                            </div>
-                            <div className='teamListBoxParent'>
-                                <div className='teamListBox'>
-                                    <span className='teamListSpanImage'>
-                                        <img src={blankPhoto} alt='blankPhoto01' />
-                                    </span>
-                                    <span className='teamListNameOfficer'>
-                                        <span className='teamListName'>---- --------- -------</span>
-                                        <span className='teamListOfficer'>Loan Officer</span>
-                                    </span>
-                                </div>
-                                <div className='teamListBox'>
-                                    <span className='teamListSpanImage'>
-                                        <img src={blankPhoto} alt='blankPhoto02' />
-                                    </span>
-                                    <span className='teamListNameOfficer'>
-                                        <span className='teamListName'>----- -------</span>
-                                        <span className='teamListOfficer'>Loan Officer</span>
-                                    </span>
-                                </div>
-                                <div className='teamListBox'>
-                                    <span className='teamListSpanImage'>
-                                        <img src={blankPhoto} alt='blankPhoto03' />
-                                    </span>
-                                    <span className='teamListNameOfficer'>
-                                        <span className='teamListName'>---- ------- -----</span>
-                                        <span className='teamListOfficer'>Loan Officer</span>
-                                    </span>
-                                </div>
-                            </div>
-                            <div className='teamListBoxParent'>
-                                <div className='teamListBox'>
-                                    <span className='teamListSpanImage'>
-                                        <img src={blankPhoto} alt='blankPhoto01' />
-                                    </span>
-                                    <span className='teamListNameOfficer'>
-                                        <span className='teamListName'>---- --------- -------</span>
-                                        <span className='teamListOfficer'>Loan Officer</span>
-                                    </span>
-                                </div>
-                                <div className='teamListBox'>
-                                    <span className='teamListSpanImage'>
-                                        <img src={blankPhoto} alt='blankPhoto02' />
-                                    </span>
-                                    <span className='teamListNameOfficer'>
-                                        <span className='teamListName'>----- -------</span>
-                                        <span className='teamListOfficer'>Loan Officer</span>
-                                    </span>
-                                </div>
-                                <div className='teamListBox'>
-                                    <span className='teamListSpanImage'>
-                                        <img src={blankPhoto} alt='blankPhoto03' />
-                                    </span>
-                                    <span className='teamListNameOfficer'>
-                                        <span className='teamListName'>---- ------- -----</span>
-                                        <span className='teamListOfficer'>Loan Officer</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            <YourTeamMembers />
+
         </div>
     );
 }

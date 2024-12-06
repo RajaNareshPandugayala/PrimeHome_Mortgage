@@ -37,13 +37,16 @@ function ContactForm() {
     function updateSubjectContactUs(event) {
         event.preventDefault();
 
+        const formElement = event.target;
+        formElement.classList.add('submitting'); // Add loading class
+
         // Build the form data object
         const data = new FormData();
         for (const key in formData) {
             data.append(key, formData[key]);
         }
 
-        const scriptURL = "https://script.google.com/macros/s/AKfycbwFo8o5pwkRk0w-CvrFNyZw1mXavveCjJ_yEGVdwsbZbnU5sHfIpMAaRTCHekCEjME/exec"; // Replace with your Web App URL
+        const scriptURL = "https://script.google.com/macros/s/AKfycbzlyjnqbWcpfZJhNkk95ZOmoOmCJqH482HHXTxzjmuzx_82xNqSFXjG_T1Sluid8kE/exec"; // Replace with your Web App URL
 
         // Submit the form data to Google Apps Script
         fetch(scriptURL, {
@@ -61,25 +64,12 @@ function ContactForm() {
             .catch((error) => {
                 console.error("Error!", error.message);
                 alert("An error occurred while submitting your application.");
+            })
+            .finally(() => {
+                formElement.classList.remove('submitting'); // Remove loading class
             });
-
-        // event.preventDefault();
-
-        // const { name } = formData;
-
-        // setFormData(prevData => ({
-        //     ...prevData,
-        //     subject: `Short Application: ${name}`
-        // }));
-
-        // alert("Your request has been sent successfully!");
-
-        // const currentUrl = window.location.href;
-        // nextRef.current.value = currentUrl;
-
-        // // Submit form manually if desired
-        // event.target.submit();
     }
+
 
     function handleChange(event) {
         const { name, value } = event.target;
@@ -92,7 +82,6 @@ function ContactForm() {
         <div className='purchaseBottomRightBox contactUsBottomRightBox'>
             <span className='purchaseBottomRightHeading'>Contact Form</span>
             <span className='purchaseBottomRightContent'>Fill in this short form to contact us.</span>
-            {/* <form className='purchaseBottomRightform' target="_self" action="https://formsubmit.co/rajanaresh.p@gmail.com" method="POST" onSubmit={updateSubjectContactUs}> */}
             <form className='purchaseBottomRightform' target="_self" action="https://formsubmit.co/rajanaresh.p@gmail.com" method="POST" onSubmit={updateSubjectContactUs}>
 
                 <input type="hidden" name="_subject" id="subject" value={formData.subject + formData.name} />

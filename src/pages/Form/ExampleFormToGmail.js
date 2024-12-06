@@ -268,18 +268,43 @@ function ExampleFormSubmitForReferenceID() {
         }));
     }, []);
 
+
     function updateSubjectContactUs(event) {
         event.preventDefault();
-        const { name } = formData;
-        setFormData(prevData => ({
-            ...prevData,
-            subject: `Test Mail: ${name}`
-        }));
-        alert("Your request has been sent successfully!");
-        const currentUrl = window.location.href;
-        nextRef.current.value = currentUrl;
-        event.target.submit();
+
+        const formElement = event.target;
+        formElement.classList.add('submitting'); // Add loading class
+
+        // Build the form data object
+        const data = new FormData();
+        for (const key in formData) {
+            data.append(key, formData[key]);
+        }
+
+        const scriptURL = "https://script.google.com/macros/s/AKfycbwFo8o5pwkRk0w-CvrFNyZw1mXavveCjJ_yEGVdwsbZbnU5sHfIpMAaRTCHekCEjME/exec"; // Replace with your Web App URL
+
+        // Submit the form data to Google Apps Script
+        fetch(scriptURL, {
+            method: 'POST',
+            body: data,
+        })
+            .then((response) => {
+                if (response.ok) {
+                    alert("Your application has been received successfully, and an email has been sent!");
+                    window.location.reload();
+                } else {
+                    alert("There was a problem submitting your application. Please try again.");
+                }
+            })
+            .catch((error) => {
+                console.error("Error!", error.message);
+                alert("An error occurred while submitting your application.");
+            })
+            .finally(() => {
+                formElement.classList.remove('submitting'); // Remove loading class
+            });
     }
+
 
     function handleChange(event) {
         const { name, value } = event.target;

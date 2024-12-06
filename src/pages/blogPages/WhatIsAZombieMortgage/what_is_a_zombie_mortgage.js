@@ -1,5 +1,5 @@
 import React from 'react'
-import PostImage08 from '../../../PicesForPages/34505_zombie_mortgage.jpg';
+import PostImage08 from '../../../PicesForPages/34505_zombie_mortgage.jpg'
 
 import { Link } from 'react-router-dom'
 
