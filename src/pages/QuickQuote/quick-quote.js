@@ -7,7 +7,7 @@ function QuickQuote() {
         <div className='quickQuoteParent'>
             <div className='quickQuoteTitleBoxParent'>
                 <div className='quickQuoteTitleBox'>
-                    <h1 className='quickQuoteTitle'><span>PrimeHome Mortgage, LLC</span> <span>Quick Quote</span></h1>
+                    <h1 className='quickQuoteTitle'><span>PrimeHome Mortgage, INC</span> <span>Quick Quote</span></h1>
                 </div>
             </div>
 

@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import calcSmall from '../../PicesForPages/calc-small.jpg';
 
 function HomePageMonthlyPayment() {
-    const [loanAmount, setLoanAmount] = useState('');
+    const [loanAmount, setLoanAmount] = useState('100000');
     const [monthlyPayments, setMonthlyPayments] = useState([null, null, null]);
 
-    const loanDetails = [
+    const loanDetails = useMemo(() => [
         { term: 30, interestRate: 6.196, apr: 6.272, label: '30 Yr Fxd' },
         { term: 30, interestRate: 5.458, apr: 6.551, label: '30 Yr Fxd FHA' },
         { term: 15, interestRate: 5.521, apr: 5.649, label: '15 Yr Fxd' },
-    ];
+    ], []); // Empty dependency array ensures it's only initialized once.
 
-    const calculateMonthlyPayment = () => {
+    useEffect(() => {
         const principal = parseFloat(loanAmount);
         if (!principal || principal <= 0) {
-            alert('Please enter a valid loan amount.');
             setMonthlyPayments([null, null, null]);
             return;
         }
@@ -35,7 +34,7 @@ function HomePageMonthlyPayment() {
         });
 
         setMonthlyPayments(payments);
-    };
+    }, [loanAmount, loanDetails]); // No warning because loanDetails reference is stable.
 
     return (
         <div className='calculateBoxParent'>
@@ -76,13 +75,9 @@ function HomePageMonthlyPayment() {
                                     placeholder="Enter loan amount"
                                 />
                             </label>
-                            <button onClick={calculateMonthlyPayment} className="calculatorButton">
-                                Calculate
-                            </button>
                             <span className='calculatorPara'>*=This is only an estimate, provided for illustrative purposes only. Actual rates and payments may vary. It does not constitute a quote.</span>
                         </span>
                     </div>
-
                 </div>
             </div>
         </div>

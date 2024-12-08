@@ -69,7 +69,7 @@ function doPost(e) {
             ${tableHTML}
             <p>Thank you for your submission! You will be hearing from one of our representatives shortly.</p>
             <p>Sincerely,</p>
-            <p>_____ Mortgage, LLC</p>
+            <p>_____ Mortgage, INC</p>
             <p><a href="https://www.###mtg.com/">https://www.###mtg.com/</a></p>
             <img src="https://via.placeholder.com/300?text=Congratulations+or+Successful" alt="Congratulations Image" />
         `;

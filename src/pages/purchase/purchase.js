@@ -26,7 +26,7 @@ function purchase() {
             <div className='purchaseBottomParent'>
                 <div className='purchaseBottomBox'>
                     <div className='purchaseBottomLeftBox'>
-                        <span className='purchaseBottomLeftContent'>If you're like most people, purchasing a home is probably one of the biggest investments you'll ever make in your lifetime. If you're considering buying a home, you're likely aware of the complexity of the endeavor. Because of the numerous factors to consider when purchasing a home, it's important to prepare as best you can. At Prime Home Mortgage, LLC, we are dedicated to finding the <span className='purchaseBottomLeftContentBold'>loan that fits your individual needs .</span></span>
+                        <span className='purchaseBottomLeftContent'>If you're like most people, purchasing a home is probably one of the biggest investments you'll ever make in your lifetime. If you're considering buying a home, you're likely aware of the complexity of the endeavor. Because of the numerous factors to consider when purchasing a home, it's important to prepare as best you can. At Prime Home Mortgage, INC, we are dedicated to finding the <span className='purchaseBottomLeftContentBold'>loan that fits your individual needs .</span></span>
                         <span className='purchaseBottomLeftHeader'>Getting Started</span>
                         <ul className='purchaseBottomLeftUL'>
                             <li>Rent Versus Buy Calculator<br />

@@ -82,9 +82,7 @@ function Home() {
                         <>
                             <span className='homeHelpYouHeading'>
                                 <span className='homeHelpYouHeadingLeft'>Let's Help You... </span><br />
-                                <span className='homeHelpYouHeadingRight'>
-                                    <span className="typingText">{currentText}</span>
-                                </span>
+                                <span className="typingText homeHelpYouHeadingRight">{currentText}</span>
                             </span>
                             <span className='homeHelpYouContent'>
                                 Your Dream Home, Your Best Deal – Prime Home Mortgage Makes It Happen! <br />Click our prequalifier to get started!
@@ -125,8 +123,8 @@ function Home() {
             </div>
             <div className='welcomeBoxParent'>
                 <div className='welcomeBox'>
-                    <span className='welcomeHeading'>Welcome To Prime Home Mortgage, LLC</span>
-                    {/* <span className='welcomeContent'>At Prime Home Mortgage, LLC, we treat each customer as an individual, not a number. We don't place you into a loan profile formula created by the banking industry. We use "common sense" and will help you obtain the best loan possible. We represent a wide range of "A" rated lenders with first quality rates to private "hardship" lenders.</span>
+                    <span className='welcomeHeading'>Welcome To Prime Home Mortgage, INC</span>
+                    {/* <span className='welcomeContent'>At Prime Home Mortgage, INC, we treat each customer as an individual, not a number. We don't place you into a loan profile formula created by the banking industry. We use "common sense" and will help you obtain the best loan possible. We represent a wide range of "A" rated lenders with first quality rates to private "hardship" lenders.</span>
                     <span className='welcomeContent'>We work with more than 100 investors. This allows us to get you the best rates on all types of loan programs including: 30yr mortgage, 20yr mortgage, 15yr mortgage, 10yr mortgage, 1yr ARMS, 3yr ARMS, 5yr ARMS, Conventional, Jumbo, Home Equity Lines, VA and Commercial. Whether your situation calls for Full Documents, No Documents, Non-Owner Occupied (Investor) or Multi-Family, we'll fit your needs!</span> */}
                     <span>
                         At Prime Home Mortgage, we believe in putting you first. Our mission is simple: to provide you with the best mortgage options tailored to your unique needs. Whether you're buying your first home, refinancing, or seeking other home loan solutions, our team is committed to offering you the best rates and clear, honest guidance.
@@ -134,10 +132,10 @@ function Home() {
                         We’re here to make your home financing experience easy, transparent, and worry-free. Let’s get started on the path to your dream home today!
                         <br /><br />
                         At Prime Home Mortgage Incorporated, we understand that finding the right home loan is a big decision. That’s why we offer a range of options to help you finance or refinance your home with ease. We take the time to compare the top lenders in the industry, ensuring we find the one that best fits your needs and goals. We're here to guide you every step of the way, making the process as smooth and stress-free as possible.
-                        <br /><br />
+                        {/* <br /><br />
                         At Prime Home Mortgage Incorporated, we truly understand that buying or refinancing a home is a life-changing experience. That’s why we offer a wide variety of home loan options, designed to fit your unique needs and financial situation. We take the time to carefully compare top lenders, ensuring we find the best match for your goals, whether you're purchasing your first home or refinancing your current one. Our team is dedicated to supporting you every step of the way, providing expert guidance and personalized care to make the process as simple, stress-free, and rewarding as possible. Your dreams are our priority, and we’re here to help you make them a reality.
                         <br /><br />
-                        At Prime Home Mortgage, we prioritize your needs by offering a wide range of affordable, flexible home loan options. Whether you're buying your first home or refinancing, our dedicated team is here to provide clear, honest guidance and the best rates. We carefully compare top lenders to find the perfect fit for your unique situation, ensuring a smooth, stress-free experience. Your dreams are important to us, and we’re committed to helping you achieve them with ease and confidence. Let us make your home financing journey simple and worry-free.
+                        At Prime Home Mortgage, we prioritize your needs by offering a wide range of affordable, flexible home loan options. Whether you're buying your first home or refinancing, our dedicated team is here to provide clear, honest guidance and the best rates. We carefully compare top lenders to find the perfect fit for your unique situation, ensuring a smooth, stress-free experience. Your dreams are important to us, and we’re committed to helping you achieve them with ease and confidence. Let us make your home financing journey simple and worry-free. */}
                     </span>
                 </div>
             </div>
@@ -157,7 +155,7 @@ function Home() {
 
             <div className='advantageBoxParent'>
                 <div className='advantageBox'>
-                    <div className='advantageHeading'>The Prime Home Mortgage, LLC Advantage</div>
+                    <div className='advantageHeading'>The Prime Home Mortgage, INC Advantage</div>
                     <div className='advantageContentBoxParent'>
                         <span className='advantageContentBox'>
                             <span className='advantageContentBoxSpanImage'>
@@ -195,9 +193,9 @@ function Home() {
 
             <div className='addressBoxParent'>
                 <div className='addressBox'>
-                    <div className='addressHeading'>The Prime Home Mortgage, LLC Address</div>
+                    <div className='addressHeading'>The Prime Home Mortgage, INC Address</div>
                     <div className='addressMapDetails'>
-                        <iframe title="PrimeHome Mortgage, LLC Office Location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3255.399256645242!2d-80.77742482422828!3d35.32090577270577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88541dc848bbd15b%3A0x2b6ff7553848568!2s1914%20J%20N%20Pease%20Pl%2C%20Charlotte%2C%20NC%2028262%2C%20USA!5e0!3m2!1sen!2sin!4v1732532106241!5m2!1sen!2sin" width="600" height="450" style={{ border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe title="PrimeHome Mortgage, INC Office Location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3255.399256645242!2d-80.77742482422828!3d35.32090577270577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88541dc848bbd15b%3A0x2b6ff7553848568!2s1914%20J%20N%20Pease%20Pl%2C%20Charlotte%2C%20NC%2028262%2C%20USA!5e0!3m2!1sen!2sin!4v1732532106241!5m2!1sen!2sin" width="600" height="450" style={{ border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         <span className='addressDetails'>
                             <span className='addressDetailsTop'>
                                 <span className='addressDetailsTopHeading'>Contact Us:</span>

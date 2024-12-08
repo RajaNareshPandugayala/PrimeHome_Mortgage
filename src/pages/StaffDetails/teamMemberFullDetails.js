@@ -131,9 +131,9 @@ function TeamMemberFullDetails() {
             <BlogPostInAPage />
             <div className='addressBoxParent'>
                 <div className='addressBox'>
-                    <div className='addressHeading'>The Prime Home Mortgage, LLC Address</div>
+                    <div className='addressHeading'>The Prime Home Mortgage, INC Address</div>
                     <div className='addressMapDetails'>
-                        <iframe title="Prime Home Mortgage, LLC Office Location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3255.399256645242!2d-80.77742482422828!3d35.32090577270577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88541dc848bbd15b%3A0x2b6ff7553848568!2s1914%20J%20N%20Pease%20Pl%2C%20Charlotte%2C%20NC%2028262%2C%20USA!5e0!3m2!1sen!2sin!4v1732532106241!5m2!1sen!2sin" width="100%" height="450" style={{ border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe title="Prime Home Mortgage, INC Office Location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3255.399256645242!2d-80.77742482422828!3d35.32090577270577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88541dc848bbd15b%3A0x2b6ff7553848568!2s1914%20J%20N%20Pease%20Pl%2C%20Charlotte%2C%20NC%2028262%2C%20USA!5e0!3m2!1sen!2sin!4v1732532106241!5m2!1sen!2sin" width="100%" height="450" style={{ border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
