@@ -24,6 +24,7 @@ import ClientReview from '../Client_Review/clientReview';
 import BlogPostInAPage from '../blogPages/BlogPagePosts/blogPostInAPage';
 
 import { Link } from 'react-router-dom';
+
 function Home() {
     const texts = useMemo(() => [
         // "Lower Your Payment",

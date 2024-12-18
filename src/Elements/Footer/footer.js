@@ -32,7 +32,7 @@ function Footer() {
                             <span className='footerTopDivHeading'>Contact Us</span>
                             <span className='footerTopDivContent footerTopDivContent00'>
                                 <span className='footerTopDivContentIcon'><i class="ri-map-pin-line"></i> <span>1914 JN PEASE PL <br />CHARLOTTE, NC 28262</span></span>
-                                <a href="tel:+1-513-999-2324" className="aTag_Tel footerTopDivContentIcon"><i class="ri-phone-fill"></i> <span>(###)-###-####</span></a>
+                                <a href="tel:+1-980-292-1918" className="aTag_Tel footerTopDivContentIcon"><i class="ri-phone-fill"></i> <span>(980) 292-1918</span></a>
                                 <a href="mailto: contact@primehomemtg.com" className="aTag_Mail footerTopDivContentIcon"><i class="ri-mail-send-fill"></i> <span>contact@primehomemtg.com</span></a>
                             </span>
                         </span>

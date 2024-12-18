@@ -103,7 +103,7 @@ const RefinanceCalculator = () => {
                         </label>
 
                         <label>
-                            Monthly debt payments: <br />
+                            Current Monthly Mortgage Payment Instead: <br />
                             <input
                                 type="text"
                                 value={`$ ${Number(monthlyDebt).toLocaleString()}`}

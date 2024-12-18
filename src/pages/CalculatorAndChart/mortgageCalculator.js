@@ -3,15 +3,72 @@ import { PieChart, Pie, Cell, Legend, Tooltip } from "recharts";
 
 const MortgageCalculator = () => {
     const [homePrice, setHomePrice] = useState(500000);
-    const [downPayment, setDownPayment] = useState(66000);
+    const [downPayment, setDownPayment] = useState(50000);
+    const [DownPaymentPercentage, setDownPaymentPercentage] = useState(10.0);
+    const [paymentType, setPaymentType] = useState("Percentage");
     const [loanTerm, setLoanTerm] = useState(360);
     const [interestRate, setInterestRate] = useState(6.500);
+    const [pmi, setPmi] = useState(0.4);
     const [state, setState] = useState("NONE");
     const [propertyTax, setPropertyTax] = useState(0);
     const [insurance, setInsurance] = useState(0);
     const [hoaFees, setHoaFees] = useState(0);
     const [monthlyPayment, setMonthlyPayment] = useState(0);
     const [hoveredIndex, setHoveredIndex] = useState(null);
+
+
+    const handlePaymentTypeChange = (e) => {
+        setPaymentType(e.target.value);
+    };
+
+    // Update percentage when DownPaymentMoneyInput is updated
+    const handleDownPaymentChange = (value) => {
+        const downPaymentMoney = parseFloat(value) || 0; // Ensure numeric input
+        setDownPayment(downPaymentMoney);
+
+        const percentage = ((downPaymentMoney / homePrice) * 100);
+        setDownPaymentPercentage(percentage);
+    };
+
+
+    const handleDownPaymentPercentageChange = (value) => {
+
+        const percentage = parseFloat(value) || 0; // Ensure numeric input
+        setDownPaymentPercentage(percentage);
+
+        const downPaymentMoney = ((percentage / 100) * homePrice);
+        setDownPayment(downPaymentMoney);
+
+
+        let formattedValue = value.replace(/[^0-9.]/g, ''); // Remove non-numeric and non-dot characters
+
+        // Allow only one dot in the value
+        if ((formattedValue.match(/\./g) || []).length > 1) {
+            formattedValue = formattedValue.slice(0, formattedValue.lastIndexOf('.')) + '.' + formattedValue.split('.').slice(1).join('');
+        }
+
+        // Ensure no more than two digits after the decimal point
+        const [integer, decimal] = formattedValue.split('.');
+        if (decimal && decimal.length > 3) {
+            formattedValue = `${integer}.${decimal.slice(0, 3)}`; // Limit decimal to two places
+        }
+
+        // Ensure the value is between 0 and 100
+        if (parseFloat(formattedValue) < 0) formattedValue = '0';
+        if (parseFloat(formattedValue) > 100) formattedValue = '100';
+
+        setDownPaymentPercentage(formattedValue);
+    };
+
+
+    // Synchronize DownPaymentPercentage when HomePrice changes
+    useEffect(() => {
+        const percentage = ((downPayment / homePrice) * 100);
+        setDownPaymentPercentage(percentage);
+    }, [homePrice, downPayment]);
+
+
+
 
     const statesList = ["AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "IA", "ID", "IN", "IL", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NE", "NC", "ND", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WB", "WI", "WY"];
 
@@ -30,7 +87,6 @@ const MortgageCalculator = () => {
         }
     }, [state, homePrice, statePropertyTaxRates]);  // Now statePropertyTaxRates is stable and memoized
 
-
     const calculateEMI = useCallback(() => {
         const principal = homePrice - downPayment;
         const monthlyInterest = interestRate / 100 / 12;
@@ -42,9 +98,13 @@ const MortgageCalculator = () => {
                 : (principal * monthlyInterest * Math.pow(1 + monthlyInterest, numPayments)) /
                 (Math.pow(1 + monthlyInterest, numPayments) - 1);
 
-        const estimatedPayment = monthlyEMI + propertyTax / 12 + insurance + hoaFees;
+        // Calculate PMI as a percentage of the loan principal (for example, 0.4% PMI)
+        const pmiAmount = (principal * pmi) / 100 / 12;
+
+        const estimatedPayment = monthlyEMI + propertyTax / 12 + insurance + hoaFees + pmiAmount;
         setMonthlyPayment(estimatedPayment.toFixed(2));
-    }, [homePrice, downPayment, loanTerm, interestRate, propertyTax, insurance, hoaFees]);
+    }, [homePrice, downPayment, loanTerm, interestRate, propertyTax, insurance, hoaFees, pmi]);  // Make sure to add `pmi` here
+
 
     useEffect(() => {
         calculateEMI();
@@ -94,6 +154,7 @@ const MortgageCalculator = () => {
                                 min="0"
                                 value={`$ ${Number(homePrice).toLocaleString()}`}
                                 onChange={(e) => setHomePrice(+e.target.value.replace(/[^0-9.-]+/g, ""))}
+                                className="HomePriceAmount"
                             />
                             <input
                                 type="range"
@@ -108,12 +169,56 @@ const MortgageCalculator = () => {
                         <label>
                             Down Payment: <br />
                             <span>
-                                <input
-                                    type="text"
-                                    min="0"
-                                    value={`$ ${Number(downPayment).toLocaleString()}`}
-                                    onChange={(e) => setDownPayment(+e.target.value.replace(/[^0-9.-]+/g, ""))}
-                                />
+                                <div className="DownPaymentDiv">
+                                    <input
+                                        type="text"
+                                        min="0"
+                                        value={`$ ${Number(downPayment).toLocaleString()}`}
+                                        onChange={(e) => handleDownPaymentChange(+e.target.value.replace(/[^0-9.-]+/g, ""))}
+                                        className={`DownPaymentMoneyInput ${paymentType === "Percentage" ? "hidden" : ""}`}
+                                        placeholder="Enter Down Payment"
+                                    />
+                                    <span className={`DownPaymentPercentageInputSpan ${paymentType === "Money" ? "hidden" : ""
+                                        }`}>
+                                        <input
+                                            type="text"
+                                            min="0"
+                                            max="100"
+                                            step="0.01"
+                                            className="DownPaymentPercentageInput"
+                                            value={DownPaymentPercentage}
+                                            onChange={(e) => {
+                                                let value = e.target.value.replace(/[^0-9.]/g, '');
+
+                                                // Allow only one decimal point
+                                                if ((value.match(/\./g) || []).length > 1) {
+                                                    value = value.slice(0, -1);
+                                                }
+
+                                                // Ensure no more than three digits after the decimal point
+                                                const [integer, decimal] = value.split('.');
+                                                if (decimal && decimal.length > 3) {
+                                                    value = `${integer}.${decimal.slice(0, 3)}`; // Limit to three decimal places
+                                                }
+
+                                                // Ensure the value is between 0 and 100
+                                                if (+value < 0) value = "0";
+                                                if (+value > 100) value = "100";
+
+                                                handleDownPaymentPercentageChange(value);
+                                            }}
+                                        />
+                                        <span style={{ position: "relative", left: "-5%", marginLeft: "-17px", fontWeight: "bold" }}>
+                                            %
+                                        </span>
+                                    </span>
+                                    <select name="DownPaymentType" className="DownPaymentType"
+                                        onChange={handlePaymentTypeChange}
+                                        value={paymentType}>
+                                        <option value="Money">$</option>
+                                        <option value="Percentage">%</option>
+                                    </select>
+                                </div>
                             </span>
                         </label>
 
@@ -122,7 +227,8 @@ const MortgageCalculator = () => {
                             <select value={loanTerm} onChange={(e) => setLoanTerm(+e.target.value)}>
                                 {Array.from({ length: 29 }, (_, i) => (i + 2) * 12).map((term) => (
                                     <option key={term} value={term}>
-                                        {term} months (or) {term / 12} years
+                                        {/* {term} months (or) {term / 12} years */}
+                                        {term / 12} years
                                     </option>
                                 ))}
                             </select>
@@ -165,6 +271,40 @@ const MortgageCalculator = () => {
                                         if (+value > 100) value = "100";
 
                                         setInterestRate(value);
+                                    }}
+                                    style={{ width: '100%' }} // Adjust width as needed
+                                />
+                                <span style={{ marginLeft: '-30px', fontWeight: "bold" }}>%</span>
+                            </div>
+                        </label>
+
+
+                        <label>
+                            Monthly Private Mortgage Insurance (PMI): (%):  <br />
+                            <div style={{ display: 'flex', alignItems: 'center' }}>
+                                <input
+                                    type="text"
+                                    min="0"
+                                    step="0.001"
+                                    value={pmi}
+                                    onChange={(e) => {
+                                        let value = e.target.value.replace(/[^0-9.]/g, '');
+
+                                        // Allow only one decimal point
+                                        if ((value.match(/\./g) || []).length > 1) {
+                                            value = value.slice(0, -1);
+                                        }
+
+                                        // Ensure there are no more than two digits after the decimal point
+                                        const [integer, decimal] = value.split('.');
+                                        if (decimal && decimal.length > 2) {
+                                            value = `${integer}.${decimal.slice(0, 3)}`; // Limit to two decimal places
+                                        }
+
+                                        // Ensure the value is between 0 and 100
+                                        if (+value < 0) value = "0";
+
+                                        setPmi(value);
                                     }}
                                     style={{ width: '100%' }} // Adjust width as needed
                                 />

@@ -1578,9 +1578,6 @@ input[type="range"]::-moz-range-thumb {
 }
 
 
-
-
-
 .calculator {
   margin: 20px auto;
   padding: 20px;
@@ -2085,6 +2082,26 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /******************************QuickQuote-End***********************************/
+
+.DownPaymentDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* flex-direction: column; */
+  gap: 5px;
+}
+
+
+
+
+.DownPaymentDiv select {
+  width: 65px;
+}
+
+.DownPaymentPercentageInputSpan {
+  width: 100%;
+}
+
 
 /******************************FHALoans-Start***********************************/
 

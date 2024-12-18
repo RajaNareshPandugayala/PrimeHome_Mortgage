@@ -5,6 +5,7 @@ import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip as ChartTooltip, Legend,
 const RVsBCalculator = () => {
     const [currentRent, setCurrentRent] = useState(2000);
     const [homePrice, setHomePrice] = useState(450000);
+    const [downPayment, setDownPayment] = useState(50000);
     const [downPaymentPercentage, setDownPaymentPercentage] = useState(20.0);
     const [loanTerm, setLoanTerm] = useState(360); // Loan term in months
     const [interestRate, setInterestRate] = useState(6.5);
@@ -12,6 +13,79 @@ const RVsBCalculator = () => {
     const [propertyTax, setPropertyTax] = useState(1);
     const [homeValueIncrease, setHomeValueIncrease] = useState(2);
     const [monthlyPayment, setMonthlyPayment] = useState(0);
+    const [paymentType, setPaymentType] = useState("Percentage");
+
+
+
+    const handlePaymentTypeChange = (e) => {
+        setPaymentType(e.target.value);
+    };
+
+    // Update percentage when DownPaymentMoneyInput is updated
+    const handleDownPaymentChange = (value) => {
+        const downPaymentMoney = parseFloat(value) || 0; // Ensure numeric input
+        setDownPayment(downPaymentMoney);
+
+        const percentage = ((downPaymentMoney / homePrice) * 100);
+        setDownPaymentPercentage(percentage);
+    };
+
+    // const handleDownPaymentPercentageChange = (value) => {
+
+    //     const percentage = parseFloat(value) || 0; // Ensure numeric input
+    //     setDownPaymentPercentage(percentage);
+
+    //     const downPaymentMoney = ((percentage / 100) * homePrice);
+    //     setDownPayment(downPaymentMoney);
+
+
+    //     let formattedValue = value.replace(/[^0-9.]/g, ''); // Remove non-numeric and non-dot characters
+
+    //     // Allow only one dot in the value
+    //     if ((formattedValue.match(/\./g) || []).length > 1) {
+    //         formattedValue = formattedValue.slice(0, formattedValue.lastIndexOf('.')) + '.' + formattedValue.split('.').slice(1).join('');
+    //     }
+
+    //     // Ensure no more than two digits after the decimal point
+    //     const [integer, decimal] = formattedValue.split('.');
+    //     if (decimal && decimal.length > 3) {
+    //         formattedValue = `${integer}.${decimal.slice(0, 3)}`; // Limit decimal to two places
+    //     }
+
+    //     // Ensure the value is between 0 and 100
+    //     if (parseFloat(formattedValue) < 0) formattedValue = '0';
+    //     if (parseFloat(formattedValue) > 100) formattedValue = '100';
+
+    //     setDownPaymentPercentage(formattedValue);
+    // };
+
+
+
+    const handleDownPaymentPercentageChange = (value) => {
+        let formattedValue = value.toString().replace(/[^0-9.]/g, ''); // Ensure it's a string and sanitize input
+
+        // Allow only one dot in the value
+        if ((formattedValue.match(/\./g) || []).length > 1) {
+            formattedValue = formattedValue.slice(0, formattedValue.lastIndexOf('.')) + '.' + formattedValue.split('.').slice(1).join('');
+        }
+
+        // Ensure no more than two digits after the decimal point
+        const [integer, decimal] = formattedValue.split('.');
+        if (decimal && decimal.length > 3) {
+            formattedValue = `${integer}.${decimal.slice(0, 3)}`; // Limit decimal to three places
+        }
+
+        // Ensure the value is between 0 and 100
+        if (parseFloat(formattedValue) < 0) formattedValue = '0';
+        if (parseFloat(formattedValue) > 100) formattedValue = '100';
+
+        setDownPaymentPercentage(formattedValue);
+
+        const downPaymentMoney = ((parseFloat(formattedValue) / 100) * homePrice) || 0;
+        setDownPayment(downPaymentMoney);
+    };
+
+
 
     // Helper to calculate monthly mortgage payment (EMI)
     const calculateEMI = useCallback(() => {
@@ -127,45 +201,65 @@ const RVsBCalculator = () => {
 
                         {/* Down Payment */}
                         <label>
-                            Percentage of Down Payment (%): <br />
-                            <div style={{ display: 'flex', alignItems: 'center' }}>
-                                <input
-                                    type="text"
-                                    min="0"
-                                    max="100"
-                                    step="0.001"
-                                    value={downPaymentPercentage}
-                                    onChange={(e) => {
-                                        let value = e.target.value.replace(/[^0-9.]/g, '');
+                            Down Payment (%) / $: <br />
+                            <span>
+                                <div className="DownPaymentDiv">
+                                    <input
+                                        type="text"
+                                        min="0"
+                                        max={homePrice}
+                                        value={`$ ${Number(downPayment).toLocaleString()}`}
+                                        onChange={(e) => handleDownPaymentChange(+e.target.value.replace(/[^0-9.-]+/g, ""))}
+                                        className={`DownPaymentMoneyInput ${paymentType === "Percentage" ? "hidden" : ""}`}
+                                        placeholder="Enter Down Payment"
+                                    />
+                                    <span className={`DownPaymentPercentageInputSpan ${paymentType === "Money" ? "hidden" : ""
+                                        }`}>
+                                        <input
+                                            type="text"
+                                            min="0"
+                                            max="100"
+                                            step="0.01"
+                                            className="DownPaymentPercentageInput"
+                                            value={downPaymentPercentage}
+                                            onChange={(e) => {
+                                                let value = e.target.value.replace(/[^0-9.]/g, '');
 
-                                        // Allow only one decimal point
-                                        if ((value.match(/\./g) || []).length > 1) {
-                                            value = value.slice(0, -1);
-                                        }
+                                                // Allow only one decimal point
+                                                if ((value.match(/\./g) || []).length > 1) {
+                                                    value = value.slice(0, -1);
+                                                }
 
-                                        // Ensure there are no more than two digits after the decimal point
-                                        const [integer, decimal] = value.split('.');
-                                        if (decimal && decimal.length > 2) {
-                                            value = `${integer}.${decimal.slice(0, 3)}`; // Limit to two decimal places
-                                        }
+                                                // Ensure no more than three digits after the decimal point
+                                                const [integer, decimal] = value.split('.');
+                                                if (decimal && decimal.length > 3) {
+                                                    value = `${integer}.${decimal.slice(0, 3)}`; // Limit to three decimal places
+                                                }
 
-                                        // Ensure the value is between 0 and 100
-                                        if (+value < 0) value = "0";
-                                        if (+value > 100) value = "100";
+                                                // Ensure the value is between 0 and 100
+                                                if (+value < 0) value = "0";
+                                                if (+value > 100) value = "100";
 
-                                        setDownPaymentPercentage(value);
-                                    }}
-                                    style={{ width: '100%' }} // Adjust width as needed
-                                />
-                                <span style={{ marginLeft: '-30px', fontWeight: "bold" }}>%</span>
-                            </div>
+                                                handleDownPaymentPercentageChange(value);
+                                            }}
+                                        />
+                                        <span style={{ position: "relative", left: "-5%", marginLeft: "-17px", fontWeight: "bold" }}>
+                                            %
+                                        </span>
+                                    </span>
+                                    <select name="DownPaymentType" className="DownPaymentType"
+                                        onChange={handlePaymentTypeChange}
+                                        value={paymentType}>
+                                        <option value="Money">$</option>
+                                        <option value="Percentage">%</option>
+                                    </select>
+                                </div>
+                            </span>
                             <input
                                 type="range"
-                                min="0"
-                                max="100"
                                 value={downPaymentPercentage}
                                 step="0.01"
-                                onChange={(e) => setDownPaymentPercentage(+e.target.value)}
+                                onChange={(e) => handleDownPaymentPercentageChange(+e.target.value)}
                             />
                         </label>
 
