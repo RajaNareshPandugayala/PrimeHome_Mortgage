@@ -47,55 +47,6 @@ const ConsolidationCalculatorDebt = () => {
         setCalculateCurrentMonthlyPaymentPlan(totalInterest1 + totalInterest2);
     }, [principalBalance1, interestRate1, loanTerm, principalBalance2, interestRate2]);
 
-    // Calculate refinanced plan
-    // const calculateRefinancePlan = useCallback(() => {
-    //     const totalPrincipal = principalBalance1 + principalBalance2;
-    //     const closingCostsValue =
-    //         closingCostsType === "Percentage" ? totalPrincipal * (closingCosts / 100) : closingCosts;
-
-    //     const finalPrincipal =
-    //         financeClosingCosts === "Yes" ? totalPrincipal + closingCostsValue : totalPrincipal;
-
-    //     const monthlyInterest = refinanceRate / 100 / 12;
-
-    //     const monthlyEMI =
-    //         monthlyInterest === 0
-    //             ? finalPrincipal / loanTerm
-    //             : (finalPrincipal * monthlyInterest * Math.pow(1 + monthlyInterest, loanTerm)) /
-    //             (Math.pow(1 + monthlyInterest, loanTerm) - 1);
-
-    //     const totalInterestRefinanced =
-    //         monthlyEMI * loanTerm - finalPrincipal;
-
-    //     setMonthlyPayment(monthlyEMI.toFixed(2));
-    //     setTotalInterestRefinanced(totalInterestRefinanced);
-
-    //     const monthlyDebt = monthlyDebt1 + monthlyDebt2;
-    //     const savings = monthlyDebt - monthlyEMI;
-    //     const netSavings =
-    //         totalInterestCurrent - totalInterestRefinanced - closingCostsValue;
-
-    //     setMonthlySavings(savings.toFixed(2));
-    //     setNetSavings(netSavings.toFixed(2));
-
-    //     if (savings > 0 && closingCostsValue > 0) {
-    //         setBreakEvenMonths(Math.ceil(closingCostsValue / savings));
-    //     } else {
-    //         setBreakEvenMonths(0);
-    //     }
-    // }, [
-    //     principalBalance1,
-    //     principalBalance2,
-    //     refinanceRate,
-    //     loanTerm,
-    //     financeClosingCosts,
-    //     closingCosts,
-    //     closingCostsType,
-    //     totalInterestCurrent,
-    //     monthlyDebt1,
-    //     monthlyDebt2,
-    // ]);
-
 
     const calculateRefinancePlan = useCallback(() => {
         // Combine the principal balances for the new total principal
@@ -166,6 +117,25 @@ const ConsolidationCalculatorDebt = () => {
         { name: "Savings", value: parseFloat(monthlySavings) },
     ];
     const COLORS = ["#0088FE", "#00C49F"];
+
+
+
+    // PieChart size Adjust dimensions based on screen size
+    const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setViewportWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const isSmallScreen = viewportWidth <= 500;
+
+    // Adjust dimensions based on screen size
+    const pieChartWidth = isSmallScreen ? 300 : 450;
+    const pieChartHeight = isSmallScreen ? 350 : 400;
+    const innerRadius = isSmallScreen ? 110 : 130;
+    const outerRadius = isSmallScreen ? 150 : 180;
 
     return (
         <div className="mortgageCalculatorParent">
@@ -422,8 +392,8 @@ const ConsolidationCalculatorDebt = () => {
 
                     <div className="rightSideBox DCCrightSideBox">
                         <div className="RACrightSideDiv">
-                            <div><span>Monthly payment will be if you refinance: </span><b>{`$ ${Number(monthlyPayment).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} </b></div>
-                            <div><span>Your Monthly Savings will be:</span><b>{`$ ${Number(monthlySavings).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</b></div>
+                            <div><span>Monthly payment will be if you refinance: </span><b>{`$ ${Number(monthlyPayment).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`} </b></div>
+                            <div><span>Your Monthly Savings will be:</span><b>{`$ ${Number(monthlySavings).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`}</b></div>
                         </div>
 
                         {(refinanceRate > interestRate1 || refinanceRate > interestRate2) && (
@@ -434,8 +404,8 @@ const ConsolidationCalculatorDebt = () => {
 
 
                         <div style={{ textAlign: "center" }}>
-                            <PieChart width={500} height={500}>
-                                <Pie data={chartData} dataKey="value" innerRadius={160} outerRadius={220} fill="#8884d8" paddingAngle={1}>
+                            <PieChart width={pieChartWidth} height={pieChartHeight}>
+                                <Pie data={chartData} dataKey="value" innerRadius={innerRadius} outerRadius={outerRadius} fill="#8884d8" paddingAngle={1}>
                                     {chartData.map((_, index) => (
                                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                     ))}

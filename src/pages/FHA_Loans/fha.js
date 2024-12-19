@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 function FHA() {
     return (
         <div className='purchaseParent'>
-            <div className='purchasetopParent'>
+            <div className='purchasetopParent FHALoansTopParent'>
                 <img src={FHAFamily} alt='FHAFamilyImage' className='background-video FHA_FamilyImage' />
-                <div className='purchasetopBox'>
+                <div className='purchasetopBox FHALoansTopBox'>
                     {/* The existing Purchase span */}
                     <span>FHA Loans</span>
                 </div>

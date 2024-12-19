@@ -75,6 +75,26 @@ const RefinanceCalculator = () => {
     ];
     const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
 
+
+
+    // PieChart size Adjust dimensions based on screen size
+    const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setViewportWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const isSmallScreen = viewportWidth <= 500;
+
+    // Adjust dimensions based on screen size
+    const pieChartWidth = isSmallScreen ? 300 : 450;
+    const pieChartHeight = isSmallScreen ? 350 : 400;
+    const innerRadius = isSmallScreen ? 110 : 130;
+    const outerRadius = isSmallScreen ? 150 : 180;
+
+
     return (
         <div className="mortgageCalculatorParent">
             <div className="mortgageCalculator">
@@ -249,8 +269,8 @@ const RefinanceCalculator = () => {
 
                     <div className="rightSideBox RACrightSideBox">
                         <div className="RACrightSideDiv">
-                            <div><span>Monthly payment will be if you refinance: </span><b>{`$ ${Number(monthlyPayment).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`} </b></div>
-                            <div><span>Your Monthly Savings will be:</span><b>{`$ ${Number((monthlyDebt - monthlyPayment).toFixed(2)).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</b></div>
+                            <div><span>Monthly payment will be if you refinance: </span><b>{`$ ${Number(monthlyPayment).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`} </b></div>
+                            <div><span>Your Monthly Savings will be:</span><b>{`$ ${Number((monthlyDebt - monthlyPayment).toFixed(2)).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`}</b></div>
                         </div>
 
                         {/* Conditionally render .RACrightSideBottom00 based on refinanceInterestRate */}
@@ -261,8 +281,8 @@ const RefinanceCalculator = () => {
                         )}
 
                         <div style={{ textAlign: "center" }}>
-                            <PieChart width={500} height={500}>
-                                <Pie data={data} dataKey="value" innerRadius={160} outerRadius={220} fill="#8884d8" paddingAngle={1}>
+                            <PieChart width={pieChartWidth} height={pieChartHeight}>
+                                <Pie data={data} dataKey="value" innerRadius={innerRadius} outerRadius={outerRadius} fill="#8884d8" paddingAngle={1}>
                                     {data.map((_, index) => (
                                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                     ))}
@@ -287,16 +307,16 @@ const RefinanceCalculator = () => {
                             <div><span>Net Refinancing Savings: </span><span>{`$ ${Number(netSavings).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</span></div> */}
 
                             <div><span>This is how much interest you will pay under your current monthly payment plan:</span>
-                                {`$ ${Number(calculateCurrentMonthlyPaymentPlan).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</div>
+                                <span>{`$ ${Number(calculateCurrentMonthlyPaymentPlan).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</span></div>
 
                             <div><span>This is how much interest you will pay under your refinanced monthly payment plan:</span>
-                                {`$ ${Number(totalInterestRefinanced).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</div>
+                                <span>{`$ ${Number(totalInterestRefinanced).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</span></div>
 
                             <div><span>This is how much interest you will save if you refinance:</span>
-                                {`$ ${Number(totalInterestCurrent - totalInterestRefinanced).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</div>
+                                <span>{`$ ${Number(totalInterestCurrent - totalInterestRefinanced).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</span></div>
 
                             <div><span>Net Refinancing Savings (interest savings less closing costs):</span>
-                                {`$ ${Number(netSavings).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</div>
+                                <span>{`$ ${Number(netSavings).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</span></div>
 
                         </div>
                     </div>

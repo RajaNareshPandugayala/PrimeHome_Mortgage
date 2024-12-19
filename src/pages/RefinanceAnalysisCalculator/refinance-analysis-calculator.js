@@ -6,9 +6,9 @@ import RefinanceCalculator from '../CalculatorAndChart/refinanceCalculator';
 function RefinanceAnalysisCalculator() {
     return (
         <div className='purchaseParent'>
-            <div className='purchasetopParent'>
+            <div className='purchasetopParent RefinanceAnalysisPageTopParent'>
                 <img src={RAC} alt='RACImage' className='background-video RACalculatorImage' />
-                <div className='purchasetopBox'>
+                <div className='purchasetopBox RefinanceAnalysisPageTopBox'>
                     {/* The existing Purchase span */}
                     <span>refinance analysis calculator</span>
                 </div>

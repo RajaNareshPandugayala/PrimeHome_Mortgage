@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 function Refinancing() {
     return (
         <div className='purchaseParent'>
-            <div className='purchasetopParent'>
+            <div className='purchasetopParent refinancingPageTopParent'>
                 <img src={RFamily} alt='RFamilyImage' className='background-video R_FamilyImage' />
-                <div className='purchasetopBox'>
+                <div className='purchasetopBox refinancingPageTopBox'>
                     {/* The existing Purchase span */}
                     <span>Refinancing</span>
                 </div>

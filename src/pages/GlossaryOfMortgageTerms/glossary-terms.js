@@ -18,7 +18,7 @@ function GlossaryOfMortgageTerms() {
         <div className='purchaseParent'>
             <div className='purchasetopParent'>
                 <img src={GlossaryTerms} alt='GlossaryTermsImage' className='background-video GlossaryTermsImage' />
-                <div className='purchasetopBox'>
+                <div className='purchasetopBox GlossaryTermsPageTopBox'>
                     {/* The existing Purchase span */}
                     <span>Glossary Of Mortgage Terms</span>
                 </div>

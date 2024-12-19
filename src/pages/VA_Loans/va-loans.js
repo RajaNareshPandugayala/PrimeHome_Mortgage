@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 function VALoans() {
     return (
         <div className='purchaseParent'>
-            <div className='purchasetopParent'>
+            <div className='purchasetopParent VALoansPageTopParent'>
                 <img src={VAFamily} alt='FHAFamilyImage' className='background-video VA_FamilyImage' />
-                <div className='purchasetopBox'>
+                <div className='purchasetopBox VALoansPageTopBox'>
                     {/* The existing Purchase span */}
                     <span>VA Loans</span>
                 </div>

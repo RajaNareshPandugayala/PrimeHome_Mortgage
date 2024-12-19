@@ -154,6 +154,25 @@ const RVsBCalculator = () => {
     ];
 
 
+
+    // PieChart size Adjust dimensions based on screen size
+    const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setViewportWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const isSmallScreen = viewportWidth <= 500;
+
+    // Adjust dimensions based on screen size
+    const pieChartWidth = isSmallScreen ? 380 : 430;
+    const pieChartHeight = isSmallScreen ? 300 : 300;
+    // const innerRadius = isSmallScreen ? 110 : 130;
+    // const outerRadius = isSmallScreen ? 150 : 180;
+
+
     return (
         <div className="mortgageCalculatorParent">
             <div className="mortgageCalculator">
@@ -439,7 +458,7 @@ const RVsBCalculator = () => {
 
                     </div>
 
-                    <div className="rightSideBox">
+                    <div className="rightSideBox RVsBCalculatorRightSideBox">
                         <div><span>Total Savings:</span>
                             <span>
                                 <h1>Buying:
@@ -450,8 +469,8 @@ const RVsBCalculator = () => {
                         </div>
 
 
-                        <div style={{ textAlign: "center", marginTop: "20px" }}>
-                            <BarChart width={500} height={300} data={chartData}>
+                        <div style={{ textAlign: "center", marginTop: "20px", fontSize: "12px" }}>
+                            <BarChart width={pieChartWidth} height={pieChartHeight} data={chartData}>
                                 <CartesianGrid strokeDasharray="3 3" />
                                 <XAxis dataKey="name" />
                                 <YAxis />

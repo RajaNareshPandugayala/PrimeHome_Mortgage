@@ -82,7 +82,7 @@ function Home() {
                     {activeChatBot === null && (
                         <>
                             <span className='homeHelpYouHeading'>
-                                <span className='homeHelpYouHeadingLeft'>Let's Help You... </span><br />
+                                <span className='homeHelpYouHeadingLeft'>Let's Help You... </span>
                                 <span className="typingText homeHelpYouHeadingRight">{currentText}</span>
                             </span>
                             <span className='homeHelpYouContent'>

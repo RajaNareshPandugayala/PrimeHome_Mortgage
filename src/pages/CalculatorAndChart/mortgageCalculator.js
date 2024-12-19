@@ -137,6 +137,25 @@ const MortgageCalculator = () => {
     const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
     const hoverBackgroundColor = ["#005bb5", "#008a7f", "#cc9600", "#cc5f29"];
 
+
+
+    // PieChart size Adjust dimensions based on screen size
+    const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setViewportWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const isSmallScreen = viewportWidth <= 500;
+
+    // Adjust dimensions based on screen size
+    const pieChartWidth = isSmallScreen ? 300 : 400;
+    const pieChartHeight = isSmallScreen ? 450 : 550;
+    const innerRadius = isSmallScreen ? 110 : 130;
+    const outerRadius = isSmallScreen ? 150 : 180;
+
     return (
         <div className="mortgageCalculatorParent">
             <div className="mortgageCalculator" style={{ display: "flex" }}>
@@ -391,12 +410,18 @@ const MortgageCalculator = () => {
                                     }))}
                                 />
                             </div>
-                            <PieChart width={600} height={500}>
+
+                            <PieChart
+                                width={pieChartWidth}
+                                height={pieChartHeight}
+                                className="rightSideBoxChartBoxPieChart"
+                            >
                                 <Pie
+                                    className="rightSideBoxChartBoxPieChartPie"
                                     data={data}
                                     dataKey="value"
-                                    innerRadius={160}
-                                    outerRadius={220}
+                                    innerRadius={innerRadius}
+                                    outerRadius={outerRadius}
                                     fill="#8884d8"
                                     paddingAngle={1}
                                 >
@@ -411,11 +436,10 @@ const MortgageCalculator = () => {
                                 </Pie>
                                 <Tooltip
                                     formatter={(value, name) =>
-
-                                        [`$ ${Number(Math.round(value).toFixed(0)).toLocaleString()}`,
-                                            name]}
+                                        [`$ ${Number(Math.round(value).toFixed(0)).toLocaleString()}`, name]
+                                    }
                                     cursor={{ fill: 'rgba(255, 255, 255, 0.5)' }}
-                                    position={{ x: 300, y: 50 }}
+                                    position={{ x: -80, y: 100 }}
                                 />
                             </PieChart>
 

@@ -7,7 +7,7 @@ function MonthlyPaymentMortgageCalculator() {
         <div className='purchaseParent'>
             <div className='purchasetopParent'>
                 <img src={MPMC} alt='MPMCImage' className='background-video MPMCalculatorImage' />
-                <div className='purchasetopBox'>
+                <div className='purchasetopBox monthlyPaymentMortgageBox'>
                     {/* The existing Purchase span */}
                     <span>Monthly Payment Calculator</span>
                 </div>

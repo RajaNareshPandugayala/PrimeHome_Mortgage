@@ -7,7 +7,7 @@ function GetInformativeFreeReports() {
         <div className='purchaseParent'>
             <div className='purchasetopParent'>
                 <img src={freeReports} alt='freeReportsImage' className='background-video freeReportsImage' />
-                <div className='purchasetopBox'>
+                <div className='purchasetopBox GetInformativeFreeReportsPageTopBox'>
                     {/* The existing Purchase span */}
                     <span>Order Your Free Report</span>
                 </div>

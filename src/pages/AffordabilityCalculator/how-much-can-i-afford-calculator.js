@@ -6,9 +6,9 @@ import AffordCalculator from '../CalculatorAndChart/affordCalculator';
 function AffordabilityCalculator() {
     return (
         <div className='purchaseParent'>
-            <div className='purchasetopParent'>
+            <div className='purchasetopParent AffordPageTopParent'>
                 <img src={AC} alt='ACImage' className='background-video AffordCalculatorImage' />
-                <div className='purchasetopBox'>
+                <div className='purchasetopBox AffordPageTopBox'>
                     {/* The existing Purchase span */}
                     <span>Affordability Calculator</span>
                 </div>

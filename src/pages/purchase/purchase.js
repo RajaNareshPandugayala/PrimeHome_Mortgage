@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 function purchase() {
     return (
         <div className='purchaseParent'>
-            <div className='purchasetopParent'>
+            <div className='purchasetopParent purchasePagetopParent'>
                 {/* Video element */}
                 <video
                     className='background-video'
@@ -18,7 +18,7 @@ function purchase() {
                     <source src={KidsVideo} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
-                <div className='purchasetopBox'>
+                <div className='purchasetopBox purchasePagetopBox'>
                     {/* The existing Purchase span */}
                     <span>Purchase</span>
                 </div>

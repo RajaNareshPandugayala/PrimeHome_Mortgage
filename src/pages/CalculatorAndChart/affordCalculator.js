@@ -72,6 +72,26 @@ const AffordCalculator = () => {
 
     const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
 
+
+
+    // PieChart size Adjust dimensions based on screen size
+    const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setViewportWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const isSmallScreen = viewportWidth <= 500;
+
+    // Adjust dimensions based on screen size
+    const pieChartWidth = isSmallScreen ? 300 : 400;
+    const pieChartHeight = isSmallScreen ? 350 : 420;
+    const innerRadius = isSmallScreen ? 110 : 130;
+    const outerRadius = isSmallScreen ? 150 : 180;
+
+
     return (
         <div className="mortgageCalculatorParent">
             <div className="mortgageCalculator">
@@ -342,8 +362,8 @@ const AffordCalculator = () => {
                         </label>
 
                         <div style={{ textAlign: "center" }}>
-                            <PieChart width={600} height={500}>
-                                <Pie data={data} dataKey="value" innerRadius={160} outerRadius={220} fill="#8884d8" paddingAngle={1}>
+                            <PieChart width={pieChartWidth} height={pieChartHeight}>
+                                <Pie data={data} dataKey="value" innerRadius={innerRadius} outerRadius={outerRadius} fill="#8884d8" paddingAngle={1}>
                                     {data.map((_, index) => (
                                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                     ))}

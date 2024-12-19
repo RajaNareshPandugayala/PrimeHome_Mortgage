@@ -8,7 +8,7 @@ function DebtConsolidationCalculator() {
         <div className='purchaseParent'>
             <div className='purchasetopParent DCCalculatortopParent'>
                 <img src={DCC} alt='DCCImage' className='background-video DCCalculatorImage' />
-                <div className='purchasetopBox'>
+                <div className='purchasetopBox DCCalculatortopBox'>
                     {/* The existing Purchase span */}
                     <span>Consolidation Calculator</span>
                 </div>

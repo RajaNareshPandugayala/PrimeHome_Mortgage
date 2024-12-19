@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 function CashOutRefinance() {
     return (
         <div className='purchaseParent'>
-            <div className='purchasetopParent'>
+            <div className='purchasetopParent CashOutRefinancePageTopParent'>
                 <img src={COR} alt='CORImage' className='background-video CORImage' />
-                <div className='purchasetopBox'>
+                <div className='purchasetopBox CashOutRefinancePageTopBox'>
                     {/* The existing Purchase span */}
                     <span>Cash Out Refinance</span>
                 </div>

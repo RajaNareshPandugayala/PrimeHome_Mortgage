@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 function AboutUs() {
     return (
         <div className='purchaseParent'>
-            <div className='purchasetopParent'>
+            <div className='purchasetopParent aboutUsTopParent'>
                 <img src={aboutUs} alt='aboutUsImage' className='background-video aboutUsImage' />
-                <div className='purchasetopBox'>
+                <div className='purchasetopBox aboutUsTopBox'>
                     {/* The existing Purchase span */}
                     <span>About Us</span>
                 </div>

@@ -5,9 +5,9 @@ import ContactForm from '../Form/ContactForm';
 function ContactUs() {
     return (
         <div className='purchaseParent'>
-            <div className='purchasetopParent'>
+            <div className='purchasetopParent ContactUsPageTopParent'>
                 <img src={contactUs} alt='contactUsImage' className='background-video contactUsImage' />
-                <div className='purchasetopBox'>
+                <div className='purchasetopBox ContactUsPageTopBox'>
                     {/* The existing Purchase span */}
                     <span>Contact Us</span>
                 </div>

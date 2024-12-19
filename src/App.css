@@ -112,6 +112,10 @@ form.submitting * {
   gap: 25px;
 }
 
+.headerMenuMobileView {
+  display: none;
+}
+
 .headerMenuUI {
   list-style-type: none;
   display: flex;
@@ -398,7 +402,8 @@ form.submitting * {
   background-color: #18181880;
   text-shadow: 1px 1px 3px black;
   /* position: fixed; */
-  /* overflow: hidden; */
+  overflow: hidden;
+  text-wrap: wrap;
   z-index: 950;
 }
 
@@ -420,6 +425,9 @@ form.submitting * {
 .homeHelpYouHeading {
   font-size: 34px;
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  height: 80px;
 }
 
 
@@ -428,7 +436,7 @@ form.submitting * {
   /* padding-right: 5px; */
   overflow: hidden;
   white-space: nowrap;
-  border-right: 5px solid white;
+  border-right: 0px solid white;
   animation: blinkCursor 10s step-end infinite;
 }
 
@@ -1465,6 +1473,7 @@ form.submitting * {
   display: flex;
   align-items: start;
   justify-content: center;
+  gap: 30px;
 }
 
 .leftSideBox {
@@ -1503,6 +1512,8 @@ form.submitting * {
   justify-content: center;
   gap: 20px;
   border-left: 2px solid #bebebe;
+  width: 100%;
+  padding-top: 20px;
 }
 
 .rightSideHeader {
@@ -2797,6 +2808,756 @@ input[type="range"]::-moz-range-thumb {
 /*********************TeamMemberFullDetails-End********************************/
 
 
+
+
+
+
+/*****************************************************************************************************************************************MobileView-Start**********************************************************************************************************************************************************************/
+
+
+
+@media (max-width: 1200px) {
+
+  .headerBox,
+  .footerBox,
+  .homeHelpYouBox,
+  .welcomeBox,
+  .OurSatisfiedBox,
+  .latestBox,
+  .purchasingBox,
+  .purchasingBox01,
+  .advantageBox,
+  .teamBox,
+  .addressBox,
+  .refinanceBox,
+  .reHistoricalBox,
+  .latestNewsBox,
+  .calculateBox,
+  .mortgageCalculator,
+  .purchaseBottomBox,
+  .quickQuoteTitleBox,
+  .blogPagesBox {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .homePageFirstImage {
+    width: 100%;
+    height: 100vh;
+    top: 0px;
+  }
+
+
+  .homeHelpYouButton {
+    flex-wrap: wrap;
+    padding-top: 25px;
+  }
+
+  .latestContentBoxParent {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+
+  .leftSideBox {
+    width: 100%;
+    min-width: 330px;
+  }
+
+  .mortgageCalculatorBox {
+    flex-wrap: wrap;
+  }
+
+  .advantageContentBoxParent {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .teamListBoxParent {
+    flex-wrap: wrap;
+  }
+
+
+  .quickQuoteformBox {
+    width: 80%;
+  }
+
+  .contactUsBottomRightBox {
+    width: 100%;
+  }
+
+  .contactUsBottomLeftBox {
+    width: 100%;
+  }
+
+  .contactUsBottomLeftContent {
+    width: 100%;
+  }
+
+
+
+  .addressMapDetails {
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+
+  .refinanceBox {
+    flex-wrap: wrap;
+  }
+
+  .refinanceSpanImage img {
+    width: 100%;
+  }
+
+  .reHistoricalContentBoxParent {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .latestNewsBox {
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+
+  .latestNewsSpanImage img {
+    width: 600px;
+  }
+
+  .calculateContentBox {
+    flex-wrap: wrap;
+  }
+
+  .calcSmallImage {
+    width: 100%;
+  }
+
+  .monthlyPaymentMortgageBox {
+    top: 60%;
+  }
+
+  .RefinanceCalculatorContent {
+    width: 100%;
+  }
+
+  .RACrightSideBottom00 div {
+    padding: 0px;
+  }
+
+
+  .footerTop {
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 50px;
+  }
+
+  .footerMiddle {
+    flex-wrap: wrap;
+  }
+
+  .meetOurStaffPageTopParent {
+    height: 200px;
+  }
+
+  .typingText {
+    border-right: 0px solid white;
+    white-space: wrap;
+  }
+
+  .RACrightSideBox {
+    width: 100%;
+    margin-left: 0px;
+  }
+
+}
+
+
+
+@media (max-width: 949px) {
+  .headerMenu_Tel {
+    display: none;
+  }
+
+  .homeHelpYouBox {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .homeHelpYouHeading {
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    /* background-color: red; */
+  }
+
+  .aboutUsTopParent {
+    height: 250px;
+  }
+
+  .monthlyPaymentMortgageBox {
+    top: 50%;
+  }
+
+
+
+  .rightSideBox {
+    border-left: 0px solid #bebebe;
+    border-top: 2px solid #bebebe;
+  }
+
+  .purchaseBottomBox {
+    flex-direction: column;
+  }
+
+  .purchaseBottomLeftBox {
+    width: 100%;
+  }
+
+  .FHALoansTopParent {
+    height: 250px;
+  }
+
+}
+
+
+
+@media (max-width: 850px) {
+  .AffordPageTopParent {
+    height: 220px;
+  }
+
+  .AffordPageTopBox {
+    top: 50%;
+  }
+
+  .RACrightSideBox {
+    margin-left: 0;
+  }
+}
+
+
+
+@media (max-width: 800px) {
+
+  @keyframes fadeSkewM {
+    from {
+      opacity: 0;
+      transform: rotateZ(180deg);
+    }
+
+    to {
+      opacity: 1;
+      transform: rotateZ(0deg);
+    }
+  }
+
+  @keyframes fadeSkewX {
+    from {
+      opacity: 0;
+      transform: rotateZ(0deg);
+    }
+
+    to {
+      opacity: 1;
+      transform: rotateZ(180deg);
+    }
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .headerMenu {
+    display: none;
+  }
+
+  .headerMenuMobileView {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+  }
+
+  .headerMenuUI00 {
+    position: absolute;
+    right: 100px;
+  }
+
+  .headerMenuUI_LI00 {
+    position: absolute;
+    display: none;
+    background-color: white;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .headerMenuUI00:hover>.headerMenuUI_LI00 {
+    position: absolute;
+    width: 350px;
+    top: 50px;
+    right: -95px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    margin-top: -20px;
+    margin-left: -20px;
+    border-radius: 0.1cm;
+  }
+
+  .headerMenuMobileViewlist {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 10px;
+    width: 50%;
+    right: 5px;
+    top: 65px;
+    animation: fadeInDown 0.3s linear alternate;
+    align-items: start;
+  }
+
+  .headerMenu_Tel {
+    display: flex;
+  }
+
+  #menubtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: red;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    animation: fadeSkewM 0.3s linear alternate;
+  }
+
+  #closebtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 24px;
+    cursor: pointer;
+    animation: fadeSkewX 0.3s linear alternate;
+  }
+
+  .headerMenuUI_LI {
+    position: relative;
+    display: none;
+    background-color: white;
+    padding: 10px;
+  }
+
+  .headerMenuUI:hover>.headerMenuUI_LI {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    margin-top: -20px;
+    margin-left: 0px;
+    border-radius: 0.1cm;
+  }
+
+  .latestNewsSpanImage img {
+    width: 100%;
+  }
+
+
+  .monthlyPaymentMortgageBox {
+    top: 30%;
+  }
+
+  .VALoansPageTopParent {
+    height: 250px;
+  }
+
+
+  .RefinanceAnalysisPageTopParent {
+    height: 250px;
+  }
+
+  .RefinanceAnalysisPageTopBox {
+    top: 50%;
+  }
+
+  .DCCalculatortopParent {
+    height: 250px;
+  }
+
+  .DCCalculatortopBox {
+    top: 50%;
+  }
+
+  .GlossaryTermsPageTopBox {
+    top: 50%;
+  }
+
+  .meetOurStaffPageTopParent {
+    height: 150px;
+  }
+
+  .meetOurStaffPageTopBox {
+    top: 50%;
+  }
+
+  .ChartBotBothBox {
+    width: 100%;
+    bottom: 25px;
+    left: 0px;
+  }
+
+}
+
+
+
+
+
+@media (max-width: 750px) {
+
+  .headerMenuMobileViewlist {
+    width: 70%;
+  }
+
+  .aboutUsTopParent {
+    height: 200px;
+  }
+
+  .aboutUsTopBox {
+    top: 50%;
+  }
+
+  .FHALoansTopParent {
+    height: 200px;
+  }
+
+  .FHALoansTopBox {
+    top: 50%;
+  }
+
+  .refinancingPageTopParent {
+    height: 250px;
+  }
+
+  .RefinanceAnalysisPageTopParent {
+    height: 200px;
+  }
+
+  .RACrightSideBottom {
+    padding: 0;
+    width: 100%;
+  }
+
+  .RACrightSideBottom div {
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .RACrightSideBottom div span:nth-of-type(1) {
+    text-align: start;
+  }
+
+  .RACrightSideBottom div span:nth-of-type(2) {
+    min-width: 100px;
+    text-align: end;
+    /* background-color: red; */
+  }
+
+  .FhaVaStreamlinePageTopParent {
+    height: 250px;
+  }
+
+  .FhaVaStreamlinePageTopBox {
+    top: 50%;
+  }
+
+  .GetInformativeFreeReportsPageTopBox {
+    top: 45%;
+  }
+
+  .DCCalculatortopParent {
+    height: 200px;
+  }
+
+  .ContactUsPageTopParent {
+    height: 250px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .aboutUsTopParent {
+    height: 150px;
+  }
+
+  .aboutUsTopBox {
+    top: 50%;
+  }
+
+  .AffordPageTopParent {
+    height: 170px;
+  }
+
+  .AffordPageTopBox {
+    top: 40%;
+  }
+
+  .FHALoansTopParent {
+    height: 150px;
+  }
+
+
+  .RACrightSideDiv div b {
+    font-size: 28px;
+  }
+
+  .GlossaryTermsPageTopBox {
+    top: 40%;
+  }
+}
+
+
+@media (max-width: 550px) {
+
+  .headerBox,
+  .footerBox,
+  .homeHelpYouBox,
+  .welcomeBox,
+  .OurSatisfiedBox,
+  .latestBox,
+  .purchasingBox,
+  .purchasingBox01,
+  .advantageBox,
+  .teamBox,
+  .addressBox,
+  .refinanceBox,
+  .reHistoricalBox,
+  .latestNewsBox,
+  .calculateBox,
+  .mortgageCalculator,
+  .purchaseBottomBox,
+  .quickQuoteTitleBox,
+  .blogPagesBox {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+
+  .homeHelpYouHeading {
+    font-size: 30px;
+    height: 140px;
+  }
+
+  .homeHelpYouContent {
+    font-size: 22px;
+  }
+
+  .homeHelpYouButton {
+    gap: 25px;
+  }
+
+  .homeHelpYouButtonLeft,
+  .homeHelpYouButtonRight {
+    padding: 15px 50px;
+  }
+
+  .purchasePagetopParent {
+    height: 250px;
+  }
+
+  .purchasePagetopBox {
+    top: 50%;
+  }
+
+  .leftSideBox {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .VALoansPageTopParent {
+    height: 200px;
+  }
+
+  .VALoansPageTopBox {
+    top: 50%;
+  }
+
+  .refinancingPageTopParent {
+    height: 200px;
+  }
+
+  .refinancingPageTopBox {
+    top: 50%;
+  }
+
+  .CashOutRefinancePageTopParent {
+    height: 250px;
+  }
+
+  .CashOutRefinancePageTopBox {
+    top: 50%;
+  }
+
+  .RefinanceAnalysisPageTopBox {
+    top: 30%;
+  }
+
+  .rightSideBox {
+    padding: auto 0;
+  }
+
+  .FhaVaStreamlinePageTopParent {
+    height: 200px;
+  }
+
+  .FhaVaStreamlinePageTopBox {
+    top: 30%;
+  }
+
+  .RVBCalculatorPageTopParent {
+    height: 250px;
+  }
+
+  .RVBCalculatorPageTopBox {
+    top: 50%;
+  }
+
+  .DCCalculatortopParent {
+    height: 150px;
+  }
+
+  .DCCalculatortopBox {
+    top: 30%;
+  }
+
+  .meetOurStaffPageTopParent {
+    height: 100px;
+  }
+
+  .meetOurStaffPageTopBox {
+    top: 30%;
+  }
+
+  .ContactUsPageTopParent {
+    height: 200px;
+  }
+
+  .ContactUsPageTopBox {
+    top: 50%;
+  }
+
+  .headerMenuMobileViewlist {
+    width: 80%;
+  }
+
+  .monthlyPaymentMortgageBox {
+    top: 30%;
+    font-size: 30px;
+  }
+}
+
+
+@media (max-width: 450px) {
+
+
+  .headerMenuMobileView {
+    font-size: 16px;
+  }
+
+  .aboutUsTopParent {
+    height: 100px;
+  }
+
+  .aboutUsTopBox {
+    top: 50%;
+  }
+
+  .FHALoansTopParent {
+    height: 100px;
+  }
+
+  .VALoansPageTopParent {
+    height: 150px;
+  }
+
+  .refinancingPageTopParent {
+    height: 170px;
+  }
+
+  .CashOutRefinancePageTopParent {
+    height: 200px;
+  }
+
+  .RACrightSideBox {
+    padding: auto 0;
+  }
+
+  .FhaVaStreamlinePageTopParent {
+    height: 150px;
+  }
+
+  .FhaVaStreamlinePageTopBox {
+    top: 10%;
+  }
+
+  .RVBCalculatorPageTopBox {
+    top: 40%;
+  }
+
+  .TheLoanProcessPageTopBox {
+    top: 50%;
+  }
+
+  .GlossaryTermsPageTopBox {
+    top: 30%;
+  }
+
+  .ContactUsPageTopParent {
+    height: 150px;
+  }
+
+  .affordrightSideBottom div {
+    width: 100%;
+  }
+
+  .RVsBCalculatorRightSideBox,
+  .RVsBCalculatorRightSideBox div {
+    padding: auto 0;
+  }
+
+  .purchasePagetopParent {
+    height: 200px;
+  }
+
+  .AffordPageTopParent {
+    height: 140px;
+  }
+
+  .AffordPageTopBox {
+    top: 30%;
+  }
+}
+
+
+
+
+
+
+
+
 /*   width: 100%;
   display: flex;
   align-items: center;
@@ -2811,3 +3572,5 @@ input[type="range"]::-moz-range-thumb {
         align-items: center;
         justify-content: center;
         padding: 30px 0px;*/
+
+/*****************************************************************************************************************************************MobileView-End**********************************************************************************************************************************************************************/

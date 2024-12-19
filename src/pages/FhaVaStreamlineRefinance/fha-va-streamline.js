@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 function FhaVaStreamline() {
     return (
         <div className='purchaseParent'>
-            <div className='purchasetopParent'>
+            <div className='purchasetopParent FhaVaStreamlinePageTopParent'>
                 <img src={RFamily} alt='RFamilyImage' className='background-video FHAVAStreamlineImage' />
-                <div className='purchasetopBox'>
+                <div className='purchasetopBox FhaVaStreamlinePageTopBox'>
                     {/* The existing Purchase span */}
                     <span>FHA VA Streamline Refinance</span>
                 </div>

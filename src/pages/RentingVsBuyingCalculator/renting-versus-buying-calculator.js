@@ -6,9 +6,9 @@ import RVsBCalculator from '../CalculatorAndChart/RvsBCalculator';
 function RentingVsBuyingCalculator() {
     return (
         <div className='purchaseParent'>
-            <div className='purchasetopParent'>
+            <div className='purchasetopParent RVBCalculatorPageTopParent'>
                 <img src={RVBCalculator} alt='RVBCalculatorImage' className='background-video RVBCalculatorImage' />
-                <div className='purchasetopBox'>
+                <div className='purchasetopBox RVBCalculatorPageTopBox'>
                     {/* The existing Purchase span */}
                     <span>Renting Vs Buying Calculator</span>
                 </div>
