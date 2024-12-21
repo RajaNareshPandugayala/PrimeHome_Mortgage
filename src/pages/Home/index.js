@@ -201,7 +201,7 @@ function Home() {
                             <span className='addressDetailsTop'>
                                 <span className='addressDetailsTopHeading'>Contact Us:</span>
                                 <span>Email: contact@primehomemtg.com</span>
-                                <span>Phone: (###)-###-####</span>
+                                <span>Phone: (980) 292-1918</span>
                                 <span>Address: <br />1914 JN PEASE PL
                                     <br />CHARLOTTE, NC <br />28262</span>
                             </span>
@@ -252,7 +252,7 @@ function Home() {
                                     <span className='reHistoricalContentBoxBottomText'>Retirement Savings!</span>
                                 </span>
                             </span>
-                            <span className='reHistoricalContentBoxButton'>Reduce My Payment</span>
+                            {/* <span className='reHistoricalContentBoxButton'>Reduce My Payment</span> */}
                         </div>
                         <div className='reHistoricalContentBox'>
                             <span className='reHistoricalContentBoxSpanImage'>
@@ -275,7 +275,7 @@ function Home() {
                                     <span className='reHistoricalContentBoxBottomText'>Paying high-interest debt</span>
                                 </span>
                             </span>
-                            <span className='reHistoricalContentBoxButton'>Use My Equity</span>
+                            {/* <span className='reHistoricalContentBoxButton'>Use My Equity</span> */}
                         </div>
                         <div className='reHistoricalContentBox'>
                             <span className='reHistoricalContentBoxSpanImage'>
@@ -298,7 +298,7 @@ function Home() {
                                     <span className='reHistoricalContentBoxBottomText'>Paying off the home sooner!</span>
                                 </span>
                             </span>
-                            <span className='reHistoricalContentBoxButton'>Shorten My Team</span>
+                            {/* <span className='reHistoricalContentBoxButton'>Shorten My Team</span> */}
                         </div>
                     </div>
                 </div>

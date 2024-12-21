@@ -165,14 +165,15 @@ function Header() {
                             <ul className='headerMenuUI'>
                                 <span className='headerMenuUI_Header'>Contact &#x025BF;</span>
                                 <span className='headerMenuUI_LI'>
-                                    <li><Link to='https://ezymtg.my1003app.com/' onClick={toggleMenu}>Apply Now</Link></li>
+                                    {/* <li><Link to='https://ezymtg.my1003app.com/' onClick={toggleMenu}>Apply Now</Link></li> */}
+                                    <li><Link onClick={toggleMenu}>Apply Now</Link></li>
                                     <li><Link to="/about-us" onClick={toggleMenu}>About Us</Link></li>
                                     <li><Link to="/our-staff" onClick={toggleMenu}>Meet Our Team</Link></li>
                                     <li><Link to="/contact-us" onClick={toggleMenu}>Contact Us</Link></li>
                                 </span>
                             </ul>
-                            <a href="tel:+1-513-999-2324" className="headerMenu_Tel"><i class="ri-phone-fill"></i> (513)-999-2324</a>
-                            <button className='headerMenuButton'><Link to='https://ezymtg.my1003app.com/' className='headerMenuButtonLink'>Apply Now</Link></button>
+                            <a href="tel:+1-980-292-1918" className="headerMenu_Tel"><i class="ri-phone-fill"></i> (980) 292-1918</a>
+                            <button className='headerMenuButton'>Apply Now</button>
                         </div>
                     )}
                 </div>

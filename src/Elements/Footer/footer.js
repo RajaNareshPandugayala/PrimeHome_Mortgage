@@ -64,20 +64,23 @@ function Footer() {
                 </div>
                 <div className='footerMiddle'>
                     <img src={housingIcon} alt='houseIcon' className='houseIcon' /><b>Equal Housing Opportunity  </b><br />
-                    <span> PrimeHome Mortgage ™ 2024 </span> | <span>Company NMLS: 2658067</span>
+                    <span> PrimeHome Mortgage </span> | <span>Company NMLS: 2658067</span>
                 </div>
                 <div className='footerBottom'>
                     <span>Licensed in States SC, NC and OR.</span>
                     <span className='footerBottomDown'>
-                        <b>Mortgage Website Marketing</b>
-                        <span className='footerBottomDown02'>This site is protected by reCAPTCHA and the Google <b>Privacy Policy</b> and <b>Terms of Service</b> apply.</span>
+                        <b>Powered by <a href='https://shushanktech.com/' target='_blank' rel="noopener noreferrer" className='shushankTechLink'>ShushankTech</a></b>
+                        <span className='footerBottomDown02'>This site is protected by <a href='https://shushanktech.com/' className='shushankTechLink' target='_blank' rel="noopener noreferrer">ShushankTech</a> <b>Privacy Policy</b> and <b>Terms of Service</b> apply.</span>
                     </span>
                 </div>
                 <div className='goTop' onClick={scrollToTop}>
                     <span>TOP</span>
                 </div>
                 <div className='WhatApp'>
-                    <a href="https://wa.link/or01vh" target="_blank" rel="noopener noreferrer">
+                    {/* <a href="https://wa.link/or01vh" target="_blank" rel="noopener noreferrer">
+                        <img src={whatappIcon} alt='whatappIcon' className='whatappIcon' />
+                    </a> */}
+                    <a href="https://wa.link/tv810e" target="_blank" rel="noopener noreferrer">
                         <img src={whatappIcon} alt='whatappIcon' className='whatappIcon' />
                     </a>
                 </div>

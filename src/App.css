@@ -75,6 +75,41 @@ form.submitting * {
   cursor: wait;
 }
 
+
+
+
+.shushankTechLink {
+  color: #b5b5b5;
+  text-decoration: none;
+}
+
+
+
+
+/* Define the keyframe animation */
+@keyframes moveGradient {
+  0% {
+    background: linear-gradient(130deg, #ff1818, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff);
+  }
+
+  25% {
+    background: linear-gradient(130deg, #ffffff, #ffffff, #ff1818, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff);
+  }
+
+  50% {
+    background: linear-gradient(130deg, #ffffff, #ffffff, #ffffff, #ffffff, #ff1818, #ffffff, #ffffff, #ffffff, #ffffff);
+  }
+
+  75% {
+    background: linear-gradient(130deg, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ff1818, #ffffff, #ffffff);
+  }
+
+
+  100% {
+    background: linear-gradient(130deg, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ff1818);
+  }
+}
+
 /******************************Header-Start***********************************/
 
 .headerParent {
@@ -177,6 +212,7 @@ form.submitting * {
   border: 1px solid red;
   border-radius: 0.1cm;
   box-shadow: 0px 0px 15px 0px gray;
+  transition: transform 0.2s ease;
 }
 
 .headerMenuButton:hover {
@@ -188,6 +224,8 @@ form.submitting * {
   border: 1px solid white;
   border-radius: 0.1cm;
   cursor: pointer;
+  animation: moveGradient 0.25s linear;
+  transform: translateY(-3px);
 }
 
 /******************************Header-End***********************************/
@@ -345,6 +383,11 @@ form.submitting * {
   font-size: 14px;
   cursor: pointer;
   z-index: 999;
+  transition: transform 0.2s ease;
+}
+
+.goTop:hover {
+  transform: translateY(-3px);
 }
 
 .WhatApp {
@@ -360,12 +403,16 @@ form.submitting * {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.2s ease;
 }
 
 .whatappIcon {
   width: 60px;
 }
 
+.WhatApp:hover {
+  transform: translateY(-3px);
+}
 
 
 /******************************Footer-End***********************************/
@@ -383,18 +430,19 @@ form.submitting * {
 
 .homePageFirstImage {
   width: 100%;
-  height: 130vh;
+  height: 100vh;
   background-image: url(./PicesForPages/360_F_852468013_NdDXatTPIV8K0Q5JBixO5PkfTZ1tjJKkHome.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: fixed;
-  bottom: -150px;
+  bottom: -80px;
   z-index: 100;
 }
 
 .homeHelpYouBoxParent {
   width: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -491,6 +539,7 @@ form.submitting * {
   border: 1px solid red;
   border-radius: 0.1cm;
   box-shadow: 0px 0px 15px 0px black;
+  transition: transform 0.2s ease;
 }
 
 .homeHelpYouButtonLeft:hover,
@@ -502,6 +551,8 @@ form.submitting * {
   border-radius: 0.1cm;
   cursor: pointer;
   text-shadow: 1px 1px 1px black;
+  animation: moveGradient 0.25s linear;
+  transform: translateY(-3px);
 }
 
 
@@ -966,12 +1017,14 @@ form.submitting * {
   padding: 15px 35px;
   margin-top: 50px;
   box-sizing: 1px 1px 0px 5px black;
+  transition: transform 0.2s ease;
 }
 
 .purchasingButton:hover {
   background-color: white;
   color: black;
   cursor: pointer;
+  transform: translateY(-3px);
 }
 
 .purchasingButton:active {
@@ -1226,12 +1279,14 @@ form.submitting * {
   border: 2px solid red;
   padding: 15px 40px;
   color: red;
+  transition: transform 0.2s ease;
 }
 
 .refinanceContentBoxButton:hover {
   background-color: red;
   color: white;
   cursor: pointer;
+  transform: translateY(-3px);
 }
 
 
@@ -1337,12 +1392,15 @@ form.submitting * {
   font-weight: bold;
   border-radius: 0.15cm;
   box-shadow: 0px 0px 5px 0px gray;
+  transition: transform 0.2s ease;
 }
 
 .reHistoricalContentBoxButton:hover {
   background-color: white;
   color: red;
   cursor: pointer;
+  animation: moveGradient 0.25s linear;
+  transform: translateY(-3px);
 }
 
 .reHistoricalContentBoxButton:active {
@@ -1839,6 +1897,7 @@ input[type="range"]::-moz-range-thumb {
   font-weight: bold;
   padding: 15px 50px;
   text-decoration: none;
+  transition: transform 0.2s ease;
 }
 
 .purchaseBottomLeftButtonLink:hover {
@@ -1846,6 +1905,7 @@ input[type="range"]::-moz-range-thumb {
   background-color: red;
   text-decoration: underline;
   cursor: pointer;
+  transform: translateY(-3px);
 }
 
 
@@ -1920,12 +1980,14 @@ input[type="range"]::-moz-range-thumb {
   border: 1px solid red;
   border-radius: 5px;
   color: white;
+  transition: transform 0.2s ease;
 }
 
 .purchaseBottomRightform button:hover {
   background-color: #ff4b4b;
   border: 1px solid #ff4b4b;
   cursor: pointer;
+  transform: translateY(-3px);
 }
 
 
@@ -2081,11 +2143,13 @@ input[type="range"]::-moz-range-thumb {
   font-weight: bold;
   border: 1px solid #00a7de;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .quickQuoteButton:hover {
   background-color: #00bfff;
   color: black;
+  transform: translateY(-3px);
 }
 
 .quickQuoteButton:focus {
@@ -2844,7 +2908,6 @@ input[type="range"]::-moz-range-thumb {
 
   .homePageFirstImage {
     width: 100%;
-    height: 100vh;
     top: 0px;
   }
 
