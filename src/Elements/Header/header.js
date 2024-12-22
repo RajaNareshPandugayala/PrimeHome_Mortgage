@@ -132,7 +132,7 @@ function Header() {
                                     {/* <li>How Much Can I Afford?</li> */}
                                     <li><Link to="/what-will-my-monthly-payment-be-calculator" onClick={toggleMenu}>What Will My Monthly Payment Be</Link></li>
                                     <li><Link to="/quick-quote" onClick={toggleMenu}>Quick Quote</Link></li>
-                                    <li><Link to='https://ezymtg.my1003app.com/' onClick={toggleMenu}>Apply Now</Link></li>
+                                    <li><Link to='' onClick={toggleMenu}>Apply Now</Link></li>
                                     <li><Link to="/fha" onClick={toggleMenu}>FHA Loans</Link></li>
                                     <li><Link to="/va-loans" onClick={toggleMenu}>VA Loans</Link></li>
                                 </span>
@@ -144,7 +144,7 @@ function Header() {
                                     <li><Link to="/cash-out-refinance" onClick={toggleMenu}>Cash Out Refinance</Link></li>
                                     <li><Link to="/refinance-analysis-calculator" onClick={toggleMenu}>Refinance Analysis</Link></li>
                                     <li><Link to="/quick-quote" onClick={toggleMenu}>Quick Quote</Link></li>
-                                    <li><Link to='https://ezymtg.my1003app.com/' onClick={toggleMenu}>Apply Now</Link></li>
+                                    <li><Link to='' onClick={toggleMenu}>Apply Now</Link></li>
                                     <li><Link to="/fha-va-streamline" onClick={toggleMenu}>FHA / VA Streamline Refinancing</Link></li>
                                 </span>
                             </ul>
@@ -165,7 +165,7 @@ function Header() {
                             <ul className='headerMenuUI'>
                                 <span className='headerMenuUI_Header'>Contact &#x025BF;</span>
                                 <span className='headerMenuUI_LI'>
-                                    {/* <li><Link to='https://ezymtg.my1003app.com/' onClick={toggleMenu}>Apply Now</Link></li> */}
+                                    {/* <li><Link to='' onClick={toggleMenu}>Apply Now</Link></li> */}
                                     <li><Link onClick={toggleMenu}>Apply Now</Link></li>
                                     <li><Link to="/about-us" onClick={toggleMenu}>About Us</Link></li>
                                     <li><Link to="/our-staff" onClick={toggleMenu}>Meet Our Team</Link></li>

@@ -40,7 +40,7 @@ function YourTeamMembers() {
         <div className='teamBoxParent'>
             <div className='teamBox'>
                 <span className='teamHeading'>Meet Our Team</span>
-                <span className='teamContent'>Our team at EZY Mortgage, INC is fast, friendly, experienced, and here to help you every step of the process!</span>
+                <span className='teamContent'>Our team at Prime Home Mortgage, INC is fast, friendly, experienced, and here to help you every step of the process!</span>
                 <div className='teamListBoxParent'>
                     {teamMembers.map((member, index) => (
                         <div className='teamListBox' key={index}>
